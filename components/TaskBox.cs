@@ -16,8 +16,8 @@ namespace TODOList.components
 
         public int id;
         private string title;
-        public long deadline;
-        public long add_time;
+        public ulong deadline;
+        public ulong add_time;
         private string detail;
         public int listing_id;
         public int is_assign;
@@ -129,9 +129,11 @@ namespace TODOList.components
         private void addToImportantIconClick(object sender, EventArgs e)
         {
 
+            isImportantTask = !isImportantTask;
             addToImportant?.Invoke(this, e);
-            //if(addToImportant != null)
+            //if (addToImportant != null)
             //{
+            //    isImportantTask = !isImportantTask;
             //    addToImportant.Invoke(this, e);
             //}
         }
