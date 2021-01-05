@@ -64,9 +64,7 @@ namespace TODOList.utils
             panel.Controls.Add(task);
 
             panel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            
             panel.Dock = System.Windows.Forms.DockStyle.Top;
-            //panel.Location = new System.Drawing.Point(0, 0);
             panel.Name = getTaskPanelName();
             panel.Size = new System.Drawing.Size(689, 60);
 

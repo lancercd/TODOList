@@ -28,21 +28,12 @@ namespace TODOList.components
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool isImportantTask
         {
-            get
-            {
-                return is_important;
-            }
+            get { return is_important; }
             set
             {
                 is_important = value;
-                if (value)
-                {
-                    RightIcon.Image = Properties.Resources.start_fill;
-                }
-                else
-                {
-                    RightIcon.Image = (Image)Properties.Resources.start_empty;
-                }
+                if (value) RightIcon.Image = Properties.Resources.start_fill;
+                else RightIcon.Image = (Image)Properties.Resources.start_empty;
             }
         }
 
@@ -58,14 +49,10 @@ namespace TODOList.components
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string TeskTitle
         {
-            get
-            {
-                return title;
-            }
-            set
-            {
-                title = value;
-                TaskTitle.Text = value;
+            get { return title; }
+            set {
+                title = value; 
+                TaskTitleLabel.Text = value;
             }
         }
 
@@ -74,15 +61,8 @@ namespace TODOList.components
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string Describe
         {
-            get
-            {
-                return detail;
-            }
-            set
-            {
-                detail = value;
-                DescribeText.Text = value;
-            }
+            get { return detail; }
+            set { detail = value; DescribeText.Text = value;}
         }
 
   
@@ -91,13 +71,6 @@ namespace TODOList.components
         {
             InitializeComponent();
         }
-
-        public TaskBox(string title)
-        {
-            this.TeskTitle = title;
-        }
-
-
         
 
         [Browsable(true)]
@@ -106,11 +79,12 @@ namespace TODOList.components
         {
             get
             {
-                return TeskTitle;
+                return title;
             }
             set
             {
-                TeskTitle = value;
+                TaskTitleLabel.Text = value;
+                title = value;
             }
         }
 

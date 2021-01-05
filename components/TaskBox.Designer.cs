@@ -34,7 +34,7 @@
             this.RightIcon = new System.Windows.Forms.Label();
             this.CenterPanel = new System.Windows.Forms.Panel();
             this.TitlePanel = new System.Windows.Forms.Panel();
-            this.TaskTitle = new System.Windows.Forms.Label();
+            this.TaskTitleLabel = new System.Windows.Forms.Label();
             this.DescribePanel = new System.Windows.Forms.Panel();
             this.DescribeText = new System.Windows.Forms.Label();
             this.LeftPanl.SuspendLayout();
@@ -94,7 +94,7 @@
             // 
             // TitlePanel
             // 
-            this.TitlePanel.Controls.Add(this.TaskTitle);
+            this.TitlePanel.Controls.Add(this.TaskTitleLabel);
             this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
             this.TitlePanel.Name = "TitlePanel";
@@ -103,17 +103,17 @@
             this.TitlePanel.MouseLeave += new System.EventHandler(this.OnMouseLeaveTaskBox);
             this.TitlePanel.MouseHover += new System.EventHandler(this.OnMouseHoverTaskBox);
             // 
-            // TaskTitle
+            // TaskTitleLabel
             // 
-            this.TaskTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TaskTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.TaskTitle.AutoSize = true;
-            this.TaskTitle.Font = new System.Drawing.Font("黑体", 12F);
-            this.TaskTitle.Location = new System.Drawing.Point(6, 11);
-            this.TaskTitle.Name = "TaskTitle";
-            this.TaskTitle.Size = new System.Drawing.Size(59, 20);
-            this.TaskTitle.TabIndex = 0;
-            this.TaskTitle.Text = "任务1";
+            this.TaskTitleLabel.AutoSize = true;
+            this.TaskTitleLabel.Font = new System.Drawing.Font("黑体", 12F);
+            this.TaskTitleLabel.Location = new System.Drawing.Point(6, 11);
+            this.TaskTitleLabel.Name = "TaskTitleLabel";
+            this.TaskTitleLabel.Size = new System.Drawing.Size(59, 20);
+            this.TaskTitleLabel.TabIndex = 0;
+            this.TaskTitleLabel.Text = "任务1";
             // 
             // DescribePanel
             // 
@@ -170,7 +170,7 @@
         private System.Windows.Forms.Panel DescribePanel;
         private System.Windows.Forms.Panel TitlePanel;
         private System.Windows.Forms.Label LeftIcon;
-        private System.Windows.Forms.Label TaskTitle;
+        private System.Windows.Forms.Label TaskTitleLabel;
         private System.Windows.Forms.Label DescribeText;
         private System.Windows.Forms.Label RightIcon;
     }

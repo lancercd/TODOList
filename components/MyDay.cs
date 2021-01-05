@@ -86,8 +86,22 @@ namespace TODOList
         {
             string title = addTaskBox1.Text;
             if ("" == title) return;
-            MessageBox.Show(title);
-            putTask(TaskCreator.getTaskPanel(new TaskBox()));
+
+            //用户输入标题后  创建任务   渲染任务列表
+            createTaskByUser(title);
+        }
+
+
+        /**
+         * 用户输入后创建任务  数据库添加  渲染列表
+         */
+        private void createTaskByUser(string title)
+        {
+
+            //DB.insert("set");
+            TaskBox taskbox = new TaskBox();
+            taskbox.TeskTitle = title;
+            putTask(TaskCreator.getTaskPanel(taskbox));
         }
     }
 }
