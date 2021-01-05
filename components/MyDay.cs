@@ -14,20 +14,22 @@ namespace TODOList
 {
     public partial class MyDay : Form
     {
+
+        //当前用户
         public int uid = 1;
+
+        //是否为 [重要page]
         public bool is_important_page = false;
+
         public MyDay()
         {
             InitializeComponent();
 
+
+            //初始化任务列表
             taskInit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            active_right_side_Penal();
-            
-        }
 
 
         /**
@@ -45,11 +47,11 @@ namespace TODOList
             //RightSidePanel.Size.Width = 0
         }
 
-        private void showTaskList()
-        {
-            taskListPanel.Controls.Add(new Button());
-        }
 
+
+        /**
+         * 打开右侧面板显示详细信息
+         */
         private void active_right_side_Penal(object sender, EventArgs e)
         {
             if (RightSidePanel.Size.Width != 0)
@@ -66,23 +68,48 @@ namespace TODOList
 
         private void taskInit()
         {
-            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("Select * from tb_task where uid = " + uid + " and listing_id = 0");
-            //childFormTitle.Text = data.ToString();
-            Console.Write(data);
+            //查询数据库
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("Select * from tb_task where uid = " + 
+                                                                            uid + " and listing_id = 0 and is_important = " + 
+                                                                            Convert.ToInt32(is_important_page));
 
-            LinkedList<Panel> taskPanels = TaskCreator.getTasks(data);
-            foreach(Panel pan in taskPanels)
+            //LinkedList<Panel> taskPanels = TaskCreator.getTasks(data);
+            LinkedList<TaskBox> taskBoxs = TaskCreator.getTasks(data);
+
+            //遍历task
+            foreach (TaskBox task in taskBoxs)
             {
-                putTask(pan);
+                //添加点击事件
+                addTaskBoxEvent(task);
+
+                //添加panel 初始化样式  渲染入页面
+                putTask(TaskCreator.getTaskPanel(task));
             }
         }
 
 
+        /**
+         * 为taskBox添加点击事件
+         */
+        private void addTaskBoxEvent(TaskBox task)
+        {
+            task.ClickTaskBoxEvent += new System.EventHandler(this.onTaskBoxClick);
+        }
+
+
+
+        /**
+         * 渲染入页面
+         */
         private void putTask(Panel taskPan)
         {
             this.taskListPanel.Controls.Add(taskPan);
         }
 
+
+        /**
+         * 按回车 添加任务 事件
+         */
         private void onEnterSubmit(object sender, EventArgs e)
         {
             string title = addTaskBox1.Text;
@@ -100,20 +127,35 @@ namespace TODOList
         {
             string now = TimeUtil.GetNow();
             
+            //获取id  上传数据库
             int id = DB.insert("INSERT INTO tb_task (uid, title, add_time, is_important ) VALUES ( "+ 
-                                    uid +", " + 
-                                    title + ", " +
-                                    now + ", " +
+                                    uid +", '" + 
+                                    title + "', " +
+                                    now + ", '" +
                                     Convert.ToInt32(is_important_page) +
-                                    " ); SELECT @@Identity;");
+                                    "' ); SELECT @@Identity;");
+
             TaskBox taskbox = new TaskBox();
             taskbox.id = id;
             taskbox.uid = uid;
             taskbox.TeskTitle = title;
             taskbox.add_time = Convert.ToUInt64(now);
             taskbox.isImportantTask = is_important_page;
-            
+
+            //添加点击事件
+            addTaskBoxEvent(taskbox);
+            //渲染进页面
             putTask(TaskCreator.getTaskPanel(taskbox));
+        }
+
+
+
+        /**
+         * taskBox点击时事件
+         */
+        public void onTaskBoxClick(object sender, EventArgs e)
+        {
+            active_right_side_Penal();
         }
     }
 }

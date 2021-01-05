@@ -60,8 +60,7 @@
             this.LeftIcon.Name = "LeftIcon";
             this.LeftIcon.Size = new System.Drawing.Size(40, 37);
             this.LeftIcon.TabIndex = 0;
-            this.LeftIcon.MouseLeave += new System.EventHandler(this.OnMouseLeaveTaskBox);
-            this.LeftIcon.MouseHover += new System.EventHandler(this.OnMouseHoverTaskBox);
+            this.LeftIcon.Click += new System.EventHandler(this.onTaskClick);
             // 
             // RightPanel
             // 
@@ -100,8 +99,7 @@
             this.TitlePanel.Name = "TitlePanel";
             this.TitlePanel.Size = new System.Drawing.Size(592, 36);
             this.TitlePanel.TabIndex = 0;
-            this.TitlePanel.MouseLeave += new System.EventHandler(this.OnMouseLeaveTaskBox);
-            this.TitlePanel.MouseHover += new System.EventHandler(this.OnMouseHoverTaskBox);
+            this.TitlePanel.Click += new System.EventHandler(this.onTaskClick);
             // 
             // TaskTitleLabel
             // 
@@ -123,8 +121,7 @@
             this.DescribePanel.Name = "DescribePanel";
             this.DescribePanel.Size = new System.Drawing.Size(592, 24);
             this.DescribePanel.TabIndex = 0;
-            this.DescribePanel.MouseLeave += new System.EventHandler(this.OnMouseLeaveTaskBox);
-            this.DescribePanel.MouseHover += new System.EventHandler(this.OnMouseHoverTaskBox);
+            this.DescribePanel.Click += new System.EventHandler(this.onTaskClick);
             // 
             // DescribeText
             // 
@@ -133,7 +130,7 @@
             this.DescribeText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.DescribeText.Location = new System.Drawing.Point(12, 5);
             this.DescribeText.Name = "DescribeText";
-            this.DescribeText.Size = new System.Drawing.Size(0, 21);
+            this.DescribeText.Size = new System.Drawing.Size(0, 17);
             this.DescribeText.TabIndex = 0;
             // 
             // TaskBox

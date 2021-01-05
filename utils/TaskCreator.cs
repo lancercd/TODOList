@@ -11,11 +11,12 @@ namespace TODOList.utils
     class TaskCreator
     {
         private static int taskPanelCount = 0;
-        public static LinkedList<Panel> getTasks(LinkedList<Dictionary<Object, Object>> data)
+        public static LinkedList<TaskBox> getTasks(LinkedList<Dictionary<Object, Object>> data)
         {
-            LinkedList<Panel> taskList = new LinkedList<Panel>();
-            int len = data.Count;
-            foreach(Dictionary<Object, Object> ob in data)
+            LinkedList<TaskBox> taskList = new LinkedList<TaskBox>();
+            //LinkedList<Panel> taskList = new LinkedList<Panel>();
+
+            foreach (Dictionary<Object, Object> ob in data)
             {
                 TaskBox task = new TaskBox();
 
@@ -33,8 +34,9 @@ namespace TODOList.utils
                 task.isImportantTask = Convert.ToBoolean(ob["is_important"]);
 
 
-
-                taskList.AddLast(TaskCreator.getTaskPanel(task));
+                
+                taskList.AddLast(task);
+                //taskList.AddLast(TaskCreator.getTaskPanel(task));
             }
             return taskList;
         }
@@ -50,7 +52,7 @@ namespace TODOList.utils
             task.Cursor = System.Windows.Forms.Cursors.Hand;
             task.Location = new System.Drawing.Point(30, 5);
             task.Size = new System.Drawing.Size(629, 52);
-            task.TabIndex = 0;
+            //task.TabIndex = 0;
 
         }
 
@@ -72,6 +74,7 @@ namespace TODOList.utils
             taskInitStyle(task);
             return panel;
         }
+
 
 
 

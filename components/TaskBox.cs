@@ -103,8 +103,11 @@ namespace TODOList.components
         //    }
         //}
 
+        //点击五角星触发事件   添加或取消 [任务.重要]
         public event EventHandler addToImportant;
 
+        //点击任务触发该事件   打开右侧侧边栏
+        public event EventHandler ClickTaskBoxEvent;
 
         private void addToImportantIconClick(object sender, EventArgs e)
         {
@@ -118,7 +121,13 @@ namespace TODOList.components
             //}
         }
 
-        
+        protected void onTaskClick(object sender, EventArgs e)
+        {
+            ClickTaskBoxEvent?.Invoke(this, e);
+        }
+
+
+
 
 
 
