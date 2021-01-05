@@ -13,21 +13,28 @@ namespace TODOList.components
 {
     public partial class TaskBox : UserControl
     {
-        private bool isImportantTask;
 
+        public int id;
+        private string title;
+        public long deadline;
+        public long add_time;
+        private string detail;
+        public int listing_id;
+        public int is_assign;
+        private bool is_important;
 
 
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public bool isImpTask
+        public bool isImportantTask
         {
             get
             {
-                return isImportantTask;
+                return is_important;
             }
             set
             {
-                isImportantTask = value;
+                is_important = value;
                 if (value)
                 {
                     RightIcon.Image = Properties.Resources.start_fill;
@@ -53,10 +60,11 @@ namespace TODOList.components
         {
             get
             {
-                return TaskTitle.Text;
+                return title;
             }
             set
             {
+                title = value;
                 TaskTitle.Text = value;
             }
         }
@@ -68,10 +76,11 @@ namespace TODOList.components
         {
             get
             {
-                return DescribeText.Text;
+                return detail;
             }
             set
             {
+                detail = value;
                 DescribeText.Text = value;
             }
         }
