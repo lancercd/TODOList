@@ -87,7 +87,14 @@ namespace TODOList.components
 
         private void onEnterPress(object sender, EventArgs e)
         {
-            SubmitEvent?.Invoke(this, e);
+            //SubmitEvent?.Invoke(this, e);
+            if(SubmitEvent != null)
+            {
+                SubmitEvent.Invoke(this, e);
+                showAddBoxLabel();
+            }
+
+           
         }
 
 

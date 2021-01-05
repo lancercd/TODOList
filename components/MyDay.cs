@@ -15,6 +15,7 @@ namespace TODOList
     public partial class MyDay : Form
     {
         public int uid = 1;
+        public bool is_important_page = false;
         public MyDay()
         {
             InitializeComponent();
@@ -97,10 +98,21 @@ namespace TODOList
          */
         private void createTaskByUser(string title)
         {
-
-            //DB.insert("set");
+            string now = TimeUtil.GetNow();
+            
+            int id = DB.insert("INSERT INTO tb_task (uid, title, add_time, is_important ) VALUES ( "+ 
+                                    uid +", " + 
+                                    title + ", " +
+                                    now + ", " +
+                                    Convert.ToInt32(is_important_page) +
+                                    " ); SELECT @@Identity;");
             TaskBox taskbox = new TaskBox();
+            taskbox.id = id;
+            taskbox.uid = uid;
             taskbox.TeskTitle = title;
+            taskbox.add_time = Convert.ToUInt64(now);
+            taskbox.isImportantTask = is_important_page;
+            
             putTask(TaskCreator.getTaskPanel(taskbox));
         }
     }

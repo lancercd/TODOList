@@ -133,9 +133,8 @@
             this.DescribeText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.DescribeText.Location = new System.Drawing.Point(12, 5);
             this.DescribeText.Name = "DescribeText";
-            this.DescribeText.Size = new System.Drawing.Size(42, 17);
+            this.DescribeText.Size = new System.Drawing.Size(0, 21);
             this.DescribeText.TabIndex = 0;
-            this.DescribeText.Text = "重要";
             // 
             // TaskBox
             // 

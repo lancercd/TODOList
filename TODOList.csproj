@@ -120,6 +120,7 @@
     <Compile Include="utils\DB.cs" />
     <Compile Include="utils\PassVar.cs" />
     <Compile Include="utils\TaskCreator.cs" />
+    <Compile Include="utils\TimeUtil.cs" />
     <EmbeddedResource Include="components\AddListing.resx">
       <DependentUpon>AddListing.cs</DependentUpon>
     </EmbeddedResource>

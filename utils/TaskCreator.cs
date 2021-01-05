@@ -22,7 +22,8 @@ namespace TODOList.utils
                 
 
                 //数据
-                task.id = (int)ob["Id"];
+                task.id = Convert.ToInt32(ob["Id"]);
+                task.uid = Convert.ToInt32(ob["uid"]);
                 task.TeskTitle = Convert.ToString(ob["title"]);
                 task.deadline = Convert.ToUInt64(ob["deadline"]);
                 task.add_time = Convert.ToUInt64(ob["add_time"]);

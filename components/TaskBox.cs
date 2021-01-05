@@ -15,6 +15,7 @@ namespace TODOList.components
     {
 
         public int id;
+        public int uid;
         private string title;
         public ulong deadline;
         public ulong add_time;
