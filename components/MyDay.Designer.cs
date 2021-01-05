@@ -202,6 +202,7 @@
             this.addTaskBox1.Name = "addTaskBox1";
             this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
             this.addTaskBox1.TabIndex = 2;
+            this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
             // 
             // panel2
             // 

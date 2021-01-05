@@ -39,6 +39,7 @@
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(334, 25);
             this.edit.TabIndex = 0;
+            this.edit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onEnterPress);
             // 
             // AfTextBox
             // 

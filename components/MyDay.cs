@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using TODOList.components;
 using TODOList.utils;
 
 namespace TODOList
@@ -72,8 +72,22 @@ namespace TODOList
             LinkedList<Panel> taskPanels = TaskCreator.getTasks(data);
             foreach(Panel pan in taskPanels)
             {
-                this.taskListPanel.Controls.Add(pan);
+                putTask(pan);
             }
+        }
+
+
+        private void putTask(Panel taskPan)
+        {
+            this.taskListPanel.Controls.Add(taskPan);
+        }
+
+        private void onEnterSubmit(object sender, EventArgs e)
+        {
+            string title = addTaskBox1.Text;
+            if ("" == title) return;
+            MessageBox.Show(title);
+            putTask(TaskCreator.getTaskPanel(new TaskBox()));
         }
     }
 }

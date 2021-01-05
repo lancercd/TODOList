@@ -55,8 +55,8 @@
             // 
             // addTastRightBox
             // 
-            this.addTastRightBox.Controls.Add(this.addTaskInputBox);
             this.addTastRightBox.Controls.Add(this.addTaskBoxLabel);
+            this.addTastRightBox.Controls.Add(this.addTaskInputBox);
             this.addTastRightBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addTastRightBox.Location = new System.Drawing.Point(65, 3);
             this.addTastRightBox.Name = "addTastRightBox";
@@ -87,13 +87,14 @@
             // 
             // addTaskInputBox
             // 
-            this.addTaskInputBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.addTaskInputBox.BackColor = System.Drawing.Color.Transparent;
             this.addTaskInputBox.Location = new System.Drawing.Point(236, 13);
             this.addTaskInputBox.Name = "addTaskInputBox";
             this.addTaskInputBox.Size = new System.Drawing.Size(374, 44);
             this.addTaskInputBox.TabIndex = 3;
             this.addTaskInputBox.TextBoxLostFoucs += new System.EventHandler(this.onAddTaskBoxBlur);
             this.addTaskInputBox.TextBoxGotFoucs += new System.EventHandler(this.onAddTaskBoxFocus);
+            this.addTaskInputBox.EnterPress += new System.EventHandler(this.onEnterPress);
             // 
             // addTaskBox
             // 

@@ -15,6 +15,8 @@ namespace TODOList.components
         public AfTextBox()
         {
             InitializeComponent();
+            this.BackColor = Color.Transparent;
+            
             edit.LostFocus += new EventHandler(onTextBoxLostFoucs);
             edit.GotFocus += new EventHandler(onTextBoxGotFoucs);
         }
@@ -72,48 +74,54 @@ namespace TODOList.components
         {
             get
             {
-                return edit.BackColor;
+                return base.BackColor;
             }
             set
             {
-                edit.BackColor = value;
-                base.BackColor = value;
+                //edit.BackColor = Color.Transparent;
+                //edit.BackColor = value;
+                base.BackColor = Color.Transparent;
+                //base.BackColor = value;
             }
         }
+
 
 
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public event EventHandler TextBoxLostFoucs;
 
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public event EventHandler TextBoxGotFoucs;
-
 
 
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public event EventHandler EnterPress;
+
+
+
         private void onTextBoxLostFoucs(object sender, EventArgs e)
         {
 
             TextBoxLostFoucs?.Invoke(this, e);
-            //if (addToImportant != null)
-            //{
-            //    isImportantTask = !isImportantTask;
-            //    addToImportant.Invoke(this, e);
-            //}
         }
 
-        [Browsable(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+
         private void onTextBoxGotFoucs(object sender, EventArgs e)
         {
-
             TextBoxGotFoucs?.Invoke(this, e);
-            //if (addToImportant != null)
-            //{
-            //    isImportantTask = !isImportantTask;
-            //    addToImportant.Invoke(this, e);
-            //}
+        }
+
+
+        private void onEnterPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if(ch == '\r')
+            {
+                EnterPress?.Invoke(this, e);
+            }
         }
     }
 }

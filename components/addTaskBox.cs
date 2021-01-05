@@ -17,6 +17,8 @@ namespace TODOList.components
         {
             InitializeComponent();
             addTaskInputBox.Visible = false;
+            addTaskInputBox.BackColor = Color.Transparent;
+            addTaskBoxLabel.BackColor = Color.Transparent;
             //addTaskInputBox.LostFocus += new EventHandler(TextBoxLostFoucs);
             //addTaskInputBox.LostFocus += new EventHandler(onAddTaskBoxBlur);
         }
@@ -36,7 +38,7 @@ namespace TODOList.components
 
         private void onAddTaskBoxBlur(object sender, EventArgs e)
         {
-            MessageBox.Show("失去焦点");
+            //MessageBox.Show("失去焦点");
             showAddBoxLabel();
             
         }
@@ -75,5 +77,31 @@ namespace TODOList.components
             com.Visible = false;
             com.Size = new Size(0, 0);
         }
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public event EventHandler SubmitEvent;
+
+
+
+
+        private void onEnterPress(object sender, EventArgs e)
+        {
+            SubmitEvent?.Invoke(this, e);
+        }
+
+
+        public override string Text
+        {
+            get
+            {
+                return addTaskInputBox.Text;
+            }
+            set
+            {
+                addTaskInputBox.Text = value;
+            }
+        }
+
     }
 }

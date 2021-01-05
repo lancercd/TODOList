@@ -92,6 +92,11 @@ namespace TODOList.components
             InitializeComponent();
         }
 
+        public TaskBox(string title)
+        {
+            this.TeskTitle = title;
+        }
+
 
         
 

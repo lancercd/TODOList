@@ -57,7 +57,7 @@ namespace TODOList.utils
         /**
          * 将taskBox添加到 panel中
          */
-        private static Panel getTaskPanel(TaskBox task)
+        public static Panel getTaskPanel(TaskBox task)
         {
             
             Panel panel = new Panel();
