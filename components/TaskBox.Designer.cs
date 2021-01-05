@@ -135,6 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.CenterPanel);
             this.Controls.Add(this.RightPanel);
