@@ -60,6 +60,8 @@
             this.LeftIcon.Name = "LeftIcon";
             this.LeftIcon.Size = new System.Drawing.Size(40, 37);
             this.LeftIcon.TabIndex = 0;
+            this.LeftIcon.MouseLeave += new System.EventHandler(this.OnMouseLeaveTaskBox);
+            this.LeftIcon.MouseHover += new System.EventHandler(this.OnMouseHoverTaskBox);
             // 
             // RightPanel
             // 
@@ -98,6 +100,8 @@
             this.TitlePanel.Name = "TitlePanel";
             this.TitlePanel.Size = new System.Drawing.Size(592, 36);
             this.TitlePanel.TabIndex = 0;
+            this.TitlePanel.MouseLeave += new System.EventHandler(this.OnMouseLeaveTaskBox);
+            this.TitlePanel.MouseHover += new System.EventHandler(this.OnMouseHoverTaskBox);
             // 
             // TaskTitle
             // 
@@ -119,6 +123,8 @@
             this.DescribePanel.Name = "DescribePanel";
             this.DescribePanel.Size = new System.Drawing.Size(592, 24);
             this.DescribePanel.TabIndex = 0;
+            this.DescribePanel.MouseLeave += new System.EventHandler(this.OnMouseLeaveTaskBox);
+            this.DescribePanel.MouseHover += new System.EventHandler(this.OnMouseHoverTaskBox);
             // 
             // DescribeText
             // 
@@ -144,6 +150,7 @@
             this.Name = "TaskBox";
             this.Size = new System.Drawing.Size(720, 60);
             this.Load += new System.EventHandler(this.TaskBoxTest_Load);
+            this.MouseHover += new System.EventHandler(this.OnMouseHoverTaskBox);
             this.LeftPanl.ResumeLayout(false);
             this.RightPanel.ResumeLayout(false);
             this.CenterPanel.ResumeLayout(false);

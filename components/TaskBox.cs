@@ -138,6 +138,8 @@ namespace TODOList.components
             //}
         }
 
+        
+
 
 
 
@@ -183,6 +185,16 @@ namespace TODOList.components
             return path;
         }
 
-        
+
+        private void OnMouseHoverTaskBox(object sender, EventArgs e)
+        {
+            //MessageBox.Show("hover");
+            //BackColor = System.Drawing.SystemColors.ActiveCaption;
+        }
+
+        private void OnMouseLeaveTaskBox(object sender, EventArgs e)
+        {
+            //BackColor = System.Drawing.SystemColors.ControlLightLight;
+        }
     }
 }
