@@ -149,11 +149,11 @@ namespace TODOList.components
 
         private void TaskBoxTest_Load(object sender, EventArgs e)
         {
-            System.Drawing.Drawing2D.GraphicsPath FormPath;
-            FormPath = new System.Drawing.Drawing2D.GraphicsPath();
-            Rectangle rect = new Rectangle(0, 0, this.Width, this.Height);
-            FormPath = GetRoundedRectPath(rect, radius);
-            this.Region = new Region(FormPath);
+            //System.Drawing.Drawing2D.GraphicsPath FormPath;
+            //FormPath = new System.Drawing.Drawing2D.GraphicsPath();
+            //Rectangle rect = new Rectangle(0, 0, this.Width, this.Height);
+            //FormPath = GetRoundedRectPath(rect, radius);
+            //this.Region = new Region(FormPath);
         }
 
         /// <summary>
