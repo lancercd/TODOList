@@ -67,6 +67,18 @@
     <Compile Include="components\AddListing.designer.cs">
       <DependentUpon>AddListing.cs</DependentUpon>
     </Compile>
+    <Compile Include="components\addTaskBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\addTaskBox.Designer.cs">
+      <DependentUpon>addTaskBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="components\AfTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="components\AfTextBox.Designer.cs">
+      <DependentUpon>AfTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="components\TaskBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,6 +122,12 @@
     <Compile Include="utils\TaskCreator.cs" />
     <EmbeddedResource Include="components\AddListing.resx">
       <DependentUpon>AddListing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\addTaskBox.resx">
+      <DependentUpon>addTaskBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\AfTextBox.resx">
+      <DependentUpon>AfTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="components\TaskBox.resx">
       <DependentUpon>TaskBox.cs</DependentUpon>

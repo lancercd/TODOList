@@ -26,3 +26,5 @@ D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Login.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Register.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.AddListing.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.TaskBox.resources
+D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.addTaskBox.resources
+D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.AfTextBox.resources

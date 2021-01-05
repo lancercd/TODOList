@@ -37,11 +37,7 @@
             this.taskPanel1 = new System.Windows.Forms.Panel();
             this.taskBoxTest1 = new TODOList.components.TaskBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.addTaskBox1 = new TODOList.components.addTaskBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.shawTimeLabel = new System.Windows.Forms.Label();
             this.childFormTitle = new System.Windows.Forms.Label();
@@ -75,9 +71,6 @@
             this.panel9.SuspendLayout();
             this.taskPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.RightSidePanel.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -142,6 +135,7 @@
             // taskBoxTest2
             // 
             this.taskBoxTest2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.taskBoxTest2.AutoSize = true;
             this.taskBoxTest2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.taskBoxTest2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.taskBoxTest2.Describe = "重要";
@@ -177,6 +171,7 @@
             // taskBoxTest1
             // 
             this.taskBoxTest1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.taskBoxTest1.AutoSize = true;
             this.taskBoxTest1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.taskBoxTest1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.taskBoxTest1.Describe = "重要";
@@ -191,62 +186,22 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.addTaskBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 588);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(689, 105);
             this.panel4.TabIndex = 2;
             // 
-            // panel5
+            // addTaskBox1
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.addTaskBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(31, 8);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(616, 68);
-            this.panel5.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.textBox1);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(62, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(554, 68);
-            this.panel7.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("宋体", 15F);
-            this.textBox1.Location = new System.Drawing.Point(8, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(502, 29);
-            this.textBox1.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(62, 68);
-            this.panel6.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Image = global::TODOList.Properties.Resources.adding;
-            this.label1.Location = new System.Drawing.Point(13, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 37);
-            this.label1.TabIndex = 0;
+            this.addTaskBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
+            this.addTaskBox1.Name = "addTaskBox1";
+            this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
+            this.addTaskBox1.TabIndex = 2;
             // 
             // panel2
             // 
@@ -516,12 +471,10 @@
             this.panel23.ResumeLayout(false);
             this.taskListPanel.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.taskPanel1.ResumeLayout(false);
+            this.taskPanel1.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.RightSidePanel.ResumeLayout(false);
@@ -555,11 +508,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel taskListPanel;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel RightSidePanel;
@@ -592,5 +540,6 @@
         private System.Windows.Forms.Panel taskPanel1;
         private components.TaskBox taskBoxTest1;
         private components.TaskBox taskBoxTest2;
+        private components.addTaskBox addTaskBox1;
     }
 }
