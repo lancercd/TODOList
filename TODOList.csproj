@@ -73,16 +73,16 @@
     <Compile Include="components\addTaskBox.Designer.cs">
       <DependentUpon>addTaskBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="components\AfTextBox.cs">
+    <Compile Include="Controls\AfTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="components\AfTextBox.Designer.cs">
+    <Compile Include="Controls\AfTextBox.Designer.cs">
       <DependentUpon>AfTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="components\TaskBox.cs">
+    <Compile Include="Controls\TaskBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="components\TaskBox.Designer.cs">
+    <Compile Include="Controls\TaskBox.Designer.cs">
       <DependentUpon>TaskBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -127,10 +127,10 @@
     <EmbeddedResource Include="components\addTaskBox.resx">
       <DependentUpon>addTaskBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="components\AfTextBox.resx">
+    <EmbeddedResource Include="Controls\AfTextBox.resx">
       <DependentUpon>AfTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="components\TaskBox.resx">
+    <EmbeddedResource Include="Controls\TaskBox.resx">
       <DependentUpon>TaskBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">

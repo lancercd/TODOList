@@ -35,8 +35,12 @@ namespace TODOList
         /**
          * 打开右侧窗口
          */
-        private void active_right_side_Penal()
+        private void active_right_side_Penal(TaskBox task)
         {
+
+            rightSizePanelDataRender(task);
+
+
             if (RightSidePanel.Size.Width != 0) { 
                 RightSidePanel.Size = new Size(0, RightSidePanel.Size.Height);
             }
@@ -45,6 +49,33 @@ namespace TODOList
                 RightSidePanel.Size = new Size(266, RightSidePanel.Size.Height);
             }
             //RightSidePanel.Size.Width = 0
+        }
+
+
+        /**
+         * 右侧边栏数据填充 及 初始化
+         */
+        private void rightSizePanelDataRender(TaskBox task)
+        {
+            int id = task.id;
+            //LinkedList<Dictionary<Object, Object>> steps = getTaskStep(id);
+
+                string title = task.TeskTitle;
+
+
+
+
+            RightSideTitleLabel.Text = title;
+
+        }
+
+        private LinkedList<Dictionary<Object, Object>> getTaskStep(int id)
+        {
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("");
+
+            //这里处理数据
+
+            return data;
         }
 
 
@@ -155,7 +186,8 @@ namespace TODOList
          */
         public void onTaskBoxClick(object sender, EventArgs e)
         {
-            active_right_side_Penal();
+            TaskBox task = sender as TaskBox;
+            active_right_side_Penal(task);
         }
     }
 }

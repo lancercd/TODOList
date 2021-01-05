@@ -56,7 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel33 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.RightSideTitleLabel = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.addTaskBox1 = new TODOList.components.addTaskBox();
@@ -340,21 +340,21 @@
             // 
             // panel33
             // 
-            this.panel33.Controls.Add(this.label4);
+            this.panel33.Controls.Add(this.RightSideTitleLabel);
             this.panel33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel33.Location = new System.Drawing.Point(79, 0);
             this.panel33.Name = "panel33";
             this.panel33.Size = new System.Drawing.Size(187, 68);
             this.panel33.TabIndex = 1;
             // 
-            // label4
+            // RightSideTitleLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 15);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "label4";
+            this.RightSideTitleLabel.AutoSize = true;
+            this.RightSideTitleLabel.Location = new System.Drawing.Point(29, 23);
+            this.RightSideTitleLabel.Name = "RightSideTitleLabel";
+            this.RightSideTitleLabel.Size = new System.Drawing.Size(55, 15);
+            this.RightSideTitleLabel.TabIndex = 0;
+            this.RightSideTitleLabel.Text = "label4";
             // 
             // panel32
             // 
@@ -454,7 +454,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label RightSideTitleLabel;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Label shawTimeLabel;
