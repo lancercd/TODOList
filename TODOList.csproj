@@ -67,10 +67,16 @@
     <Compile Include="components\AddListing.designer.cs">
       <DependentUpon>AddListing.cs</DependentUpon>
     </Compile>
-    <Compile Include="components\addTaskBox.cs">
+    <Compile Include="components\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="components\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\addTaskBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="components\addTaskBox.Designer.cs">
+    <Compile Include="Controls\addTaskBox.Designer.cs">
       <DependentUpon>addTaskBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\AfTextBox.cs">
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="Controls\AfTextBox.Designer.cs">
       <DependentUpon>AfTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StepBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StepBox.Designer.cs">
+      <DependentUpon>StepBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TaskBox.cs">
       <SubType>UserControl</SubType>
@@ -124,11 +136,17 @@
     <EmbeddedResource Include="components\AddListing.resx">
       <DependentUpon>AddListing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="components\addTaskBox.resx">
+    <EmbeddedResource Include="components\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\addTaskBox.resx">
       <DependentUpon>addTaskBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AfTextBox.resx">
       <DependentUpon>AfTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StepBox.resx">
+      <DependentUpon>StepBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TaskBox.resx">
       <DependentUpon>TaskBox.cs</DependentUpon>
@@ -190,6 +208,9 @@
     <None Include="Resources\start_empty.png" />
     <None Include="Resources\start_fill.png" />
     <None Include="Resources\circle.png" />
+    <None Include="Resources\unfinished.png" />
+    <None Include="Resources\finished.png" />
+    <None Include="Resources\close.png" />
     <Content Include="TODO.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
