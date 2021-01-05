@@ -14,13 +14,12 @@ namespace TODOList
 {
     public partial class MyDay : Form
     {
+        public int uid = 1;
         public MyDay()
         {
             InitializeComponent();
 
-            //LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("Select * from tb_user");
-            //childFormTitle.Text = data.ToString();
-            //Console.Write(data);
+            taskInit();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,6 +60,20 @@ namespace TODOList
                 RightSidePanel.Size = new Size(266, RightSidePanel.Size.Height);
             }
             //RightSidePanel.Size.Width = 0
+        }
+
+
+        private void taskInit()
+        {
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("Select * from tb_task where uid = " + uid + " and listing_id = 0");
+            //childFormTitle.Text = data.ToString();
+            Console.Write(data);
+
+            LinkedList<Panel> taskPanels = TaskCreator.getTasks(data);
+            foreach(Panel pan in taskPanels)
+            {
+                this.taskListPanel.Controls.Add(pan);
+            }
         }
     }
 }
