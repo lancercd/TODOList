@@ -15,6 +15,15 @@ namespace TODOList.components
         public Test()
         {
             InitializeComponent();
+            AfLabelBox label = new AfLabelBox();
+            label.BackColor = System.Drawing.Color.Transparent;
+            label.Location = new System.Drawing.Point(159, 319);
+            label.Name = "afTextBox1";
+            label.Size = new System.Drawing.Size(479, 98);
+            this.Controls.Add(label);
         }
+
+
+        
     }
 }

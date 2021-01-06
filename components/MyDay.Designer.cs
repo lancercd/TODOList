@@ -151,9 +151,9 @@
             // 
             this.panel17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel17.Location = new System.Drawing.Point(0, 637);
+            this.panel17.Location = new System.Drawing.Point(0, 659);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(266, 56);
+            this.panel17.Size = new System.Drawing.Size(266, 34);
             this.panel17.TabIndex = 2;
             // 
             // panel18

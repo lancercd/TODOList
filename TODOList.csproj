@@ -79,11 +79,23 @@
     <Compile Include="Controls\addTaskBox.Designer.cs">
       <DependentUpon>addTaskBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AfLabelBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AfLabelBox.Designer.cs">
+      <DependentUpon>AfLabelBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AfTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\AfTextBox.Designer.cs">
       <DependentUpon>AfTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IconBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IconBtn.Designer.cs">
+      <DependentUpon>IconBtn.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\StepBox.cs">
       <SubType>UserControl</SubType>
@@ -142,8 +154,14 @@
     <EmbeddedResource Include="Controls\addTaskBox.resx">
       <DependentUpon>addTaskBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AfLabelBox.resx">
+      <DependentUpon>AfLabelBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\AfTextBox.resx">
       <DependentUpon>AfTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IconBtn.resx">
+      <DependentUpon>IconBtn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\StepBox.resx">
       <DependentUpon>StepBox.cs</DependentUpon>

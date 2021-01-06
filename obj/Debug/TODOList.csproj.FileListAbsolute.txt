@@ -30,3 +30,5 @@ D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.addTaskBox.resourc
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.AfTextBox.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Controls.StepBox.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.Test.resources
+D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.AfLabelBox.resources
+D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Controls.IconBtn.resources
