@@ -31,8 +31,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.addTastRightBox = new System.Windows.Forms.Panel();
             this.addTaskBoxLabel = new System.Windows.Forms.Label();
-            this.addTaskIcon = new System.Windows.Forms.Label();
             this.addTaskInputBox = new TODOList.components.AfTextBox();
+            this.addTaskIcon = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.addTastRightBox.SuspendLayout();
             this.SuspendLayout();
@@ -75,16 +75,6 @@
             this.addTaskBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addTaskBoxLabel.Click += new System.EventHandler(this.onAddTaskBoxFocus);
             // 
-            // addTaskIcon
-            // 
-            this.addTaskIcon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addTaskIcon.Image = global::TODOList.Properties.Resources.adding;
-            this.addTaskIcon.Location = new System.Drawing.Point(3, 0);
-            this.addTaskIcon.Name = "addTaskIcon";
-            this.addTaskIcon.Size = new System.Drawing.Size(56, 69);
-            this.addTaskIcon.TabIndex = 1;
-            this.addTaskIcon.Click += new System.EventHandler(this.onAddTaskBoxFocus);
-            // 
             // addTaskInputBox
             // 
             this.addTaskInputBox.BackColor = System.Drawing.Color.Transparent;
@@ -95,6 +85,16 @@
             this.addTaskInputBox.TextBoxLostFoucs += new System.EventHandler(this.onAddTaskBoxBlur);
             this.addTaskInputBox.TextBoxGotFoucs += new System.EventHandler(this.onAddTaskBoxFocus);
             this.addTaskInputBox.EnterPress += new System.EventHandler(this.onEnterPress);
+            // 
+            // addTaskIcon
+            // 
+            this.addTaskIcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addTaskIcon.Image = global::TODOList.Properties.Resources.add_write_icon;
+            this.addTaskIcon.Location = new System.Drawing.Point(3, 0);
+            this.addTaskIcon.Name = "addTaskIcon";
+            this.addTaskIcon.Size = new System.Drawing.Size(56, 69);
+            this.addTaskIcon.TabIndex = 1;
+            this.addTaskIcon.Click += new System.EventHandler(this.onAddTaskBoxFocus);
             // 
             // addTaskBox
             // 

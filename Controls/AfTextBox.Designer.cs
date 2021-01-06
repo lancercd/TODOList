@@ -55,6 +55,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox edit;
+        public System.Windows.Forms.TextBox edit;
     }
 }

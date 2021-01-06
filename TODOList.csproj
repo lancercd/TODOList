@@ -231,6 +231,7 @@
     <None Include="Resources\close.png" />
     <None Include="Resources\course_table.png" />
     <None Include="Resources\time.png" />
+    <None Include="Resources\add_write_icon.png" />
     <Content Include="TODO.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

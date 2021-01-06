@@ -16,6 +16,9 @@ namespace TODOList.components
         public addTaskBox()
         {
             InitializeComponent();
+           
+            addTaskInputBox.edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(180)))));
+            addTaskInputBox.edit.ForeColor = Color.White;
             addTaskInputBox.Visible = false;
             addTaskInputBox.BackColor = Color.Transparent;
             addTaskBoxLabel.BackColor = Color.Transparent;

@@ -106,6 +106,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label stepLeftIcon;
         private System.Windows.Forms.Label stepRightIcon;
-        private components.AfTextBox afTextBox1;
+        public components.AfTextBox afTextBox1;
     }
 }

@@ -54,8 +54,10 @@
             this.RightSideTitleLabel = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.taskBox1 = new TODOList.components.TaskBox();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
+            this.taskListPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.RightSidePanel.SuspendLayout();
@@ -94,6 +96,7 @@
             // 
             this.taskListPanel.AutoScroll = true;
             this.taskListPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.taskListPanel.Controls.Add(this.taskBox1);
             this.taskListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.taskListPanel.Location = new System.Drawing.Point(0, 93);
             this.taskListPanel.Name = "taskListPanel";
@@ -339,6 +342,20 @@
             this.radioButton1.Text = "xx";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
+            // taskBox1
+            // 
+            this.taskBox1.AutoSize = true;
+            this.taskBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.taskBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.taskBox1.Describe = null;
+            this.taskBox1.isImportantTask = false;
+            this.taskBox1.Location = new System.Drawing.Point(0, 0);
+            this.taskBox1.Name = "taskBox1";
+            this.taskBox1.Size = new System.Drawing.Size(128, 0);
+            this.taskBox1.TabIndex = 0;
+            this.taskBox1.TeskTitle = "taskBox1";
+            this.taskBox1.Text = "taskBox1";
+            // 
             // MyDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -350,6 +367,8 @@
             this.Text = "MyDay";
             this.panel1.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
+            this.taskListPanel.ResumeLayout(false);
+            this.taskListPanel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -397,5 +416,6 @@
         private Controls.IconBtn AddAlertBtn;
         private Controls.IconBtn AddDeadLineBtn;
         private components.AfTextBox DetilTextBox;
+        private components.TaskBox taskBox1;
     }
 }
