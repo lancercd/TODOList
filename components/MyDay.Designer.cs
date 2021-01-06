@@ -33,6 +33,7 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.taskListPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.addTaskBox1 = new TODOList.components.addTaskBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.shawTimeLabel = new System.Windows.Forms.Label();
             this.childFormTitle = new System.Windows.Forms.Label();
@@ -40,8 +41,12 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.DetilTextBox = new TODOList.components.AfTextBox();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.AddToOtherBtn = new TODOList.Controls.IconBtn();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.AddAlertBtn = new TODOList.Controls.IconBtn();
+            this.AddDeadLineBtn = new TODOList.Controls.IconBtn();
             this.panel22 = new System.Windows.Forms.Panel();
             this.StepPanel = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
@@ -49,11 +54,6 @@
             this.RightSideTitleLabel = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.addTaskBox1 = new TODOList.components.addTaskBox();
-            this.DetilTextBox = new TODOList.components.AfTextBox();
-            this.AddToOtherBtn = new TODOList.Controls.IconBtn();
-            this.AddAlertBtn = new TODOList.Controls.IconBtn();
-            this.AddDeadLineBtn = new TODOList.Controls.IconBtn();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -93,7 +93,7 @@
             // taskListPanel
             // 
             this.taskListPanel.AutoScroll = true;
-            this.taskListPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.taskListPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.taskListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.taskListPanel.Location = new System.Drawing.Point(0, 93);
             this.taskListPanel.Name = "taskListPanel";
@@ -102,7 +102,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.panel4.Controls.Add(this.addTaskBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 588);
@@ -110,9 +110,20 @@
             this.panel4.Size = new System.Drawing.Size(689, 105);
             this.panel4.TabIndex = 2;
             // 
+            // addTaskBox1
+            // 
+            this.addTaskBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addTaskBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
+            this.addTaskBox1.Name = "addTaskBox1";
+            this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
+            this.addTaskBox1.TabIndex = 2;
+            this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
+            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.panel2.Controls.Add(this.shawTimeLabel);
             this.panel2.Controls.Add(this.childFormTitle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -125,6 +136,7 @@
             // 
             this.shawTimeLabel.AutoSize = true;
             this.shawTimeLabel.Font = new System.Drawing.Font("宋体", 10F);
+            this.shawTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.shawTimeLabel.Location = new System.Drawing.Point(52, 62);
             this.shawTimeLabel.Name = "shawTimeLabel";
             this.shawTimeLabel.Size = new System.Drawing.Size(120, 17);
@@ -135,6 +147,7 @@
             // 
             this.childFormTitle.AutoSize = true;
             this.childFormTitle.Font = new System.Drawing.Font("黑体", 20F);
+            this.childFormTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.childFormTitle.Location = new System.Drawing.Point(40, 19);
             this.childFormTitle.Name = "childFormTitle";
             this.childFormTitle.Size = new System.Drawing.Size(151, 34);
@@ -143,7 +156,7 @@
             // 
             // RightSidePanel
             // 
-            this.RightSidePanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.RightSidePanel.BackColor = System.Drawing.SystemColors.Control;
             this.RightSidePanel.Controls.Add(this.panel17);
             this.RightSidePanel.Controls.Add(this.panel18);
             this.RightSidePanel.Controls.Add(this.panel22);
@@ -164,7 +177,7 @@
             // 
             // panel18
             // 
-            this.panel18.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel18.BackColor = System.Drawing.SystemColors.Control;
             this.panel18.Controls.Add(this.panel19);
             this.panel18.Controls.Add(this.panel21);
             this.panel18.Controls.Add(this.panel20);
@@ -177,12 +190,23 @@
             // panel19
             // 
             this.panel19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel19.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel19.Controls.Add(this.DetilTextBox);
             this.panel19.Location = new System.Drawing.Point(16, 269);
             this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel19.Size = new System.Drawing.Size(238, 71);
             this.panel19.TabIndex = 1;
+            // 
+            // DetilTextBox
+            // 
+            this.DetilTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.DetilTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DetilTextBox.Location = new System.Drawing.Point(10, 0);
+            this.DetilTextBox.Name = "DetilTextBox";
+            this.DetilTextBox.Size = new System.Drawing.Size(228, 71);
+            this.DetilTextBox.TabIndex = 0;
+            this.DetilTextBox.Text = "afTextBox1";
             // 
             // panel21
             // 
@@ -195,109 +219,9 @@
             this.panel21.Size = new System.Drawing.Size(238, 55);
             this.panel21.TabIndex = 0;
             // 
-            // panel20
-            // 
-            this.panel20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel20.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel20.Controls.Add(this.AddAlertBtn);
-            this.panel20.Controls.Add(this.AddDeadLineBtn);
-            this.panel20.Location = new System.Drawing.Point(16, 120);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(238, 126);
-            this.panel20.TabIndex = 1;
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel22.Controls.Add(this.StepPanel);
-            this.panel22.Controls.Add(this.panel24);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel22.Location = new System.Drawing.Point(0, 0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(266, 235);
-            this.panel22.TabIndex = 0;
-            // 
-            // StepPanel
-            // 
-            this.StepPanel.AutoSize = true;
-            this.StepPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StepPanel.Location = new System.Drawing.Point(0, 62);
-            this.StepPanel.Name = "StepPanel";
-            this.StepPanel.Size = new System.Drawing.Size(266, 173);
-            this.StepPanel.TabIndex = 1;
-            // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.panel33);
-            this.panel24.Controls.Add(this.panel32);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(0, 0);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(266, 62);
-            this.panel24.TabIndex = 0;
-            // 
-            // panel33
-            // 
-            this.panel33.Controls.Add(this.RightSideTitleLabel);
-            this.panel33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel33.Location = new System.Drawing.Point(79, 0);
-            this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(187, 62);
-            this.panel33.TabIndex = 1;
-            // 
-            // RightSideTitleLabel
-            // 
-            this.RightSideTitleLabel.AutoSize = true;
-            this.RightSideTitleLabel.Font = new System.Drawing.Font("黑体", 15F);
-            this.RightSideTitleLabel.Location = new System.Drawing.Point(29, 23);
-            this.RightSideTitleLabel.Name = "RightSideTitleLabel";
-            this.RightSideTitleLabel.Size = new System.Drawing.Size(90, 25);
-            this.RightSideTitleLabel.TabIndex = 0;
-            this.RightSideTitleLabel.Text = "label4";
-            // 
-            // panel32
-            // 
-            this.panel32.Controls.Add(this.radioButton1);
-            this.panel32.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel32.Location = new System.Drawing.Point(0, 0);
-            this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(79, 62);
-            this.panel32.TabIndex = 0;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(16, 23);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(44, 19);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "xx";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // addTaskBox1
-            // 
-            this.addTaskBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.addTaskBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
-            this.addTaskBox1.Name = "addTaskBox1";
-            this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
-            this.addTaskBox1.TabIndex = 2;
-            this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
-            // 
-            // DetilTextBox
-            // 
-            this.DetilTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.DetilTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DetilTextBox.Location = new System.Drawing.Point(0, 0);
-            this.DetilTextBox.Name = "DetilTextBox";
-            this.DetilTextBox.Size = new System.Drawing.Size(238, 71);
-            this.DetilTextBox.TabIndex = 0;
-            this.DetilTextBox.Text = "afTextBox1";
-            // 
             // AddToOtherBtn
             // 
+            this.AddToOtherBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AddToOtherBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddToOtherBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddToOtherBtn.Image")));
             this.AddToOtherBtn.isCorrent = false;
@@ -307,6 +231,17 @@
             this.AddToOtherBtn.Size = new System.Drawing.Size(238, 55);
             this.AddToOtherBtn.TabIndex = 0;
             this.AddToOtherBtn.title = null;
+            // 
+            // panel20
+            // 
+            this.panel20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel20.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel20.Controls.Add(this.AddAlertBtn);
+            this.panel20.Controls.Add(this.AddDeadLineBtn);
+            this.panel20.Location = new System.Drawing.Point(16, 120);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(238, 126);
+            this.panel20.TabIndex = 1;
             // 
             // AddAlertBtn
             // 
@@ -331,6 +266,78 @@
             this.AddDeadLineBtn.Size = new System.Drawing.Size(238, 46);
             this.AddDeadLineBtn.TabIndex = 0;
             this.AddDeadLineBtn.title = null;
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel22.Controls.Add(this.StepPanel);
+            this.panel22.Controls.Add(this.panel24);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel22.Location = new System.Drawing.Point(0, 0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(266, 235);
+            this.panel22.TabIndex = 0;
+            // 
+            // StepPanel
+            // 
+            this.StepPanel.AutoSize = true;
+            this.StepPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.StepPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StepPanel.Location = new System.Drawing.Point(0, 62);
+            this.StepPanel.Name = "StepPanel";
+            this.StepPanel.Size = new System.Drawing.Size(266, 173);
+            this.StepPanel.TabIndex = 1;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.panel33);
+            this.panel24.Controls.Add(this.panel32);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(266, 62);
+            this.panel24.TabIndex = 0;
+            // 
+            // panel33
+            // 
+            this.panel33.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel33.Controls.Add(this.RightSideTitleLabel);
+            this.panel33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel33.Location = new System.Drawing.Point(79, 0);
+            this.panel33.Name = "panel33";
+            this.panel33.Size = new System.Drawing.Size(187, 62);
+            this.panel33.TabIndex = 1;
+            // 
+            // RightSideTitleLabel
+            // 
+            this.RightSideTitleLabel.AutoSize = true;
+            this.RightSideTitleLabel.Font = new System.Drawing.Font("黑体", 15F);
+            this.RightSideTitleLabel.Location = new System.Drawing.Point(29, 23);
+            this.RightSideTitleLabel.Name = "RightSideTitleLabel";
+            this.RightSideTitleLabel.Size = new System.Drawing.Size(90, 25);
+            this.RightSideTitleLabel.TabIndex = 0;
+            this.RightSideTitleLabel.Text = "label4";
+            // 
+            // panel32
+            // 
+            this.panel32.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel32.Controls.Add(this.radioButton1);
+            this.panel32.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel32.Location = new System.Drawing.Point(0, 0);
+            this.panel32.Name = "panel32";
+            this.panel32.Size = new System.Drawing.Size(79, 62);
+            this.panel32.TabIndex = 0;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(16, 23);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(44, 19);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "xx";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // MyDay
             // 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,7 +71,7 @@ namespace TODOList.utils
             panel.Dock = System.Windows.Forms.DockStyle.Top;
             panel.Name = getTaskPanelName();
             panel.Size = new System.Drawing.Size(689, 60);
-
+            panel.BackColor = Color.Transparent;
             taskInitStyle(task);
             return panel;
         }

@@ -26,9 +26,14 @@ namespace TODOList
         {
             InitializeComponent();
             AddToOtherBtn.Text = is_important_page ? "添加到\"我的一天\"" : "添加到\"重要\"";
+
             AddAlertBtn.Text = "提醒我";
+            AddAlertBtn.Image = Properties.Resources.time;
             AddDeadLineBtn.Text = "添加截止日期";
+            AddDeadLineBtn.Image = Properties.Resources.course_table;
             RightSidePanel.Size = new Size(0, RightSidePanel.Size.Height);
+
+
 
             //初始化任务列表
             taskInit();

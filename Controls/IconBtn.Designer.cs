@@ -54,7 +54,7 @@
             // stepLeftIcon
             // 
             this.stepLeftIcon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stepLeftIcon.Image = global::TODOList.Properties.Resources.unfinished;
+            this.stepLeftIcon.Image = global::TODOList.Properties.Resources.time;
             this.stepLeftIcon.Location = new System.Drawing.Point(3, 0);
             this.stepLeftIcon.Name = "stepLeftIcon";
             this.stepLeftIcon.Size = new System.Drawing.Size(60, 46);
