@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TODOList.components;
+using TODOList.Controls;
 using TODOList.utils;
 
 namespace TODOList
@@ -58,20 +59,61 @@ namespace TODOList
         private void rightSizePanelDataRender(TaskBox task)
         {
             int id = task.id;
-            //LinkedList<Dictionary<Object, Object>> steps = getTaskStep(id);
+            LinkedList<Dictionary<Object, Object>> steps = getTaskStep(id);
+            string title = task.TeskTitle;
 
-                string title = task.TeskTitle;
-
-
-
+            StepPanel.Controls.Clear();
 
             RightSideTitleLabel.Text = title;
+            //遍历task
+            foreach (Dictionary<Object, Object> step in steps)
+            {
+                StepBox stepBox = new StepBox();
+
+                //填充数据
+                stepBox.id = Convert.ToInt32(step["Id"]);
+                stepBox.task_id = Convert.ToInt32(step["task_id"]);
+                stepBox.title = Convert.ToString(step["detail"]);
+                stepBox.sort = Convert.ToInt32(step["sort"]);
+                stepBox.isCorrent = Convert.ToBoolean(step["is_corrent"]);
+                stepBox.isFinish = Convert.ToBoolean(step["is_accomplish"]);
+
+                stepStyle(stepBox);
+
+
+                //添加进页面
+                StepPanel.Controls.Add(stepBox);
+            }
+
+
+            //添加步骤按钮
+            StepBox addStepBox = new StepBox();
+            addStepBox.title = "添加步骤";
+            //taskId
+            addStepBox.id = id;
+            stepStyle(addStepBox);
+            StepPanel.Controls.Add(addStepBox);
+
+
 
         }
 
+        /**
+         * 设置任务步骤控件样式
+         */
+        private void stepStyle(StepBox stepBox)
+        {
+            //设置样式 
+            stepBox.Dock = System.Windows.Forms.DockStyle.Top;
+            stepBox.Location = new System.Drawing.Point(0, 0);
+            stepBox.Size = new System.Drawing.Size(266, 30);
+        }
+
+
+
         private LinkedList<Dictionary<Object, Object>> getTaskStep(int id)
         {
-            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("");
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("SELECT * FROM tb_step WHERE task_id = " + id + " ORDER BY sort DESC");
 
             //这里处理数据
 

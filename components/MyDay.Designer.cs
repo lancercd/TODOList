@@ -32,7 +32,6 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.taskListPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.addTaskBox1 = new TODOList.components.addTaskBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.shawTimeLabel = new System.Windows.Forms.Label();
             this.childFormTitle = new System.Windows.Forms.Label();
@@ -44,14 +43,13 @@
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.stepBox2 = new TODOList.Controls.StepBox();
-            this.stepBox1 = new TODOList.Controls.StepBox();
+            this.StepPanel = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel33 = new System.Windows.Forms.Panel();
             this.RightSideTitleLabel = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.addTaskBox1 = new TODOList.components.addTaskBox();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -60,7 +58,6 @@
             this.panel18.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
-            this.panel25.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel32.SuspendLayout();
@@ -106,17 +103,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(689, 105);
             this.panel4.TabIndex = 2;
-            // 
-            // addTaskBox1
-            // 
-            this.addTaskBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.addTaskBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
-            this.addTaskBox1.Name = "addTaskBox1";
-            this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
-            this.addTaskBox1.TabIndex = 2;
-            this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
             // 
             // panel2
             // 
@@ -177,7 +163,7 @@
             this.panel18.Controls.Add(this.panel21);
             this.panel18.Controls.Add(this.panel20);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel18.Location = new System.Drawing.Point(0, 216);
+            this.panel18.Location = new System.Drawing.Point(0, 235);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(266, 377);
             this.panel18.TabIndex = 1;
@@ -221,46 +207,22 @@
             // panel22
             // 
             this.panel22.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel22.Controls.Add(this.panel25);
+            this.panel22.Controls.Add(this.StepPanel);
             this.panel22.Controls.Add(this.panel24);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel22.Location = new System.Drawing.Point(0, 0);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(266, 216);
+            this.panel22.Size = new System.Drawing.Size(266, 235);
             this.panel22.TabIndex = 0;
             // 
-            // panel25
+            // StepPanel
             // 
-            this.panel25.AutoSize = true;
-            this.panel25.Controls.Add(this.stepBox2);
-            this.panel25.Controls.Add(this.stepBox1);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(0, 68);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(266, 148);
-            this.panel25.TabIndex = 1;
-            // 
-            // stepBox2
-            // 
-            this.stepBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.stepBox2.isCorrent = false;
-            this.stepBox2.isFinish = false;
-            this.stepBox2.Location = new System.Drawing.Point(0, 73);
-            this.stepBox2.Name = "stepBox2";
-            this.stepBox2.Size = new System.Drawing.Size(266, 58);
-            this.stepBox2.TabIndex = 1;
-            this.stepBox2.title = null;
-            // 
-            // stepBox1
-            // 
-            this.stepBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.stepBox1.isCorrent = false;
-            this.stepBox1.isFinish = false;
-            this.stepBox1.Location = new System.Drawing.Point(0, 0);
-            this.stepBox1.Name = "stepBox1";
-            this.stepBox1.Size = new System.Drawing.Size(266, 73);
-            this.stepBox1.TabIndex = 0;
-            this.stepBox1.title = null;
+            this.StepPanel.AutoSize = true;
+            this.StepPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StepPanel.Location = new System.Drawing.Point(0, 62);
+            this.StepPanel.Name = "StepPanel";
+            this.StepPanel.Size = new System.Drawing.Size(266, 173);
+            this.StepPanel.TabIndex = 1;
             // 
             // panel24
             // 
@@ -269,7 +231,7 @@
             this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel24.Location = new System.Drawing.Point(0, 0);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(266, 68);
+            this.panel24.Size = new System.Drawing.Size(266, 62);
             this.panel24.TabIndex = 0;
             // 
             // panel33
@@ -278,7 +240,7 @@
             this.panel33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel33.Location = new System.Drawing.Point(79, 0);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(187, 68);
+            this.panel33.Size = new System.Drawing.Size(187, 62);
             this.panel33.TabIndex = 1;
             // 
             // RightSideTitleLabel
@@ -296,7 +258,7 @@
             this.panel32.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel32.Location = new System.Drawing.Point(0, 0);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(79, 68);
+            this.panel32.Size = new System.Drawing.Size(79, 62);
             this.panel32.TabIndex = 0;
             // 
             // radioButton1
@@ -309,6 +271,17 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "xx";
             this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // addTaskBox1
+            // 
+            this.addTaskBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addTaskBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
+            this.addTaskBox1.Name = "addTaskBox1";
+            this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
+            this.addTaskBox1.TabIndex = 2;
+            this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
             // 
             // MyDay
             // 
@@ -330,7 +303,6 @@
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
-            this.panel25.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
@@ -354,7 +326,7 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel StepPanel;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Panel panel32;
@@ -364,7 +336,5 @@
         private System.Windows.Forms.Label shawTimeLabel;
         private System.Windows.Forms.Label childFormTitle;
         private components.addTaskBox addTaskBox1;
-        private Controls.StepBox stepBox1;
-        private Controls.StepBox stepBox2;
     }
 }
