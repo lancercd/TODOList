@@ -184,6 +184,18 @@ namespace TODOList
             stepBox.Dock = System.Windows.Forms.DockStyle.Top;
             stepBox.Location = new System.Drawing.Point(0, 0);
             stepBox.Size = new System.Drawing.Size(266, 30);
+
+
+            stepBox.StepLeftIconClick += new EventHandler(onStepBoxLeftIconClick);
+        }
+
+
+        private void onStepBoxLeftIconClick(object sender, EventArgs e)
+        {
+            StepBox stepBox = sender as StepBox;
+            int id = stepBox.id;
+            MessageBox.Show("id = " + id + "   isFinish" + stepBox.isFinish);
+            int num = DB.getEffNum(string.Format("UPDATE tb_step SET is_accomplish = {0} WHERE Id = {1}", Convert.ToInt32(stepBox.isFinish), id));
         }
 
 
