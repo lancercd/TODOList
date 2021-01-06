@@ -22,6 +22,9 @@ namespace TODOList
         //是否为 [重要page]
         public bool is_important_page = false;
 
+
+        public TaskBox RightSizeObj = null;
+
         public MyDay()
         {
             InitializeComponent();
@@ -45,7 +48,7 @@ namespace TODOList
          */
         private void active_right_side_Penal(TaskBox task)
         {
-
+            RightSizeObj = task;
             rightSizePanelDataRender(task);
 
 
@@ -93,9 +96,14 @@ namespace TODOList
                 StepPanel.Controls.Add(stepBox);
             }
 
+            AddToOtherBtn.id = id;
+            AddToOtherBtn.isFinish = task.isImportantTask;
+            AddDeadLineBtn.id = id;
+            AddAlertBtn.id = id;
+            DetilTextBox.id = id;
 
-            
-            
+
+
 
         }
 
@@ -194,7 +202,6 @@ namespace TODOList
         {
             StepBox stepBox = sender as StepBox;
             int id = stepBox.id;
-            MessageBox.Show("id = " + id + "   isFinish" + stepBox.isFinish);
             int num = DB.getEffNum(string.Format("UPDATE tb_step SET is_accomplish = {0} WHERE Id = {1}", Convert.ToInt32(stepBox.isFinish), id));
         }
 
@@ -335,7 +342,32 @@ namespace TODOList
 
         private void onAddToOtherBtn(object sender, EventArgs e)
         {
-            MessageBox.Show("addBtn click 添加到");
+            IconBtn btn = sender as IconBtn;
+            btn.isFinish = !btn.isFinish;
+            if (btn.isFinish)
+            {
+                btn.Text = "取消添加";
+            }
+            else
+            {
+                btn.Text = is_important_page ? "添加到\"我的一天\"" : "添加到\"重要\""; ;
+            }
+
+            int id = RightSizeObj.id;
+            int num = DB.getEffNum(string.Format("UPDATE tb_task SET is_important = {0} WHERE Id = {1}", Convert.ToInt32(btn.isFinish), id));
+            RightSizeObj.isImportantTask = btn.isFinish;
+        }
+
+        private void onDetilTextBox(object sender, EventArgs e)
+        {
+            AfTextBox afTextBox = sender as AfTextBox;
+            int id = afTextBox.id;
+            string describu = afTextBox.Text;
+
+            int num = DB.getEffNum(string.Format("UPDATE tb_task SET detail = '{0}' WHERE Id = {1}", describu, id));
+            //MessageBox.Show(describu);
+
+            RightSizeObj.Describe = describu;
         }
     }
 }

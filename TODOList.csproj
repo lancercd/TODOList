@@ -97,6 +97,9 @@
     <Compile Include="Controls\IconBtn.Designer.cs">
       <DependentUpon>IconBtn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PlaceholderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\StepBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

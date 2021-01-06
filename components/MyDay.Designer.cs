@@ -224,6 +224,7 @@
             this.DetilTextBox.Size = new System.Drawing.Size(228, 71);
             this.DetilTextBox.TabIndex = 0;
             this.DetilTextBox.Text = "afTextBox1";
+            this.DetilTextBox.EnterPress += new System.EventHandler(this.onDetilTextBox);
             // 
             // panel21
             // 

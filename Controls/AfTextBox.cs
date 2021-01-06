@@ -12,6 +12,8 @@ namespace TODOList.components
 {
     public partial class AfTextBox : UserControl
     {
+        public int id;
+
         public AfTextBox()
         {
             InitializeComponent();
