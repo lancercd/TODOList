@@ -64,6 +64,7 @@
             // afLabelBox1
             // 
             this.afLabelBox1.BackColor = System.Drawing.Color.Transparent;
+            this.afLabelBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.afLabelBox1.Location = new System.Drawing.Point(69, 3);
             this.afLabelBox1.Name = "afLabelBox1";
             this.afLabelBox1.Size = new System.Drawing.Size(216, 40);
