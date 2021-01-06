@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.ListingPanel = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnEqualizer = new System.Windows.Forms.Button();
@@ -54,7 +55,8 @@
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.White;
-            this.panelSideMenu.Controls.Add(this.panel3);
+            this.panelSideMenu.Controls.Add(this.panel5);
+            this.panelSideMenu.Controls.Add(this.ListingPanel);
             this.panelSideMenu.Controls.Add(this.button3);
             this.panelSideMenu.Controls.Add(this.button2);
             this.panelSideMenu.Controls.Add(this.btnEqualizer);
@@ -69,14 +71,26 @@
             this.panelSideMenu.Size = new System.Drawing.Size(280, 718);
             this.panelSideMenu.TabIndex = 0;
             // 
-            // panel3
+            // panel5
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 342);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(280, 376);
-            this.panel3.TabIndex = 10;
+            this.panel5.BackColor = System.Drawing.Color.LightGray;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.ForeColor = System.Drawing.SystemColors.Control;
+            this.panel5.Location = new System.Drawing.Point(0, 342);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(280, 5);
+            this.panel5.TabIndex = 2;
+            // 
+            // ListingPanel
+            // 
+            this.ListingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListingPanel.Location = new System.Drawing.Point(0, 342);
+            this.ListingPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.ListingPanel.Name = "ListingPanel";
+            this.ListingPanel.Size = new System.Drawing.Size(280, 376);
+            this.ListingPanel.TabIndex = 10;
             // 
             // button3
             // 
@@ -97,6 +111,7 @@
             this.button3.Text = "       任务";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -117,6 +132,7 @@
             this.button2.Text = "       已分配给你的任务";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnEqualizer
             // 
@@ -297,7 +313,8 @@
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel ListingPanel;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 

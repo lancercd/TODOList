@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Microsoft.VisualBasic;
+using TODOList.utils;
+using TODOList.Controls;
 
+//2010 - 01 - 05 15:14:20
 
 namespace TODOList
 {
@@ -17,6 +20,7 @@ namespace TODOList
     {
         public static Form1 MainFrame = null;
 
+        public static int uid = 1;
 
         public Form1()
         {
@@ -42,7 +46,7 @@ namespace TODOList
 
         private void btnMedia_Click(object sender, EventArgs e)
         {
-            openChildForm(new MyDay());
+            openChildForm(new MyDay("我的一天", false, false, 0, 1));
         }
 
 
@@ -76,11 +80,12 @@ namespace TODOList
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new Ok());
+            openChildForm(new MyDay("重要任务", false, true, 0, 2));
         }
 
         private void btnEqualizer_Click(object sender, EventArgs e)
         {
+            openChildForm(new MyDay("计划日程", false, false, 0, 3));
             //openChildForm(new RandomRollCall());
             //Login flo = new Login();
             //flo.Show();
@@ -91,12 +96,7 @@ namespace TODOList
             //openChildForm(new RandomQuestion());
         }
 
-        private void add_listing_Click(object sender, EventArgs e)
-        {
-            AddListing fal = new AddListing();
-            fal.Show();
 
-        }
 
         private void isLogin()
         {
@@ -123,102 +123,122 @@ namespace TODOList
             }
             else
             {
-                //this.Hide();
-                //Login flo = new Login();
                 openChildForm(new Register());
-                //flo.Show();
-                //MessageBox.Show("您尚未登录，请先登录！");
-                //this.Close();
-
             }
-            //openChildForm(new Login());
             dr.Close();
             cmd.Dispose();
+        }
+
+        private LinkedList<Dictionary<Object, Object>> getListing()
+        {
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList(string.Format("SELECT * FROM tb_listing WHERE uid = {0}", uid));
+
+
+
+            return data;
+        }
+
+
+        private void createAddListingBtn()
+        {
+            StepBox cListingBtn = new StepBox();
+            cListingBtn.is_other_btn = true;
+            cListingBtn.afTextBox1.Text = "添加清单";
+            cListingBtn.Image = Properties.Resources.adding;
+            cListingBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            cListingBtn.Location = new System.Drawing.Point(0, 0);
+            cListingBtn.Size = new System.Drawing.Size(266, 50);
+            cListingBtn.EnterPressEvent += new EventHandler(onCreateAddListingBtn);
+            ListingPanel.Controls.Add(cListingBtn);
+        }
+        private void onCreateAddListingBtn(object sender, EventArgs e)
+        {
+            StepBox cListingBtn = sender as StepBox;
+            string title = cListingBtn.afTextBox1.Text;
+            if (title == "") return;
+            int id = DB.insert("INSERT INTO tb_listing (uid, title) VALUES ( " +
+                                    uid + ", '" +
+                                    title + "' )");
+
+            show_listing();
         }
 
 
         private void show_listing()
         {
-            string strconn;
-            strconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TODO.mdf;Integrated Security=True";
-            SqlConnection conn = new SqlConnection(strconn);
-            conn.Open();
-            string sql = "SELECT count(*) FROM tb_listing";
-            //  MySqlConnection conn = new MySqlConnection(conStr);
-            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            int count = Convert.ToInt32(dt.Rows[0][0]);
+            ListingPanel.Controls.Clear();
+            createAddListingBtn();
 
-            string strSQL1;
-            strSQL1 = "Select * from tb_listing";
-            SqlCommand cmd1 = new SqlCommand();
-            cmd1.Connection = conn;
-            cmd1.CommandText = strSQL1;
-            cmd1.CommandType = CommandType.Text;
-            SqlDataReader dr1;
-            dr1 = cmd1.ExecuteReader();
+            LinkedList<Dictionary<Object, Object>> data = getListing();
+            if (data.Count == 0) return;
+            //string sql = "SELECT count(*) FROM tb_listing";
 
-            Button[] a = new Button[count];//创建一个新的按钮
-                                           //for (int i=0;i< 3; i++)
-                                           //{
+            add_listing_addBtn(data);
 
-
-            //}
-            if (dr1.Read())
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    a[i] = new Button();
-                    string strpath;
-                    strpath = Application.StartupPath + "\\images\\" + dr1["icon"] + "";
-                    a[i].Image = Image.FromFile(strpath);
-                    a[i].Text = dr1["title"].ToString();
-                    a[i].Width = 210;
-                    a[i].Height = 40;
-                    a[i].Font = new Font("微软雅黑 Light", 10.8f);
-                    a[i].BackColor = Color.WhiteSmoke;
-                    a[i].Location = new Point(0, i * a[i].Height);
-                    panel3.Controls.Add(a[i]);//向panel中添加此按钮
-                                              ////panel3.Controls.Add(a[i]);
-                                              // MessageBox.Show("i");
-                }
-                
-
-
-            }
-            add_listing_addBtn();
-
-
-
-            dr1.Close();
-            cmd1.Dispose();
-            conn.Close();
         }
 
 
-        private void add_listing_addBtn()
+        private void add_listing_addBtn(LinkedList<Dictionary<Object, Object>> data)
         {
-            Button b = new Button();
-            b.Dock = DockStyle.Top;
-            b.Text = "+";
-            //b.Width = 210;
-            b.Height = 40;
-            b.Font = new Font("微软雅黑 Light", 10.8f);
-            b.BackColor = Color.WhiteSmoke;
-            //b.Location = new Point(0, 40 * 3);
-            b.Click += add_listing_Click;
-            panel3.Controls.Add(b);//向panel中添加此按钮
+            
+
+            foreach (Dictionary<Object, Object> btn in data){
+                IconBtn iconBtn = new IconBtn();
+                iconBtn.id = Convert.ToInt32(btn["Id"]);
+                iconBtn.Text = Convert.ToString(btn["title"]);
+
+                initListingBtnStyle(iconBtn);
+
+
+
+                ListingPanel.Controls.Add(iconBtn);
+            }
+
+
+            //b.Click += add_listing_Click;
+            //ListingPanel.Controls.Add(b);
+        }
+
+        private void initListingBtnStyle(IconBtn btn)
+        {
+
+            btn.is_other_btn = true;
+            btn.IconBtnClickEvent += new EventHandler(onListingBtnClick);
+            btn.Dock = System.Windows.Forms.DockStyle.Top;
+            btn.Size = new System.Drawing.Size(280, 50);
+            btn.Image = Properties.Resources.listingBtnDefault;
+        }
+
+
+
+
+        /**
+         * 任务清单按点击  创建新窗口
+         */
+        private void onListingBtnClick(object sender, EventArgs e)
+        {
+            IconBtn iconBtn = sender as IconBtn;
+            int listing_id = iconBtn.id;
+            
+            openChildForm(new MyDay(iconBtn.Text, true, false, listing_id, 0));
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            isLogin();
+            //isLogin();
             show_listing();
 
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
 
+            openChildForm(new MyDay("分配的任务", false, false, 0, 4));
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            openChildForm(new MyDay("全部任务", false, false, 0, 5));
         }
     }
     

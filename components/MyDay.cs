@@ -18,18 +18,47 @@ namespace TODOList
     public partial class MyDay : Form
     {
 
+
         //当前用户
         public int uid = 1;
 
         //是否为 [重要page]
         public bool is_important_page = false;
 
+        public bool isListingPage = false;
+
+        public int listingId = 0;
+
+        //为0 则为list清单
+        public int p_index = 0;
 
         public TaskBox RightSizeObj = null;
 
         public MyDay()
         {
             InitializeComponent();
+            
+            init();
+        }
+
+        public MyDay(string title, bool isListingPage, bool isImportantPage, int listingId, int p_index)
+        {
+            InitializeComponent();
+            childFormTitle.Text = title;
+            this.p_index = p_index;
+            this.listingId = listingId;
+            this.isListingPage = isListingPage;
+            this.is_important_page = isImportantPage;
+
+            init();
+        }
+        
+
+
+        private void init()
+        {
+            if (Form1.MainFrame != null) uid = Form1.uid;
+
             AddToOtherBtn.Text = is_important_page ? "添加到\"我的一天\"" : "添加到\"重要\"";
 
             AddAlertBtn.Text = "提醒我";
@@ -49,12 +78,12 @@ namespace TODOList
 
 
 
-            NotifyIcon fyIcon = new NotifyIcon();
+            //NotifyIcon fyIcon = new NotifyIcon();
             //fyIcon.Icon = new Icon("finished.ico");/*找一个ico图标将其拷贝到 debug 目录下*/
-            fyIcon.BalloonTipText = "Hello World！";/*必填提示内容*/
-            fyIcon.BalloonTipTitle = "通知";
-            fyIcon.Visible = true;/*必须设置显隐，因为默认值是 false 不显示通知*/
-            fyIcon.ShowBalloonTip(0);
+            //fyIcon.BalloonTipText = "Hello World！";/*必填提示内容*/
+            //fyIcon.BalloonTipTitle = "通知";
+            //fyIcon.Visible = true;/*必须设置显隐，因为默认值是 false 不显示通知*/
+           // fyIcon.ShowBalloonTip(0);
 
 
 
@@ -258,10 +287,31 @@ namespace TODOList
 
         private void taskInit()
         {
+
+            string sql;
+            if (is_important_page)
+            {
+                //重要任务
+                sql = "Select * from tb_task where uid = " + uid + " and is_important = " + Convert.ToInt32(is_important_page);
+                
+            }else if (p_index != 0)
+            {
+                if(p_index == 5)
+                {   //全部任务
+                    sql = "Select * from tb_task where uid = " + uid;
+                }
+                else
+                {   //菜单任务
+                    sql = "Select * from tb_task where uid = " + uid + " and p_index = " + p_index;
+                }
+                
+            }
+            else
+            {   //清单任务
+                sql = "Select * from tb_task where uid = " + uid + " and listing_id = " + listingId;
+            }
             //查询数据库
-            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("Select * from tb_task where uid = " + 
-                                                                            uid + " and listing_id = 0 and is_important = " + 
-                                                                            Convert.ToInt32(is_important_page));
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList(sql);
 
             //LinkedList<Panel> taskPanels = TaskCreator.getTasks(data);
             LinkedList<TaskBox> taskBoxs = TaskCreator.getTasks(data);
@@ -269,7 +319,7 @@ namespace TODOList
             //遍历task
             foreach (TaskBox task in taskBoxs)
             {
-                //添加点击事件
+                //添加点击事件addToImportant
                 addTaskBoxEvent(task);
 
                 //添加panel 初始化样式  渲染入页面
@@ -284,6 +334,16 @@ namespace TODOList
         private void addTaskBoxEvent(TaskBox task)
         {
             task.ClickTaskBoxEvent += new System.EventHandler(this.onTaskBoxClick);
+
+            task.addToImportant += new EventHandler(onAddToImportant);
+        }
+
+        private void onAddToImportant(object sender, EventArgs e)
+        {
+            TaskBox btn = sender as TaskBox;
+            int id = btn.id;
+            bool is_important = btn.isImportantTask;
+            int num = DB.getEffNum(string.Format("UPDATE tb_task SET is_important = {0} WHERE Id = {1}", Convert.ToInt32(btn.isImportantTask), id));
         }
 
 
@@ -316,14 +376,31 @@ namespace TODOList
         private void createTaskByUser(string title)
         {
             string now = TimeUtil.GetNow();
-            
+
+            int id;
+
             //获取id  上传数据库
-            int id = DB.insert("INSERT INTO tb_task (uid, title, add_time, is_important ) VALUES ( "+ 
-                                    uid +", '" + 
+            if (listingId != 0)
+            {
+                id = DB.insert("INSERT INTO tb_task (uid, title, p_index, add_time, is_important, listing_id ) VALUES ( " +
+                                    uid + ", '" +
+                                    title + "', " +
+                                    0 + ", " +
+                                    now + ", '" +
+                                    Convert.ToInt32(is_important_page) + "' , '" +
+                                    listingId + "' )");
+            }
+            else
+            {
+                id = DB.insert("INSERT INTO tb_task (uid, p_index, title, add_time, is_important ) VALUES ( " +
+                                    uid + ", " +
+                                    p_index + ", '" +
                                     title + "', " +
                                     now + ", '" +
                                     Convert.ToInt32(is_important_page) +
                                     "' )");
+            }
+
 
             TaskBox taskbox = new TaskBox();
             taskbox.id = id;
@@ -369,7 +446,7 @@ namespace TODOList
             long time = TimeUtil.getSeconds(value);
             //2010 - 01 - 05 15:14:20
 
-            int num = DB.getEffNum(string.Format("UPDATE tb_task SET deadline = {0} WHERE Id = {1}", time, box.id));
+            int num = DB.getEffNum(string.Format("UPDATE tb_task SET alert_time = {0} WHERE Id = {1}", time, box.id));
         }
 
 
