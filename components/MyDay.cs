@@ -25,7 +25,10 @@ namespace TODOList
         public MyDay()
         {
             InitializeComponent();
-
+            AddToOtherBtn.Text = is_important_page ? "添加到\"我的一天\"" : "添加到\"重要\"";
+            AddAlertBtn.Text = "提醒我";
+            AddDeadLineBtn.Text = "添加截止日期";
+            RightSidePanel.Size = new Size(0, RightSidePanel.Size.Height);
 
             //初始化任务列表
             taskInit();
@@ -42,13 +45,10 @@ namespace TODOList
             rightSizePanelDataRender(task);
 
 
-            if (RightSidePanel.Size.Width != 0) { 
-                RightSidePanel.Size = new Size(0, RightSidePanel.Size.Height);
-            }
-            else
-            {
+            if (RightSidePanel.Size.Width == 0) { 
                 RightSidePanel.Size = new Size(266, RightSidePanel.Size.Height);
             }
+            
             //RightSidePanel.Size.Width = 0
         }
 
@@ -94,7 +94,7 @@ namespace TODOList
             stepStyle(addStepBox);
             StepPanel.Controls.Add(addStepBox);
 
-
+            DetilTextBox.Text = task.Describe;
 
         }
 
