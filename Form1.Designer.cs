@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.logo = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.usernameLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panelChildForm = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnEqualizer = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnMedia = new System.Windows.Forms.Button();
+            this.logo = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.logo.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -77,72 +77,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(280, 376);
             this.panel3.TabIndex = 10;
-            // 
-            // logo
-            // 
-            this.logo.Controls.Add(this.panel2);
-            this.logo.Controls.Add(this.panel1);
-            this.logo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.logo.Location = new System.Drawing.Point(0, 0);
-            this.logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(280, 92);
-            this.logo.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.usernameLabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(81, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(199, 92);
-            this.panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(11, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "1311282756@qq.com";
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F);
-            this.usernameLabel.Location = new System.Drawing.Point(11, 26);
-            this.usernameLabel.MinimumSize = new System.Drawing.Size(55, 20);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(85, 26);
-            this.usernameLabel.TabIndex = 0;
-            this.usernameLabel.Text = "lancercd";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(81, 92);
-            this.panel1.TabIndex = 0;
-            // 
-            // panelChildForm
-            // 
-            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Font = new System.Drawing.Font("华文仿宋", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panelChildForm.Location = new System.Drawing.Point(280, 0);
-            this.panelChildForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1080, 718);
-            this.panelChildForm.TabIndex = 2;
-            this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
             // button3
             // 
@@ -247,11 +181,63 @@
             this.btnMedia.UseVisualStyleBackColor = false;
             this.btnMedia.Click += new System.EventHandler(this.btnMedia_Click);
             // 
+            // logo
+            // 
+            this.logo.Controls.Add(this.panel2);
+            this.logo.Controls.Add(this.panel1);
+            this.logo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.logo.Location = new System.Drawing.Point(0, 0);
+            this.logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(280, 92);
+            this.logo.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.usernameLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(81, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(199, 92);
+            this.panel2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(11, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 20);
+            this.label1.TabIndex = 1;
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F);
+            this.usernameLabel.Location = new System.Drawing.Point(11, 26);
+            this.usernameLabel.MinimumSize = new System.Drawing.Size(55, 20);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(92, 26);
+            this.usernameLabel.TabIndex = 0;
+            this.usernameLabel.Text = "请先登录";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(81, 92);
+            this.panel1.TabIndex = 0;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::TODOList.Properties.Resources.me;
+            this.pictureBox1.Image = global::TODOList.Properties.Resources.user;
             this.pictureBox1.Location = new System.Drawing.Point(15, 26);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
@@ -259,6 +245,18 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Font = new System.Drawing.Font("华文仿宋", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.panelChildForm.Location = new System.Drawing.Point(280, 0);
+            this.panelChildForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(1080, 718);
+            this.panelChildForm.TabIndex = 2;
+            this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
             // 
             // Form1
             // 
@@ -293,10 +291,10 @@
         private System.Windows.Forms.Button btnEqualizer;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label usernameLabel;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label usernameLabel;
+        public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel3;

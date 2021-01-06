@@ -38,20 +38,26 @@ namespace TODOList
             }
             else
             {
-                string strconn;
-                strconn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TODO.mdf;Integrated Security=True";
                 
                 string strSQL;
                 strSQL = "Select * from tb_user where username=N'" + textBox1.Text + "' and pwd=N'" + textBox2.Text + "'";  //精确查询，加上N确保select汉字
-
+                LinkedList<Dictionary<Object, Object>>  data = DB.getLinkedList(strSQL);
                 SqlDataReader dr = DB.getData(strSQL);
-                if (dr.Read())
+                if (data.Count != 0)
                 {
-                    PassVar.Uid = Convert.ToInt32(dr.GetValue(0));
-                    Form1 f1 = new Form1();
-                    f1.Show();
-                    //this.Close();
-                    //MessageBox.Show("登录成功！");
+                    Dictionary<Object, Object> user = data.First();
+                    PassVar.Uid = Convert.ToInt32(user["uid"]);
+                    if (Form1.MainFrame != null)
+                    {
+                        Form1.MainFrame.label1.Text = Convert.ToString(user["email"]);
+                        Form1.MainFrame.usernameLabel.Text = Convert.ToString(user["username"]);
+
+                        string strpath = Application.StartupPath + "\\images\\" + user["avatar"];
+                        Form1.MainFrame.pictureBox1.Image = Image.FromFile(strpath);
+
+
+                        Form1.MainFrame.openChildForm(new MyDay());
+                    }
                 }
                 else
                 {
@@ -65,7 +71,12 @@ namespace TODOList
             
             Register fre = new Register();
             fre.Show();
-            this.Close();
+           // this.Close();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            groupBox1.BackColor = Color.FromArgb(232,232,232);
         }
     }
 }

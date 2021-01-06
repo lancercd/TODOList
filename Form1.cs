@@ -15,11 +15,14 @@ namespace TODOList
 {
     public partial class Form1 : Form
     {
+        public static Form1 MainFrame = null;
+
+
         public Form1()
         {
             InitializeComponent();
             customizeDesing();
-
+            MainFrame = this;
         }
 
 
@@ -50,7 +53,7 @@ namespace TODOList
 
 
         private Form activeForm = null;
-        private void openChildForm(Form childForm)
+        public void openChildForm(Form childForm)
         {
             if (activeForm != null)
             {

@@ -236,6 +236,7 @@
     <None Include="Resources\time.png" />
     <None Include="Resources\add_write_icon.png" />
     <None Include="Resources\add_red_icon.png" />
+    <None Include="Resources\user.png" />
     <Content Include="TODO.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

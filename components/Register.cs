@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using TODOList.utils;
 
 namespace TODOList
 {
@@ -64,23 +65,17 @@ namespace TODOList
                     string strDBfilename; //放入数据库后文件的名称，just文件名，不包括路径
                                           //放入数据库中文件的名字就是 学生学号.jpg，这样保证没有重名，而且和学生学号对应起来，也方便查找等
                     strfn_destination = Application.StartupPath + "\\images\\" + textBox1.Text + ".jpg";
-                    strDBfilename = textBox1.Text;
+                    strDBfilename = textBox1.Text + ".jpg";
                     //复制文件
                     File.Copy(strfullfilename, strfn_destination);
                     //添加包含图片文件名的记录到数据库中                    
                     //conn.Open();
-                    string strSQL1;
-                    strSQL1 = "insert into tb_user values('" + textBox1.Text + "',N'" + textBox2.Text + " ',N'" + strDBfilename + "',N'" + textBox4.Text + " ')";
+                    string strSQL1 = "insert into tb_user values('" + textBox1.Text + "',N'" + textBox2.Text + " ',N'" + strDBfilename + "',N'" + textBox4.Text + " ')";
+                    int num = DB.getEffNum(strSQL1);
 
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = conn;
-                    cmd.CommandText = strSQL1;
-                    cmd.CommandType = CommandType.Text;
-                   int aa= cmd.ExecuteNonQuery();
-                    if (aa > 0)
+                    if (num > 0)
                     {
-                        Login fre = new Login();
-                        fre.Show();
+                        Form1.MainFrame.openChildForm(new Login());
                         this.Close();
                         MessageBox.Show("注册成功!");
                     }
@@ -88,9 +83,6 @@ namespace TODOList
                     {
                         MessageBox.Show("注册失败!");
                     }
-                    
-                cmd.Dispose();
-                conn.Close();
 
                 }               
             }
@@ -114,14 +106,21 @@ namespace TODOList
 
         private void label3_Click(object sender, EventArgs e)
         {
-            Login flo = new Login();
-            flo.Show();
+            if(Form1.MainFrame != null)
+            {
+                Form1.MainFrame.openChildForm(new Login());
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             textBox2.UseSystemPasswordChar = false;
             textBox3.UseSystemPasswordChar = false;
+        }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+            groupBox1.BackColor = Color.FromArgb(232, 232, 232);
         }
     }
 }
