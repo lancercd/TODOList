@@ -63,6 +63,16 @@ namespace TODOList.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap add_red_icon {
+            get {
+                object obj = ResourceManager.GetObject("add_red_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap add_write_icon {
             get {
                 object obj = ResourceManager.GetObject("add_write_icon", resourceCulture);

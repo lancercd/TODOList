@@ -199,7 +199,7 @@ namespace TODOList.utils
 
         public static int insert(string sql)
         {
-            return Convert.ToInt32(DB.getOne(sql));
+            return Convert.ToInt32(DB.getOne(sql + "; SELECT @@Identity;"));
         }
 
         private static LinkedList<Dictionary<Object, Object>> FormData(SqlDataReader sourse)

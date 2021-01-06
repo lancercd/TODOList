@@ -40,7 +40,6 @@ namespace TODOList
         }
 
 
-
         /**
          * 打开右侧窗口
          */
@@ -64,10 +63,14 @@ namespace TODOList
         private void rightSizePanelDataRender(TaskBox task)
         {
             int id = task.id;
-            LinkedList<Dictionary<Object, Object>> steps = getTaskStep(id);
             string title = task.TeskTitle;
+            LinkedList<Dictionary<Object, Object>> steps = getTaskStep(id);
+            
 
             StepPanel.Controls.Clear();
+
+            //添加步骤按钮
+            addStep(id, task.Describe);
 
             RightSideTitleLabel.Text = title;
             //遍历task
@@ -91,17 +94,86 @@ namespace TODOList
             }
 
 
+            
+            
+
+        }
+
+        //添加步骤按钮
+        private void addStep(int id, string describe)
+        {
             //添加步骤按钮
-            StepBox addStepBox = new StepBox();
+            addStepBox = new StepBox();
+            addStepBox.stepRightIcon.Visible = false;
+            addStepBox.stepLeftIcon.Image = Properties.Resources.add_red_icon;
+            addStepBox.afTextBox1.edit.ForeColor = Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             addStepBox.title = "添加步骤";
+            addStepBox.EnterPressEvent += new EventHandler(onEnterPressEvent);
             //taskId
             addStepBox.id = id;
             stepStyle(addStepBox);
             StepPanel.Controls.Add(addStepBox);
 
-            DetilTextBox.Text = task.Describe;
-
+            DetilTextBox.Text = describe;
         }
+
+
+        /**
+         * 添加步骤
+         */
+        private void onEnterPressEvent(object sender, EventArgs e)
+        {
+            StepBox box = sender as StepBox;
+            string stepTile = addStepBox.afTextBox1.Text;
+            if (stepTile == "") return;
+            int sort = 50;
+            int id = DB.insert("INSERT INTO tb_step (task_id, detail, sort ) VALUES ( " +
+                                    box.id + ", '" +
+                                    stepTile + "', " +
+                                    sort + " )");
+
+
+            StepPanel.Controls.Clear();
+            //添加步骤按钮
+            addStep(box.id, "");
+            LinkedList<Dictionary<Object, Object>> steps = getTaskStep(box.id);
+            
+
+            //遍历task
+            foreach (Dictionary<Object, Object> step in steps)
+            {
+                StepBox stepBox = new StepBox();
+
+                //填充数据
+                stepBox.id = Convert.ToInt32(step["Id"]);
+                stepBox.task_id = Convert.ToInt32(step["task_id"]);
+                stepBox.title = Convert.ToString(step["detail"]);
+                stepBox.sort = Convert.ToInt32(step["sort"]);
+                stepBox.isCorrent = Convert.ToBoolean(step["is_corrent"]);
+                stepBox.isFinish = Convert.ToBoolean(step["is_accomplish"]);
+                stepStyle(stepBox);
+
+                //添加进页面
+                StepPanel.Controls.Add(stepBox);
+            }
+
+            
+
+            //填充数据
+            //stepBox.id = id;
+            //stepBox.task_id = box.id;
+            //stepBox.title = stepTile;
+            //stepBox.sort = sort;
+            //stepBox.isCorrent = false;
+            //stepBox.isFinish = false;
+
+            //box.afTextBox1.Text = "添加步骤";
+
+            //stepStyle(stepBox);
+            ////添加进页面
+            //StepPanel.Controls.Add(stepBox);
+        }
+
 
         /**
          * 设置任务步骤控件样式
@@ -211,7 +283,7 @@ namespace TODOList
                                     title + "', " +
                                     now + ", '" +
                                     Convert.ToInt32(is_important_page) +
-                                    "' ); SELECT @@Identity;");
+                                    "' )");
 
             TaskBox taskbox = new TaskBox();
             taskbox.id = id;
@@ -235,6 +307,23 @@ namespace TODOList
         {
             TaskBox task = sender as TaskBox;
             active_right_side_Penal(task);
+        }
+
+
+
+        private void onAddDeadLineBtn(object sender, EventArgs e)
+        {
+            MessageBox.Show("deadline");
+        }
+
+        private void onAddAlertBtn(object sender, EventArgs e)
+        {
+            MessageBox.Show("alert");
+        }
+
+        private void onAddToOtherBtn(object sender, EventArgs e)
+        {
+            MessageBox.Show("addBtn click 添加到");
         }
     }
 }

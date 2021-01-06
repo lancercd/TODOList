@@ -84,6 +84,7 @@
             this.afTextBox1.Size = new System.Drawing.Size(169, 40);
             this.afTextBox1.TabIndex = 3;
             this.afTextBox1.Text = "afTextBox1";
+            this.afTextBox1.EnterPress += new System.EventHandler(this.onEnterPressEvent);
             this.afTextBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onMouseHoverStepBox);
             this.afTextBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.onMouseHoverStepBox);
             // 
@@ -104,8 +105,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label stepLeftIcon;
-        private System.Windows.Forms.Label stepRightIcon;
+        public System.Windows.Forms.Label stepLeftIcon;
+        public System.Windows.Forms.Label stepRightIcon;
         public components.AfTextBox afTextBox1;
     }
 }

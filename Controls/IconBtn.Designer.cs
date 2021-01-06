@@ -48,6 +48,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(288, 46);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Click += new System.EventHandler(this.onBtnClickEvent);
             this.tableLayoutPanel1.MouseLeave += new System.EventHandler(this.onMouseLeaveIconBtn);
             this.tableLayoutPanel1.MouseHover += new System.EventHandler(this.onMouseHoverIconBtn);
             // 
@@ -70,6 +71,7 @@
             this.afLabelBox1.Size = new System.Drawing.Size(216, 40);
             this.afLabelBox1.TabIndex = 1;
             this.afLabelBox1.Text = "afLabelBox1";
+            this.afLabelBox1.Click += new System.EventHandler(this.onBtnClickEvent);
             // 
             // IconBtn
             // 

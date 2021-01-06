@@ -20,6 +20,9 @@ namespace TODOList.Controls
         private bool is_corrent;
         private bool is_accomplish;
 
+
+        public bool is_other_btn = false;
+
         
 
         public string title
@@ -35,8 +38,12 @@ namespace TODOList.Controls
             {
                 is_accomplish = value;
                 //图标切换
-                if (value) stepLeftIcon.Image = Properties.Resources.finished;
-                else stepLeftIcon.Image = Properties.Resources.unfinished;
+                if (!is_other_btn)
+                {
+                    if (value) stepLeftIcon.Image = Properties.Resources.finished;
+                    else stepLeftIcon.Image = Properties.Resources.unfinished;
+                }
+                
             }
         }
 
@@ -84,15 +91,30 @@ namespace TODOList.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public event EventHandler StepLeftIconClick;
 
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public event EventHandler IconBtnClickEvent;
 
         private void onStepLeftIconClick(object sender, EventArgs e)
         {
-            isFinish = !isFinish;
+            if (IconBtnClickEvent != null)
+            {
+                IconBtnClickEvent?.Invoke(this, e);
+                return;
+            }
+            if (!is_other_btn) isFinish = !isFinish;
+            
             StepLeftIconClick?.Invoke(this, e);
         }
 
         private void onMouseHoverIconBtn(object sender, MouseEventArgs e)
         {
+        }
+
+
+        private void onBtnClickEvent(object sender, EventArgs e)
+        {
+            IconBtnClickEvent?.Invoke(this, e);
         }
     }
 }

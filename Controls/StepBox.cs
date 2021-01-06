@@ -69,6 +69,8 @@ namespace TODOList.Controls
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public event EventHandler StepLeftIconClick;
+        
+        
 
 
         private void onStepLeftIconClick(object sender, EventArgs e)
@@ -80,6 +82,16 @@ namespace TODOList.Controls
         private void onMouseHoverStepBox(object sender, MouseEventArgs e)
         {
             stepRightIcon.Visible = true;
+        }
+
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public event EventHandler EnterPressEvent;
+
+        private void onEnterPressEvent(object sender, EventArgs e)
+        {
+            EnterPressEvent?.Invoke(this, e);
         }
     }
 }

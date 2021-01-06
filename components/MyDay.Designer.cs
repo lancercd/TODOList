@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
             this.taskListPanel = new System.Windows.Forms.Panel();
+            this.taskBox1 = new TODOList.components.TaskBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.addTaskBox1 = new TODOList.components.addTaskBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,8 +54,7 @@
             this.panel33 = new System.Windows.Forms.Panel();
             this.RightSideTitleLabel = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.taskBox1 = new TODOList.components.TaskBox();
+            this.radioButton1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
             this.taskListPanel.SuspendLayout();
@@ -102,6 +102,20 @@
             this.taskListPanel.Name = "taskListPanel";
             this.taskListPanel.Size = new System.Drawing.Size(689, 495);
             this.taskListPanel.TabIndex = 1;
+            // 
+            // taskBox1
+            // 
+            this.taskBox1.AutoSize = true;
+            this.taskBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.taskBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.taskBox1.Describe = null;
+            this.taskBox1.isImportantTask = false;
+            this.taskBox1.Location = new System.Drawing.Point(0, 0);
+            this.taskBox1.Name = "taskBox1";
+            this.taskBox1.Size = new System.Drawing.Size(128, 0);
+            this.taskBox1.TabIndex = 0;
+            this.taskBox1.TeskTitle = "taskBox1";
+            this.taskBox1.Text = "taskBox1";
             // 
             // panel4
             // 
@@ -234,6 +248,7 @@
             this.AddToOtherBtn.Size = new System.Drawing.Size(238, 55);
             this.AddToOtherBtn.TabIndex = 0;
             this.AddToOtherBtn.title = null;
+            this.AddToOtherBtn.IconBtnClickEvent += new System.EventHandler(this.onAddToOtherBtn);
             // 
             // panel20
             // 
@@ -257,6 +272,7 @@
             this.AddAlertBtn.Size = new System.Drawing.Size(238, 46);
             this.AddAlertBtn.TabIndex = 1;
             this.AddAlertBtn.title = null;
+            this.AddAlertBtn.IconBtnClickEvent += new System.EventHandler(this.onAddAlertBtn);
             // 
             // AddDeadLineBtn
             // 
@@ -269,6 +285,7 @@
             this.AddDeadLineBtn.Size = new System.Drawing.Size(238, 46);
             this.AddDeadLineBtn.TabIndex = 0;
             this.AddDeadLineBtn.title = null;
+            this.AddDeadLineBtn.IconBtnClickEvent += new System.EventHandler(this.onAddDeadLineBtn);
             // 
             // panel22
             // 
@@ -333,28 +350,12 @@
             // 
             // radioButton1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(16, 23);
+            this.radioButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioButton1.Image = global::TODOList.Properties.Resources.circle;
+            this.radioButton1.Location = new System.Drawing.Point(0, 0);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(44, 19);
+            this.radioButton1.Size = new System.Drawing.Size(79, 62);
             this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "xx";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // taskBox1
-            // 
-            this.taskBox1.AutoSize = true;
-            this.taskBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.taskBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.taskBox1.Describe = null;
-            this.taskBox1.isImportantTask = false;
-            this.taskBox1.Location = new System.Drawing.Point(0, 0);
-            this.taskBox1.Name = "taskBox1";
-            this.taskBox1.Size = new System.Drawing.Size(128, 0);
-            this.taskBox1.TabIndex = 0;
-            this.taskBox1.TeskTitle = "taskBox1";
-            this.taskBox1.Text = "taskBox1";
             // 
             // MyDay
             // 
@@ -384,7 +385,6 @@
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
             this.panel32.ResumeLayout(false);
-            this.panel32.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -408,7 +408,6 @@
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.Label RightSideTitleLabel;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label shawTimeLabel;
         private System.Windows.Forms.Label childFormTitle;
         private components.addTaskBox addTaskBox1;
@@ -417,5 +416,8 @@
         private Controls.IconBtn AddDeadLineBtn;
         private components.AfTextBox DetilTextBox;
         private components.TaskBox taskBox1;
+        private System.Windows.Forms.Label radioButton1;
+
+        private Controls.StepBox addStepBox;
     }
 }
