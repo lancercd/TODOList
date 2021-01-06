@@ -32,9 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
             this.taskListPanel = new System.Windows.Forms.Panel();
-            this.taskBox1 = new TODOList.components.TaskBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.addTaskBox1 = new TODOList.components.addTaskBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.shawTimeLabel = new System.Windows.Forms.Label();
             this.childFormTitle = new System.Windows.Forms.Label();
@@ -42,12 +40,8 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.DetilTextBox = new TODOList.components.AfTextBox();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.AddToOtherBtn = new TODOList.Controls.IconBtn();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.AddAlertBtn = new TODOList.Controls.IconBtn();
-            this.AddDeadLineBtn = new TODOList.Controls.IconBtn();
             this.panel22 = new System.Windows.Forms.Panel();
             this.StepPanel = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
@@ -55,6 +49,12 @@
             this.RightSideTitleLabel = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.Label();
+            this.taskBox1 = new TODOList.components.TaskBox();
+            this.addTaskBox1 = new TODOList.components.addTaskBox();
+            this.DetilTextBox = new TODOList.components.AfTextBox();
+            this.AddToOtherBtn = new TODOList.Controls.IconBtn();
+            this.AddAlertBtn = new TODOList.Controls.StepBox();
+            this.AddDeadLineBtn = new TODOList.Controls.StepBox();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
             this.taskListPanel.SuspendLayout();
@@ -103,20 +103,6 @@
             this.taskListPanel.Size = new System.Drawing.Size(689, 495);
             this.taskListPanel.TabIndex = 1;
             // 
-            // taskBox1
-            // 
-            this.taskBox1.AutoSize = true;
-            this.taskBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.taskBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.taskBox1.Describe = null;
-            this.taskBox1.isImportantTask = false;
-            this.taskBox1.Location = new System.Drawing.Point(0, 0);
-            this.taskBox1.Name = "taskBox1";
-            this.taskBox1.Size = new System.Drawing.Size(128, 0);
-            this.taskBox1.TabIndex = 0;
-            this.taskBox1.TeskTitle = "taskBox1";
-            this.taskBox1.Text = "taskBox1";
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
@@ -126,17 +112,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(689, 105);
             this.panel4.TabIndex = 2;
-            // 
-            // addTaskBox1
-            // 
-            this.addTaskBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.addTaskBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
-            this.addTaskBox1.Name = "addTaskBox1";
-            this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
-            this.addTaskBox1.TabIndex = 2;
-            this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
             // 
             // panel2
             // 
@@ -215,17 +190,6 @@
             this.panel19.Size = new System.Drawing.Size(238, 71);
             this.panel19.TabIndex = 1;
             // 
-            // DetilTextBox
-            // 
-            this.DetilTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.DetilTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DetilTextBox.Location = new System.Drawing.Point(10, 0);
-            this.DetilTextBox.Name = "DetilTextBox";
-            this.DetilTextBox.Size = new System.Drawing.Size(228, 71);
-            this.DetilTextBox.TabIndex = 0;
-            this.DetilTextBox.Text = "afTextBox1";
-            this.DetilTextBox.EnterPress += new System.EventHandler(this.onDetilTextBox);
-            // 
             // panel21
             // 
             this.panel21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -237,20 +201,6 @@
             this.panel21.Size = new System.Drawing.Size(238, 55);
             this.panel21.TabIndex = 0;
             // 
-            // AddToOtherBtn
-            // 
-            this.AddToOtherBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AddToOtherBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddToOtherBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddToOtherBtn.Image")));
-            this.AddToOtherBtn.isCorrent = false;
-            this.AddToOtherBtn.isFinish = false;
-            this.AddToOtherBtn.Location = new System.Drawing.Point(0, 0);
-            this.AddToOtherBtn.Name = "AddToOtherBtn";
-            this.AddToOtherBtn.Size = new System.Drawing.Size(238, 55);
-            this.AddToOtherBtn.TabIndex = 0;
-            this.AddToOtherBtn.title = null;
-            this.AddToOtherBtn.IconBtnClickEvent += new System.EventHandler(this.onAddToOtherBtn);
-            // 
             // panel20
             // 
             this.panel20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -261,32 +211,6 @@
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(238, 126);
             this.panel20.TabIndex = 1;
-            // 
-            // AddAlertBtn
-            // 
-            this.AddAlertBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AddAlertBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddAlertBtn.Image")));
-            this.AddAlertBtn.isCorrent = false;
-            this.AddAlertBtn.isFinish = false;
-            this.AddAlertBtn.Location = new System.Drawing.Point(0, 46);
-            this.AddAlertBtn.Name = "AddAlertBtn";
-            this.AddAlertBtn.Size = new System.Drawing.Size(238, 46);
-            this.AddAlertBtn.TabIndex = 1;
-            this.AddAlertBtn.title = null;
-            this.AddAlertBtn.IconBtnClickEvent += new System.EventHandler(this.onAddAlertBtn);
-            // 
-            // AddDeadLineBtn
-            // 
-            this.AddDeadLineBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AddDeadLineBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddDeadLineBtn.Image")));
-            this.AddDeadLineBtn.isCorrent = false;
-            this.AddDeadLineBtn.isFinish = false;
-            this.AddDeadLineBtn.Location = new System.Drawing.Point(0, 0);
-            this.AddDeadLineBtn.Name = "AddDeadLineBtn";
-            this.AddDeadLineBtn.Size = new System.Drawing.Size(238, 46);
-            this.AddDeadLineBtn.TabIndex = 0;
-            this.AddDeadLineBtn.title = null;
-            this.AddDeadLineBtn.IconBtnClickEvent += new System.EventHandler(this.onAddDeadLineBtn);
             // 
             // panel22
             // 
@@ -358,6 +282,82 @@
             this.radioButton1.Size = new System.Drawing.Size(79, 62);
             this.radioButton1.TabIndex = 0;
             // 
+            // taskBox1
+            // 
+            this.taskBox1.AutoSize = true;
+            this.taskBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.taskBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.taskBox1.Describe = null;
+            this.taskBox1.isImportantTask = false;
+            this.taskBox1.Location = new System.Drawing.Point(0, 0);
+            this.taskBox1.Name = "taskBox1";
+            this.taskBox1.Size = new System.Drawing.Size(128, 0);
+            this.taskBox1.TabIndex = 0;
+            this.taskBox1.TeskTitle = "taskBox1";
+            this.taskBox1.Text = "taskBox1";
+            // 
+            // addTaskBox1
+            // 
+            this.addTaskBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addTaskBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
+            this.addTaskBox1.Name = "addTaskBox1";
+            this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
+            this.addTaskBox1.TabIndex = 2;
+            this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
+            // 
+            // DetilTextBox
+            // 
+            this.DetilTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.DetilTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DetilTextBox.Location = new System.Drawing.Point(10, 0);
+            this.DetilTextBox.Name = "DetilTextBox";
+            this.DetilTextBox.Size = new System.Drawing.Size(228, 71);
+            this.DetilTextBox.TabIndex = 0;
+            this.DetilTextBox.Text = "afTextBox1";
+            this.DetilTextBox.EnterPress += new System.EventHandler(this.onDetilTextBox);
+            // 
+            // AddToOtherBtn
+            // 
+            this.AddToOtherBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AddToOtherBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddToOtherBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddToOtherBtn.Image")));
+            this.AddToOtherBtn.isCorrent = false;
+            this.AddToOtherBtn.isFinish = false;
+            this.AddToOtherBtn.Location = new System.Drawing.Point(0, 0);
+            this.AddToOtherBtn.Name = "AddToOtherBtn";
+            this.AddToOtherBtn.Size = new System.Drawing.Size(238, 55);
+            this.AddToOtherBtn.TabIndex = 0;
+            this.AddToOtherBtn.title = null;
+            this.AddToOtherBtn.IconBtnClickEvent += new System.EventHandler(this.onAddToOtherBtn);
+            // 
+            // AddAlertBtn
+            // 
+            this.AddAlertBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AddAlertBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddAlertBtn.Image")));
+            this.AddAlertBtn.isCorrent = false;
+            this.AddAlertBtn.isFinish = false;
+            this.AddAlertBtn.Location = new System.Drawing.Point(0, 46);
+            this.AddAlertBtn.Name = "AddAlertBtn";
+            this.AddAlertBtn.Size = new System.Drawing.Size(238, 46);
+            this.AddAlertBtn.TabIndex = 1;
+            this.AddAlertBtn.title = null;
+            this.AddAlertBtn.EnterPressEvent += new System.EventHandler(this.onAddAlertBtn);
+            // 
+            // AddDeadLineBtn
+            // 
+            this.AddDeadLineBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AddDeadLineBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddDeadLineBtn.Image")));
+            this.AddDeadLineBtn.isCorrent = false;
+            this.AddDeadLineBtn.isFinish = false;
+            this.AddDeadLineBtn.Location = new System.Drawing.Point(0, 0);
+            this.AddDeadLineBtn.Name = "AddDeadLineBtn";
+            this.AddDeadLineBtn.Size = new System.Drawing.Size(238, 46);
+            this.AddDeadLineBtn.TabIndex = 0;
+            this.AddDeadLineBtn.title = null;
+            this.AddDeadLineBtn.EnterPressEvent += new System.EventHandler(this.onAddDeadLineBtn);
+            // 
             // MyDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -413,12 +413,12 @@
         private System.Windows.Forms.Label childFormTitle;
         private components.addTaskBox addTaskBox1;
         private Controls.IconBtn AddToOtherBtn;
-        private Controls.IconBtn AddAlertBtn;
-        private Controls.IconBtn AddDeadLineBtn;
         private components.AfTextBox DetilTextBox;
         private components.TaskBox taskBox1;
         private System.Windows.Forms.Label radioButton1;
 
         private Controls.StepBox addStepBox;
+        private Controls.StepBox AddAlertBtn;
+        private Controls.StepBox AddDeadLineBtn;
     }
 }

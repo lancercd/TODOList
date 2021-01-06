@@ -21,9 +21,13 @@ namespace TODOList.components
             label.Name = "afTextBox1";
             label.Size = new System.Drawing.Size(479, 98);
             this.Controls.Add(label);
+
+            //afTextBox1.edit.PlaceHolderStr = "okkkk";
         }
 
+        private void placeholderTextBox1_TextChanged(object sender, EventArgs e)
+        {
 
-        
+        }
     }
 }

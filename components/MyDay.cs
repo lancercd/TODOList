@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Windows.Forms;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +37,25 @@ namespace TODOList
             AddDeadLineBtn.Text = "添加截止日期";
             AddDeadLineBtn.Image = Properties.Resources.course_table;
             RightSidePanel.Size = new Size(0, RightSidePanel.Size.Height);
+
+            DetilTextBox.edit.PlaceHolderStr = "添加备注!";
+
+
+            AddDeadLineBtn.afTextBox1.edit.PlaceHolderStr = "添加截止日期";
+            AddAlertBtn.afTextBox1.edit.PlaceHolderStr = "提醒我";
+
+            AddDeadLineBtn.is_other_btn = true;
+            AddAlertBtn.is_other_btn = true;
+
+
+
+            NotifyIcon fyIcon = new NotifyIcon();
+            //fyIcon.Icon = new Icon("finished.ico");/*找一个ico图标将其拷贝到 debug 目录下*/
+            fyIcon.BalloonTipText = "Hello World！";/*必填提示内容*/
+            fyIcon.BalloonTipTitle = "通知";
+            fyIcon.Visible = true;/*必须设置显隐，因为默认值是 false 不显示通知*/
+            fyIcon.ShowBalloonTip(0);
+
 
 
 
@@ -332,13 +353,25 @@ namespace TODOList
 
         private void onAddDeadLineBtn(object sender, EventArgs e)
         {
-            MessageBox.Show("deadline");
+            StepBox box = sender as StepBox;
+            string value = box.afTextBox1.Text;
+            long time = TimeUtil.getSeconds(value);
+            //2010 - 01 - 05 15:14:20
+
+            int num = DB.getEffNum(string.Format("UPDATE tb_task SET deadline = {0} WHERE Id = {1}", time, box.id));
+
         }
 
         private void onAddAlertBtn(object sender, EventArgs e)
         {
-            MessageBox.Show("alert");
+            StepBox box = sender as StepBox;
+            string value = box.afTextBox1.Text;
+            long time = TimeUtil.getSeconds(value);
+            //2010 - 01 - 05 15:14:20
+
+            int num = DB.getEffNum(string.Format("UPDATE tb_task SET deadline = {0} WHERE Id = {1}", time, box.id));
         }
+
 
         private void onAddToOtherBtn(object sender, EventArgs e)
         {
