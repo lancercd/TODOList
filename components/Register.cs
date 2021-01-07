@@ -75,6 +75,7 @@ namespace TODOList
 
                     if (num > 0)
                     {
+
                         Form1.MainFrame.openChildForm(new Login());
                         this.Close();
                         MessageBox.Show("注册成功!");

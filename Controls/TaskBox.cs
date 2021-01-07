@@ -25,6 +25,8 @@ namespace TODOList.components
         private bool is_important;
 
 
+        
+
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool isImportantTask
@@ -67,6 +69,8 @@ namespace TODOList.components
         }
 
   
+
+
 
         public TaskBox()
         {

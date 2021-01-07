@@ -36,6 +36,14 @@ namespace TODOList
 
         public MyDay()
         {
+            if(Form1.MainFrame != null)
+            {
+                uid = Form1.uid;
+                Form1.MainFrame.show_listing();
+            }
+
+
+            
             InitializeComponent();
             
             init();
@@ -43,6 +51,11 @@ namespace TODOList
 
         public MyDay(string title, bool isListingPage, bool isImportantPage, int listingId, int p_index)
         {
+            if (Form1.MainFrame != null)
+            {
+                uid = Form1.uid;
+                Form1.MainFrame.show_listing();
+            }
             InitializeComponent();
             childFormTitle.Text = title;
             this.p_index = p_index;
@@ -436,6 +449,15 @@ namespace TODOList
             //2010 - 01 - 05 15:14:20
 
             int num = DB.getEffNum(string.Format("UPDATE tb_task SET deadline = {0} WHERE Id = {1}", time, box.id));
+
+
+            //string describu = afTextBox.Text;
+
+            //int num = DB.getEffNum(string.Format("UPDATE tb_task SET detail = '{0}' WHERE Id = {1}", describu, id));
+            //MessageBox.Show(describu);
+
+            //RightSizeObj.Describe = describu;
+
 
         }
 

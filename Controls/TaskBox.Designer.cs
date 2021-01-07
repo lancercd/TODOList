@@ -36,6 +36,7 @@
             this.TitlePanel = new System.Windows.Forms.Panel();
             this.TaskTitleLabel = new System.Windows.Forms.Label();
             this.DescribePanel = new System.Windows.Forms.Panel();
+            this.deadLineLabel = new System.Windows.Forms.Label();
             this.DescribeText = new System.Windows.Forms.Label();
             this.LeftPanl.SuspendLayout();
             this.RightPanel.SuspendLayout();
@@ -115,6 +116,7 @@
             // 
             // DescribePanel
             // 
+            this.DescribePanel.Controls.Add(this.deadLineLabel);
             this.DescribePanel.Controls.Add(this.DescribeText);
             this.DescribePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DescribePanel.Location = new System.Drawing.Point(0, 36);
@@ -122,6 +124,14 @@
             this.DescribePanel.Size = new System.Drawing.Size(592, 24);
             this.DescribePanel.TabIndex = 0;
             this.DescribePanel.Click += new System.EventHandler(this.onTaskClick);
+            // 
+            // deadLineLabel
+            // 
+            this.deadLineLabel.AutoSize = true;
+            this.deadLineLabel.Location = new System.Drawing.Point(142, 7);
+            this.deadLineLabel.Name = "deadLineLabel";
+            this.deadLineLabel.Size = new System.Drawing.Size(0, 15);
+            this.deadLineLabel.TabIndex = 1;
             // 
             // DescribeText
             // 
@@ -169,5 +179,6 @@
         private System.Windows.Forms.Label TaskTitleLabel;
         private System.Windows.Forms.Label DescribeText;
         private System.Windows.Forms.Label RightIcon;
+        private System.Windows.Forms.Label deadLineLabel;
     }
 }

@@ -46,6 +46,7 @@ namespace TODOList
                 if (data.Count != 0)
                 {
                     Dictionary<Object, Object> user = data.First();
+                    Form1.uid = Convert.ToInt32(user["uid"]);
                     PassVar.Uid = Convert.ToInt32(user["uid"]);
                     if (Form1.MainFrame != null)
                     {

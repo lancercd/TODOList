@@ -157,14 +157,14 @@ namespace TODOList
             string title = cListingBtn.afTextBox1.Text;
             if (title == "") return;
             int id = DB.insert("INSERT INTO tb_listing (uid, title) VALUES ( " +
-                                    uid + ", '" +
+                                    uid + ", N'" +
                                     title + "' )");
 
             show_listing();
         }
 
 
-        private void show_listing()
+        public void show_listing()
         {
             ListingPanel.Controls.Clear();
             createAddListingBtn();
@@ -225,8 +225,8 @@ namespace TODOList
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //isLogin();
-            show_listing();
+            isLogin();
+            //show_listing();
 
         }
 
