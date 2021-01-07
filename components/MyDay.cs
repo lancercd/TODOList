@@ -199,7 +199,7 @@ namespace TODOList
             if (stepTile == "") return;
             int sort = 50;
             int id = DB.insert("INSERT INTO tb_step (task_id, detail, sort ) VALUES ( " +
-                                    box.id + ", '" +
+                                    box.id + ", N'" +
                                     stepTile + "', " +
                                     sort + " )");
 
@@ -396,7 +396,7 @@ namespace TODOList
             if (listingId != 0)
             {
                 id = DB.insert("INSERT INTO tb_task (uid, title, p_index, add_time, is_important, listing_id ) VALUES ( " +
-                                    uid + ", '" +
+                                    uid + ", N'" +
                                     title + "', " +
                                     0 + ", " +
                                     now + ", '" +
@@ -407,7 +407,7 @@ namespace TODOList
             {
                 id = DB.insert("INSERT INTO tb_task (uid, p_index, title, add_time, is_important ) VALUES ( " +
                                     uid + ", " +
-                                    p_index + ", '" +
+                                    p_index + ", N'" +
                                     title + "', " +
                                     now + ", '" +
                                     Convert.ToInt32(is_important_page) +
@@ -496,7 +496,7 @@ namespace TODOList
             int id = afTextBox.id;
             string describu = afTextBox.Text;
 
-            int num = DB.getEffNum(string.Format("UPDATE tb_task SET detail = '{0}' WHERE Id = {1}", describu, id));
+            int num = DB.getEffNum(string.Format("UPDATE tb_task SET detail = N'{0}' WHERE Id = {1}", describu, id));
             //MessageBox.Show(describu);
 
             RightSizeObj.Describe = describu;
