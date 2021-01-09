@@ -58,7 +58,7 @@ namespace TODOList.Controls
 
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public string Text
+        public override string Text
         {
             get { return afLabelBox1.Text; }
             set { afLabelBox1.Text = value; }

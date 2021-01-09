@@ -75,5 +75,28 @@ namespace TODOList.components
             }
 
         }
+
+
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public event EventHandler onAfLabelBoxClick;
+
+
+        /**
+         * label被点击
+         */
+        private void onEditClick(object sender, EventArgs e)
+        {
+            onAfLabelBoxClick?.Invoke(this, e);
+        }
+
+        /**
+         * 背景被点击
+         */
+        private void onBgClick(object sender, EventArgs e)
+        {
+            onAfLabelBoxClick?.Invoke(this, e);
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace TODOList
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             
-            //Application.Run(new Test2());
+            //Application.Run(new Test());
         }
     }
 }

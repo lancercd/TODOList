@@ -12,7 +12,7 @@ using Microsoft.VisualBasic;
 using TODOList.utils;
 using TODOList.Controls;
 
-//2010 - 01 - 05 15:14:20
+
 
 namespace TODOList
 {

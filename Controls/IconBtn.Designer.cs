@@ -46,7 +46,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(288, 46);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(273, 55);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Click += new System.EventHandler(this.onBtnClickEvent);
             this.tableLayoutPanel1.MouseLeave += new System.EventHandler(this.onMouseLeaveIconBtn);
@@ -58,7 +58,7 @@
             this.stepLeftIcon.Image = global::TODOList.Properties.Resources.time;
             this.stepLeftIcon.Location = new System.Drawing.Point(3, 0);
             this.stepLeftIcon.Name = "stepLeftIcon";
-            this.stepLeftIcon.Size = new System.Drawing.Size(60, 46);
+            this.stepLeftIcon.Size = new System.Drawing.Size(60, 55);
             this.stepLeftIcon.TabIndex = 0;
             this.stepLeftIcon.Click += new System.EventHandler(this.onStepLeftIconClick);
             // 
@@ -68,10 +68,10 @@
             this.afLabelBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.afLabelBox1.Location = new System.Drawing.Point(69, 3);
             this.afLabelBox1.Name = "afLabelBox1";
-            this.afLabelBox1.Size = new System.Drawing.Size(216, 40);
+            this.afLabelBox1.Size = new System.Drawing.Size(201, 49);
             this.afLabelBox1.TabIndex = 1;
             this.afLabelBox1.Text = "afLabelBox1";
-            this.afLabelBox1.Click += new System.EventHandler(this.onBtnClickEvent);
+            this.afLabelBox1.onAfLabelBoxClick += new System.EventHandler(this.onBtnClickEvent);
             // 
             // IconBtn
             // 
@@ -79,7 +79,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "IconBtn";
-            this.Size = new System.Drawing.Size(288, 46);
+            this.Size = new System.Drawing.Size(273, 55);
             this.MouseLeave += new System.EventHandler(this.onMouseLeaveIconBtn);
             this.MouseHover += new System.EventHandler(this.onMouseHoverIconBtn);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -91,6 +91,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label stepLeftIcon;
-        private components.AfLabelBox afLabelBox1;
+        public components.AfLabelBox afLabelBox1;
     }
 }

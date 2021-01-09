@@ -39,6 +39,7 @@
             this.edit.TabIndex = 1;
             this.edit.Text = "label1";
             this.edit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.edit.Click += new System.EventHandler(this.onEditClick);
             // 
             // AfLabelBox
             // 
@@ -47,6 +48,7 @@
             this.Controls.Add(this.edit);
             this.Name = "AfLabelBox";
             this.Size = new System.Drawing.Size(374, 82);
+            this.Click += new System.EventHandler(this.onBgClick);
             this.ResumeLayout(false);
 
         }

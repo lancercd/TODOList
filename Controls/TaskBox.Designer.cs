@@ -104,15 +104,14 @@
             // 
             // TaskTitleLabel
             // 
-            this.TaskTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.TaskTitleLabel.AutoSize = true;
+            this.TaskTitleLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.TaskTitleLabel.Font = new System.Drawing.Font("黑体", 12F);
-            this.TaskTitleLabel.Location = new System.Drawing.Point(6, 11);
+            this.TaskTitleLabel.Location = new System.Drawing.Point(0, 0);
             this.TaskTitleLabel.Name = "TaskTitleLabel";
-            this.TaskTitleLabel.Size = new System.Drawing.Size(59, 20);
+            this.TaskTitleLabel.Size = new System.Drawing.Size(116, 36);
             this.TaskTitleLabel.TabIndex = 0;
             this.TaskTitleLabel.Text = "任务1";
+            this.TaskTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DescribePanel
             // 
@@ -161,7 +160,6 @@
             this.RightPanel.ResumeLayout(false);
             this.CenterPanel.ResumeLayout(false);
             this.TitlePanel.ResumeLayout(false);
-            this.TitlePanel.PerformLayout();
             this.DescribePanel.ResumeLayout(false);
             this.DescribePanel.PerformLayout();
             this.ResumeLayout(false);
