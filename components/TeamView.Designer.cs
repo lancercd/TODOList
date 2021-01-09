@@ -102,7 +102,6 @@
             // 
             // taskListPanel
             // 
-            this.taskListPanel.AutoScroll = true;
             this.taskListPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.taskListPanel.Controls.Add(this.panel5);
             this.taskListPanel.Controls.Add(this.panel3);
@@ -117,9 +116,10 @@
             // 
             this.panel5.Controls.Add(this.AllPanel);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(469, 324);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 175);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(227, 134);
+            this.panel5.Size = new System.Drawing.Size(764, 235);
             this.panel5.TabIndex = 7;
             // 
             // AllPanel
@@ -127,7 +127,7 @@
             this.AllPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllPanel.Location = new System.Drawing.Point(0, 48);
             this.AllPanel.Name = "AllPanel";
-            this.AllPanel.Size = new System.Drawing.Size(227, 86);
+            this.AllPanel.Size = new System.Drawing.Size(764, 187);
             this.AllPanel.TabIndex = 5;
             // 
             // label4
@@ -137,7 +137,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(227, 48);
+            this.label4.Size = new System.Drawing.Size(764, 48);
             this.label4.TabIndex = 4;
             this.label4.Text = "所有";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,9 +146,10 @@
             // 
             this.panel3.Controls.Add(this.JoinedPanel);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(90, 41);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(378, 153);
+            this.panel3.Size = new System.Drawing.Size(764, 175);
             this.panel3.TabIndex = 6;
             // 
             // JoinedPanel
@@ -156,7 +157,7 @@
             this.JoinedPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.JoinedPanel.Location = new System.Drawing.Point(0, 43);
             this.JoinedPanel.Name = "JoinedPanel";
-            this.JoinedPanel.Size = new System.Drawing.Size(378, 110);
+            this.JoinedPanel.Size = new System.Drawing.Size(764, 132);
             this.JoinedPanel.TabIndex = 3;
             // 
             // label1
@@ -166,7 +167,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(378, 43);
+            this.label1.Size = new System.Drawing.Size(764, 43);
             this.label1.TabIndex = 2;
             this.label1.Text = "我加入的";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
