@@ -314,6 +314,34 @@ namespace TODOList
 
 
 
+
+            AllPanel.Controls.Clear();
+            //查询数据库
+
+            LinkedList<Dictionary<Object, Object>> AllTeamData = DB.getLinkedList("SELECT " +
+                "tb_group.id id, tb_group.name name, tb_group.add_time add_time, tb_user_group.id ugid, tb_user_group.is_leader is_leader, tb_user_group.uid leader_id FROM tb_group " +
+                "INNER JOIN tb_user_group " +
+                "ON tb_group.id = tb_user_group.group_id " +
+                "WHERE is_leader = 1");
+
+
+            foreach (Dictionary<Object, Object> group in AllTeamData)
+            {
+                ShowGroupBox groupBox = new ShowGroupBox();
+                groupBox.teamName = Convert.ToString(group["name"]);
+                groupBox.id = Convert.ToInt32(group["id"]);
+                groupBox.addTime = Convert.ToUInt64(group["add_time"]);
+                groupBox.ugid = Convert.ToInt32(group["ugid"]);
+                groupBox.numCount = getTeamNumCount(groupBox.id);
+                groupBox.isLeader = (Convert.ToInt32(group["leader_id"]) == uid)? true : false;
+
+                teamBoxStyleInit(groupBox);
+                addToAllTeamPanel(groupBox);
+
+            }
+
+
+
         }
 
         //初始化groupBox样式
@@ -328,8 +356,13 @@ namespace TODOList
         {
             JoinedPanel.Controls.Add(groupBox);
         }
+        private void addToAllTeamPanel(ShowGroupBox groupBox)
+        {
+            AllPanel.Controls.Add(groupBox);
+        }
 
 
+        
         private int getTeamNumCount(int groupId)
         {
             return Convert.ToInt32(DB.getOne("SELECT COUNT(*) FROM tb_user_group WHERE group_id = " + groupId));
