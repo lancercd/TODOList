@@ -21,8 +21,6 @@ namespace TODOList.components
             label.Name = "afTextBox1";
             label.Size = new System.Drawing.Size(479, 98);
             this.Controls.Add(label);
-            iconBtn1.Text = "okkkkk";
-            iconBtn1.afLabelBox1.BackColor = Color.Black;
 
             //afTextBox1.edit.PlaceHolderStr = "okkkk";
         }

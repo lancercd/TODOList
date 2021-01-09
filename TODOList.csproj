@@ -67,6 +67,12 @@
     <Compile Include="components\AddListing.designer.cs">
       <DependentUpon>AddListing.cs</DependentUpon>
     </Compile>
+    <Compile Include="components\TeamView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="components\TeamView.Designer.cs">
+      <DependentUpon>TeamView.cs</DependentUpon>
+    </Compile>
     <Compile Include="components\Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     <Compile Include="Controls\PlaceholderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\ShowGroupBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ShowGroupBox.Designer.cs">
+      <DependentUpon>ShowGroupBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\StepBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,12 +136,6 @@
     <Compile Include="components\MyDay.Designer.cs">
       <DependentUpon>MyDay.cs</DependentUpon>
     </Compile>
-    <Compile Include="components\Ok.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="components\Ok.designer.cs">
-      <DependentUpon>Ok.cs</DependentUpon>
-    </Compile>
     <Compile Include="components\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,8 +154,12 @@
     <Compile Include="utils\PassVar.cs" />
     <Compile Include="utils\TaskCreator.cs" />
     <Compile Include="utils\TimeUtil.cs" />
+    <Compile Include="utils\Utils.cs" />
     <EmbeddedResource Include="components\AddListing.resx">
       <DependentUpon>AddListing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="components\TeamView.resx">
+      <DependentUpon>TeamView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="components\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
@@ -166,6 +176,9 @@
     <EmbeddedResource Include="Controls\IconBtn.resx">
       <DependentUpon>IconBtn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ShowGroupBox.resx">
+      <DependentUpon>ShowGroupBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\StepBox.resx">
       <DependentUpon>StepBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,9 +190,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="components\MyDay.resx">
       <DependentUpon>MyDay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="components\Ok.resx">
-      <DependentUpon>Ok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="components\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -62,6 +62,7 @@
             this.addTastRightBox.Name = "addTastRightBox";
             this.addTastRightBox.Size = new System.Drawing.Size(738, 63);
             this.addTastRightBox.TabIndex = 4;
+            this.addTastRightBox.Click += new System.EventHandler(this.onAddTaskBoxFocus);
             // 
             // addTaskBoxLabel
             // 

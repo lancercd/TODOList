@@ -104,6 +104,7 @@ namespace TODOList.components
 
 
 
+
         private void onTextBoxLostFoucs(object sender, EventArgs e)
         {
 
@@ -124,6 +125,12 @@ namespace TODOList.components
             {
                 EnterPress?.Invoke(this, e);
             }
+        }
+
+        private void onAfTextBoxClick(object sender, EventArgs e)
+        {
+
+            edit.Focus();
         }
     }
 }

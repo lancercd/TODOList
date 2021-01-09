@@ -21,7 +21,6 @@ D:\course\C#\大作业\TODOList\obj\Debug\TODOList.pdb
 D:\course\C#\大作业\TODOList\bin\Debug\TODO.mdf
 D:\course\C#\大作业\TODOList\bin\Debug\TODO_log.ldf
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.MyDay.resources
-D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Ok.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Login.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Register.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.AddListing.resources
@@ -32,3 +31,5 @@ D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Controls.StepBox.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.Test.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.components.AfLabelBox.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Controls.IconBtn.resources
+D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Controls.ShowGroupBox.resources
+D:\course\C#\大作业\TODOList\obj\Debug\TODOList.TeamView.resources

@@ -121,7 +121,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("微软雅黑 Light", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Image = global::TODOList.Properties.Resources.share_to_you;
+            this.button2.Image = global::TODOList.Properties.Resources.my_plan;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(0, 242);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -142,7 +142,7 @@
             this.btnEqualizer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEqualizer.Font = new System.Drawing.Font("微软雅黑 Light", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnEqualizer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEqualizer.Image = global::TODOList.Properties.Resources.my_plan;
+            this.btnEqualizer.Image = global::TODOList.Properties.Resources.share_to_you;
             this.btnEqualizer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEqualizer.Location = new System.Drawing.Point(0, 192);
             this.btnEqualizer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -150,7 +150,7 @@
             this.btnEqualizer.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.btnEqualizer.Size = new System.Drawing.Size(280, 50);
             this.btnEqualizer.TabIndex = 5;
-            this.btnEqualizer.Text = "       已计划日程";
+            this.btnEqualizer.Text = "       用户组";
             this.btnEqualizer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEqualizer.UseVisualStyleBackColor = false;
             this.btnEqualizer.Click += new System.EventHandler(this.btnEqualizer_Click);

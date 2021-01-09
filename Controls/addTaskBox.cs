@@ -59,7 +59,9 @@ namespace TODOList.components
 
         public void showAddBoxInput()
         {
+
             addTaskInputBox.Text = "";
+            addTaskInputBox.edit.Focus();
             hideControl(addTaskBoxLabel);
             //addTaskInputBox.Location = new System.Drawing.Point(262, 50);
             

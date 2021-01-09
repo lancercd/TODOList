@@ -30,7 +30,7 @@ namespace TODOList.components
         /// </summary>
         public void InitializeComponent()
         {
-            this.edit = new PlaceholderTextBox();
+            this.edit = new TODOList.Controls.PlaceholderTextBox();
             this.SuspendLayout();
             // 
             // edit
@@ -39,6 +39,7 @@ namespace TODOList.components
             this.edit.Font = new System.Drawing.Font("宋体", 13F);
             this.edit.Location = new System.Drawing.Point(22, 38);
             this.edit.Name = "edit";
+            this.edit.PlaceHolderStr = null;
             this.edit.Size = new System.Drawing.Size(334, 25);
             this.edit.TabIndex = 0;
             this.edit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onEnterPress);
@@ -50,6 +51,7 @@ namespace TODOList.components
             this.Controls.Add(this.edit);
             this.Name = "AfTextBox";
             this.Size = new System.Drawing.Size(374, 109);
+            this.Click += new System.EventHandler(this.onAfTextBoxClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

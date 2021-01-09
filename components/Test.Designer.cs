@@ -28,32 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Test));
-            this.label3 = new System.Windows.Forms.Label();
-            this.iconBtn1 = new TODOList.Controls.IconBtn();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.showGroupBox1 = new TODOList.Controls.ShowGroupBox();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label3
+            // flowLayoutPanel1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(153, 188);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "label3";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.flowLayoutPanel1.Controls.Add(this.showGroupBox1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(39, 25);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(686, 395);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // iconBtn1
+            // showGroupBox1
             // 
-            this.iconBtn1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.iconBtn1.Image = ((System.Drawing.Image)(resources.GetObject("iconBtn1.Image")));
-            this.iconBtn1.isCorrent = false;
-            this.iconBtn1.isFinish = false;
-            this.iconBtn1.Location = new System.Drawing.Point(320, 81);
-            this.iconBtn1.Name = "iconBtn1";
-            this.iconBtn1.Size = new System.Drawing.Size(288, 46);
-            this.iconBtn1.TabIndex = 9;
-            this.iconBtn1.title = null;
+            this.showGroupBox1.addTime = 0;
+            this.showGroupBox1.Location = new System.Drawing.Point(3, 3);
+            this.showGroupBox1.Name = "showGroupBox1";
+            this.showGroupBox1.numCount = 0;
+            this.showGroupBox1.Size = new System.Drawing.Size(275, 99);
+            this.showGroupBox1.TabIndex = 0;
+            this.showGroupBox1.teamName = null;
             // 
             // Test
             // 
@@ -61,17 +57,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.iconBtn1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "Test";
             this.Text = "Test";
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label3;
-        private Controls.IconBtn iconBtn1;
+
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Controls.ShowGroupBox showGroupBox1;
     }
 }

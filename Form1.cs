@@ -85,7 +85,7 @@ namespace TODOList
 
         private void btnEqualizer_Click(object sender, EventArgs e)
         {
-            openChildForm(new MyDay("计划日程", false, false, 0, 3));
+            openChildForm(new TeamView("用户组", false, false, 0, 3));
             //openChildForm(new RandomRollCall());
             //Login flo = new Login();
             //flo.Show();
