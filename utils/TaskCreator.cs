@@ -42,6 +42,34 @@ namespace TODOList.utils
             return taskList;
         }
 
+        public static LinkedList<TaskBox> getAssignTasks(LinkedList<Dictionary<Object, Object>> data)
+        {
+            LinkedList<TaskBox> taskList = new LinkedList<TaskBox>();
+
+            foreach (Dictionary<Object, Object> ob in data)
+            {
+                TaskBox task = new TaskBox();
+                //数据
+                task.id = Convert.ToInt32(ob["Id"]);
+                task.leader_id = Convert.ToInt32(ob["leader_uid"]);
+                task.gid = Convert.ToInt32(ob["gid"]);
+                task.uid = Convert.ToInt32(ob["uid"]);
+                task.TeskTitle = Convert.ToString(ob["title"]);
+                task.deadline = Convert.ToUInt64(ob["deadline"]);
+                task.add_time = Convert.ToUInt64(ob["add_time"]);
+                task.Describe = Convert.ToString(ob["detail"]);
+                task.listing_id = Convert.ToInt32(ob["listing_id"]);
+                task.is_assign = Convert.ToInt32(ob["is_assign"]);
+                task.isImportantTask = Convert.ToBoolean(ob["is_important"]);
+
+
+
+                taskList.AddLast(task);
+                //taskList.AddLast(TaskCreator.getTaskPanel(task));
+            }
+            return taskList;
+        }
+
         /**
          * 初始化taskBox样式
          */

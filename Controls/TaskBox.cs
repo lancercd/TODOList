@@ -25,6 +25,16 @@ namespace TODOList.components
         private bool is_important;
 
 
+        public int leader_id = 0;
+        public int to_uid = 0;
+        public int gid = 0;
+
+
+
+
+        public bool is_assign_task = false;
+
+
         
 
         [Browsable(true)]

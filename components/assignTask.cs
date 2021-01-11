@@ -103,6 +103,7 @@ namespace TODOList
 
             //初始化任务列表
             taskInit();
+            AssignTaskInit();
         }
 
 
@@ -298,36 +299,19 @@ namespace TODOList
         }
 
 
+        /**
+         * 显示分配给我的任务
+         */
         private void taskInit()
         {
 
             string sql;
-            if (is_important_page)
-            {
-                //重要任务
-                sql = "Select * from tb_task where uid = " + uid + " and is_important = " + Convert.ToInt32(is_important_page);
-                
-            }else if (p_index != 0)
-            {
-                if(p_index == 5)
-                {   //全部任务
-                    sql = "Select * from tb_task where uid = " + uid;
-                }
-                else
-                {   //菜单任务
-                    sql = "Select * from tb_task where uid = " + uid + " and p_index = " + p_index;
-                }
-                
-            }
-            else
-            {   //清单任务
-                sql = "Select * from tb_task where uid = " + uid + " and listing_id = " + listingId;
-            }
+            sql = "Select a.leader_uid, a.gid, a.to_uid, t.* from tb_assign_task a JOIN tb_task t ON a.Id = t.is_assign  where to_uid = " + uid;
             //查询数据库
             LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList(sql);
 
             //LinkedList<Panel> taskPanels = TaskCreator.getTasks(data);
-            LinkedList<TaskBox> taskBoxs = TaskCreator.getTasks(data);
+            LinkedList<TaskBox> taskBoxs = TaskCreator.getAssignTasks(data);
 
             //遍历task
             foreach (TaskBox task in taskBoxs)
@@ -339,6 +323,34 @@ namespace TODOList
                 putTask(TaskCreator.getTaskPanel(task));
             }
         }
+
+
+        private void AssignTaskInit()
+        {
+
+            string sql;
+            sql = "Select a.leader_uid, a.gid, a.to_uid, t.* from tb_assign_task a JOIN tb_task t ON a.Id = t.is_assign  WHERE leader_uid = " + uid;
+            //查询数据库
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList(sql);
+
+            //LinkedList<Panel> taskPanels = TaskCreator.getTasks(data);
+            LinkedList<TaskBox> taskBoxs = TaskCreator.getAssignTasks(data);
+
+            //遍历task
+            foreach (TaskBox task in taskBoxs)
+            {
+                //添加点击事件addToImportant
+                addTaskBoxEvent(task);
+                task.is_assign_task = true;
+                //添加panel 初始化样式  渲染入页面
+                putAssignTask(TaskCreator.getTaskPanel(task));
+            }
+        }
+
+
+        
+
+
 
 
         /**
@@ -369,6 +381,11 @@ namespace TODOList
             this.taskListPanel.Controls.Add(taskPan);
         }
 
+        private void putAssignTask(Panel taskPan)
+        {
+            this.assignListPanel.Controls.Add(taskPan);
+        }
+
 
         /**
          * 按回车 添加任务 事件
@@ -393,39 +410,35 @@ namespace TODOList
             int id;
 
             //获取id  上传数据库
-            if (listingId != 0)
-            {
-                id = DB.insert("INSERT INTO tb_task (uid, title, p_index, add_time, is_important, listing_id ) VALUES ( " +
-                                    uid + ", N'" +
-                                    title + "', " +
+
+            id = DB.insert("INSERT INTO tb_assign_task (leader_uid, title, add_time ) VALUES ( " +
+                                uid + ", N'" +
+                                title + "', " +
+                                now + " )");
+            int taskid = DB.insert("INSERT INTO tb_task (uid, p_index, title, add_time, is_assign, is_important ) VALUES ( " +
                                     0 + ", " +
-                                    now + ", '" +
-                                    Convert.ToInt32(is_important_page) + "' , '" +
-                                    listingId + "' )");
-            }
-            else
-            {
-                id = DB.insert("INSERT INTO tb_task (uid, p_index, title, add_time, is_important ) VALUES ( " +
-                                    uid + ", " +
                                     p_index + ", N'" +
                                     title + "', " +
+                                    id + ", " +
                                     now + ", '" +
                                     Convert.ToInt32(is_important_page) +
                                     "' )");
-            }
+
 
 
             TaskBox taskbox = new TaskBox();
-            taskbox.id = id;
-            taskbox.uid = uid;
+            taskbox.is_assign = id;  //tb_assign_task  id
+            taskbox.id = taskid;     //tb_task         id
+            taskbox.is_assign_task = true;
+            taskbox.uid = 0;         //才创建  还没分配人
             taskbox.TeskTitle = title;
             taskbox.add_time = Convert.ToUInt64(now);
-            taskbox.isImportantTask = is_important_page;
+            taskbox.isImportantTask = false;
 
             //添加点击事件
             addTaskBoxEvent(taskbox);
             //渲染进页面
-            putTask(TaskCreator.getTaskPanel(taskbox));
+            putAssignTask(TaskCreator.getTaskPanel(taskbox));
         }
 
 
