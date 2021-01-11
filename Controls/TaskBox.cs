@@ -30,6 +30,10 @@ namespace TODOList.components
         public int gid = 0;
 
 
+        //是否需要分配   自己创建的任务 rightSide panel中出现分配下拉框
+        public bool need_to_assign = false;
+
+
 
 
         public bool is_assign_task = false;

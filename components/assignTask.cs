@@ -341,6 +341,7 @@ namespace TODOList
             {
                 //添加点击事件addToImportant
                 addTaskBoxEvent(task);
+                task.need_to_assign = true;
                 task.is_assign_task = true;
                 //添加panel 初始化样式  渲染入页面
                 putAssignTask(TaskCreator.getTaskPanel(task));

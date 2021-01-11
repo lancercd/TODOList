@@ -62,6 +62,7 @@ namespace TODOList.utils
                 task.is_assign = Convert.ToInt32(ob["is_assign"]);
                 task.isImportantTask = Convert.ToBoolean(ob["is_important"]);
 
+                task.is_assign_task = true;
 
 
                 taskList.AddLast(task);
