@@ -90,7 +90,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label stepLeftIcon;
+        public System.Windows.Forms.Label stepLeftIcon;
         public components.AfLabelBox afLabelBox1;
     }
 }

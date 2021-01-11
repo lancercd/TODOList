@@ -115,7 +115,7 @@
 
         private System.Windows.Forms.Label addTaskIcon;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label addTaskBoxLabel;
+        public System.Windows.Forms.Label addTaskBoxLabel;
         private System.Windows.Forms.Panel addTastRightBox;
         private AfTextBox addTaskInputBox;
     }

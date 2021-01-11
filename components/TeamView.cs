@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using TODOList.components;
 using TODOList.Controls;
 using TODOList.utils;
+using System.Text.RegularExpressions;
 
 namespace TODOList
 {
@@ -32,7 +33,7 @@ namespace TODOList
         //为0 则为list清单
         public int p_index = 0;
 
-        public TaskBox RightSizeObj = null;
+        public ShowGroupBox RightSizeObj = null;
 
         public TeamView()
         {
@@ -73,22 +74,6 @@ namespace TODOList
 
             AddToOtherBtn.Text = is_important_page ? "添加到\"我的一天\"" : "添加到\"重要\"";
 
-            AddAlertBtn.Text = "提醒我";
-            AddAlertBtn.Image = Properties.Resources.time;
-            AddDeadLineBtn.Text = "添加截止日期";
-            AddDeadLineBtn.Image = Properties.Resources.course_table;
-            RightSidePanel.Size = new Size(0, RightSidePanel.Size.Height);
-
-            DetilTextBox.edit.PlaceHolderStr = "添加备注!";
-
-
-            AddDeadLineBtn.afTextBox1.edit.PlaceHolderStr = "添加截止日期";
-            AddAlertBtn.afTextBox1.edit.PlaceHolderStr = "提醒我";
-
-            AddDeadLineBtn.is_other_btn = true;
-            AddAlertBtn.is_other_btn = true;
-
-
 
             //初始化任务列表
             teamListInit();
@@ -98,10 +83,10 @@ namespace TODOList
         /**
          * 打开右侧窗口
          */
-        private void active_right_side_Penal(TaskBox task)
+        private void active_right_side_Penal(ShowGroupBox groupBox)
         {
-            RightSizeObj = task;
-            rightSizePanelDataRender(task);
+            RightSizeObj = groupBox;
+            rightSizePanelDataRender(groupBox);
 
 
             if (RightSidePanel.Size.Width == 0) { 
@@ -115,31 +100,24 @@ namespace TODOList
         /**
          * 右侧边栏数据填充 及 初始化
          */
-        private void rightSizePanelDataRender(TaskBox task)
+        private void rightSizePanelDataRender(ShowGroupBox groupBox)
         {
-            int id = task.id;
-            string title = task.TeskTitle;
-            LinkedList<Dictionary<Object, Object>> steps = getTaskStep(id);
-            
+            int id = groupBox.id;
+            string title = groupBox.teamName;
+            LinkedList<Dictionary<Object, Object>> members = getMembers(id);
 
             StepPanel.Controls.Clear();
 
-            //添加步骤按钮
-            addStep(id, task.Describe);
-
             RightSideTitleLabel.Text = title;
             //遍历task
-            foreach (Dictionary<Object, Object> step in steps)
+            foreach (Dictionary<Object, Object> member in members)
             {
                 StepBox stepBox = new StepBox();
 
                 //填充数据
-                stepBox.id = Convert.ToInt32(step["Id"]);
-                stepBox.task_id = Convert.ToInt32(step["task_id"]);
-                stepBox.title = Convert.ToString(step["detail"]);
-                stepBox.sort = Convert.ToInt32(step["sort"]);
-                stepBox.isCorrent = Convert.ToBoolean(step["is_corrent"]);
-                stepBox.isFinish = Convert.ToBoolean(step["is_accomplish"]);
+                stepBox.id = 0;
+                stepBox.task_id = Convert.ToInt32(member["gid"]);
+                stepBox.title = Convert.ToString(member["username"]);
 
                 stepStyle(stepBox);
 
@@ -149,10 +127,6 @@ namespace TODOList
             }
 
             AddToOtherBtn.id = id;
-            AddToOtherBtn.isFinish = task.isImportantTask;
-            AddDeadLineBtn.id = id;
-            AddAlertBtn.id = id;
-            DetilTextBox.id = id;
 
 
 
@@ -174,7 +148,6 @@ namespace TODOList
             stepStyle(addStepBox);
             StepPanel.Controls.Add(addStepBox);
 
-            DetilTextBox.Text = describe;
         }
 
 
@@ -183,55 +156,7 @@ namespace TODOList
          */
         private void onEnterPressEvent(object sender, EventArgs e)
         {
-            StepBox box = sender as StepBox;
-            string stepTile = addStepBox.afTextBox1.Text;
-            if (stepTile == "") return;
-            int sort = 50;
-            int id = DB.insert("INSERT INTO tb_step (task_id, detail, sort ) VALUES ( " +
-                                    box.id + ", N'" +
-                                    stepTile + "', " +
-                                    sort + " )");
-
-
-            StepPanel.Controls.Clear();
-            //添加步骤按钮
-            addStep(box.id, "");
-            LinkedList<Dictionary<Object, Object>> steps = getTaskStep(box.id);
             
-
-            //遍历task
-            foreach (Dictionary<Object, Object> step in steps)
-            {
-                StepBox stepBox = new StepBox();
-
-                //填充数据
-                stepBox.id = Convert.ToInt32(step["Id"]);
-                stepBox.task_id = Convert.ToInt32(step["task_id"]);
-                stepBox.title = Convert.ToString(step["detail"]);
-                stepBox.sort = Convert.ToInt32(step["sort"]);
-                stepBox.isCorrent = Convert.ToBoolean(step["is_corrent"]);
-                stepBox.isFinish = Convert.ToBoolean(step["is_accomplish"]);
-                stepStyle(stepBox);
-
-                //添加进页面
-                StepPanel.Controls.Add(stepBox);
-            }
-
-            
-
-            //填充数据
-            //stepBox.id = id;
-            //stepBox.task_id = box.id;
-            //stepBox.title = stepTile;
-            //stepBox.sort = sort;
-            //stepBox.isCorrent = false;
-            //stepBox.isFinish = false;
-
-            //box.afTextBox1.Text = "添加步骤";
-
-            //stepStyle(stepBox);
-            ////添加进页面
-            //StepPanel.Controls.Add(stepBox);
         }
 
 
@@ -244,6 +169,7 @@ namespace TODOList
             stepBox.Dock = System.Windows.Forms.DockStyle.Top;
             stepBox.Location = new System.Drawing.Point(0, 0);
             stepBox.Size = new System.Drawing.Size(266, 30);
+            stepBox.is_other_btn = true;
 
 
             stepBox.StepLeftIconClick += new EventHandler(onStepBoxLeftIconClick);
@@ -259,9 +185,14 @@ namespace TODOList
 
 
 
-        private LinkedList<Dictionary<Object, Object>> getTaskStep(int id)
+        private LinkedList<Dictionary<Object, Object>> getMembers(int id)
         {
-            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("SELECT * FROM tb_step WHERE task_id = " + id + " ORDER BY sort DESC");
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList("SELECT " +
+                "tb_user_group.Id, tb_user_group.group_id gid, tb_user_group.is_leader, " +
+                "tb_user.uid, tb_user.username, tb_user.avatar, tb_user.email  " +
+                "FROM tb_user_group " +
+                "JOIN tb_user ON tb_user_group.uid = tb_user.uid " +
+                "WHERE group_id = " + id + "ORDER BY is_leader DESC");
 
             //这里处理数据
 
@@ -371,8 +302,9 @@ namespace TODOList
         private void onShowGroupBoxClick(object sender, EventArgs e)
         {
             ShowGroupBox groupBox = sender as ShowGroupBox;
-            int id = groupBox.id;
-            MessageBox.Show(Convert.ToString(groupBox.isLeader));
+            //int id = groupBox.id;
+
+            active_right_side_Penal(groupBox);
         }
 
 
@@ -425,44 +357,46 @@ namespace TODOList
          */
         private void createTaskByUser(string title)
         {
+            int num = (int)DB.getOne(string.Format("SELECT COUNT(*) FROM tb_group WHERE name = '{0}'", title));
+            if(num != 0)
+            {
+                MessageBox.Show("该组已存在!");
+                return;
+            }
+
+
             string now = TimeUtil.GetNow();
 
             int id;
 
             //获取id  上传数据库
-            if (listingId != 0)
-            {
-                id = DB.insert("INSERT INTO tb_task (uid, title, p_index, add_time, is_important, listing_id ) VALUES ( " +
-                                    uid + ", N'" +
-                                    title + "', " +
-                                    0 + ", " +
-                                    now + ", '" +
-                                    Convert.ToInt32(is_important_page) + "' , '" +
-                                    listingId + "' )");
-            }
-            else
-            {
-                id = DB.insert("INSERT INTO tb_task (uid, p_index, title, add_time, is_important ) VALUES ( " +
-                                    uid + ", " +
-                                    p_index + ", N'" +
-                                    title + "', " +
-                                    now + ", '" +
-                                    Convert.ToInt32(is_important_page) +
-                                    "' )");
-            }
 
+            id = DB.insert("INSERT INTO tb_group (name, add_time ) VALUES ( N'" +
+                                title + "', "+
+                                now + " ) ");
+            int ugid = DB.insert("INSERT INTO tb_user_group (uid, group_id, is_leader ) VALUES ( " +
+                                uid + ", " +
+                                id + ", 1 ) ");
 
-            TaskBox taskbox = new TaskBox();
-            taskbox.id = id;
-            taskbox.uid = uid;
-            taskbox.TeskTitle = title;
-            taskbox.add_time = Convert.ToUInt64(now);
-            taskbox.isImportantTask = is_important_page;
+            ShowGroupBox groupBox1 = groupBoxCreatot(title, id, now, ugid, true);
+            ShowGroupBox groupBox2 = groupBoxCreatot(title, id, now, ugid, true);
 
-            //添加点击事件
-            addTaskBoxEvent(taskbox);
-            //渲染进页面
-            putTask(TaskCreator.getTaskPanel(taskbox));
+            teamBoxStyleInit(groupBox1);
+            teamBoxStyleInit(groupBox2);
+            addToJoinedPanel(groupBox1);
+            addToAllTeamPanel(groupBox2);
+        }
+
+        private ShowGroupBox groupBoxCreatot(string title, int id, string now, int ugid, bool is_leader)
+        {
+            ShowGroupBox groupBox = new ShowGroupBox();
+            groupBox.teamName = title;
+            groupBox.id = id;
+            groupBox.addTime = Convert.ToUInt64(now);
+            groupBox.ugid = ugid;
+            groupBox.numCount = 1;
+            groupBox.isLeader = true;
+            return groupBox;
         }
 
 
@@ -472,8 +406,8 @@ namespace TODOList
          */
         public void onTaskBoxClick(object sender, EventArgs e)
         {
-            TaskBox task = sender as TaskBox;
-            active_right_side_Penal(task);
+            ShowGroupBox groupBox = sender as ShowGroupBox;
+            active_right_side_Penal(groupBox);
         }
 
 
@@ -524,7 +458,7 @@ namespace TODOList
 
             int id = RightSizeObj.id;
             int num = DB.getEffNum(string.Format("UPDATE tb_task SET is_important = {0} WHERE Id = {1}", Convert.ToInt32(btn.isFinish), id));
-            RightSizeObj.isImportantTask = btn.isFinish;
+
         }
 
         private void onDetilTextBox(object sender, EventArgs e)
@@ -536,7 +470,6 @@ namespace TODOList
             int num = DB.getEffNum(string.Format("UPDATE tb_task SET detail = N'{0}' WHERE Id = {1}", describu, id));
             //MessageBox.Show(describu);
 
-            RightSizeObj.Describe = describu;
         }
     }
 }
