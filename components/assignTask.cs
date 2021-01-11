@@ -113,6 +113,10 @@ namespace TODOList
         private void active_right_side_Penal(TaskBox task)
         {
             RightSizeObj = task;
+
+            //是否显示下拉框
+            showAssignListBox(task.need_to_assign);
+            //渲染数据
             rightSizePanelDataRender(task);
 
 
@@ -122,6 +126,63 @@ namespace TODOList
             
             //RightSidePanel.Size.Width = 0
         }
+
+
+        private void showAssignListBox(bool need_open)
+        {
+            //如果不需要打开
+            if (!need_open) {  assignPanel.Visible = false; return;}
+
+            //需要显示
+            assignPanel.Visible = true;
+
+
+            List<KeyValuePair<int, string>> groups = getGroupInfoToComBox();
+
+
+            assignGroupBox.DataSource = groups;
+            assignGroupBox.ValueMember = "key";
+            assignGroupBox.DisplayMember = "value";
+            assignGroupBox.Parent = this;//加入这一句
+
+
+            //TODO
+            //这里需要数据库查询  如果为空不设置默认
+            //assignGroupBox.SelectedValue = "2";
+
+            //TODO selectedChange   to do something
+
+
+            //assignGroupBox
+
+        }
+
+
+        /**
+         * 该用户组信息  并格式化数据
+         */
+        private List<KeyValuePair<int, string>> getGroupInfoToComBox()
+        {
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList(string.Format("SELECT " +
+                " g.id, g.name FROM tb_user_group u JOIN tb_group g ON u.group_id = g.id" +
+                "WHERE uid = {0}", uid));
+            return D_to_L(data, "id", "name");
+        }
+
+
+        private List<KeyValuePair<int, string>> D_to_L(LinkedList<Dictionary<Object, Object>> data, string k1, string k2)
+        {
+            List<KeyValuePair<int, string>> formData = new List<KeyValuePair<int, string>>();
+            foreach (Dictionary<Object, Object> d in data)
+            {
+                formData.Add(new KeyValuePair<int, string>(Convert.ToInt32(d[k1]), Convert.ToString(d[k2])));
+            }
+
+            return formData;
+        }
+
+         
+
 
 
         /**
@@ -350,9 +411,6 @@ namespace TODOList
 
 
         
-
-
-
 
         /**
          * 为taskBox添加点击事件

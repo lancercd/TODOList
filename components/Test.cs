@@ -22,7 +22,6 @@ namespace TODOList.components
             label.Size = new System.Drawing.Size(479, 98);
             this.Controls.Add(label);
 
-            labelButton1.action = true;
 
             //afTextBox1.edit.PlaceHolderStr = "okkkk";
         }

@@ -56,6 +56,11 @@
             this.AddToOtherBtn = new TODOList.Controls.IconBtn();
             this.AddAlertBtn = new TODOList.Controls.StepBox();
             this.AddDeadLineBtn = new TODOList.Controls.StepBox();
+            this.assignGroupBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.assignPanel = new System.Windows.Forms.Panel();
+            this.assignUserBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
             this.taskListPanel.SuspendLayout();
@@ -70,6 +75,7 @@
             this.panel24.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel32.SuspendLayout();
+            this.assignPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -173,21 +179,22 @@
             // 
             this.panel17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel17.Location = new System.Drawing.Point(0, 694);
+            this.panel17.Location = new System.Drawing.Point(0, 714);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(266, 34);
+            this.panel17.Size = new System.Drawing.Size(266, 14);
             this.panel17.TabIndex = 2;
             // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.SystemColors.Control;
+            this.panel18.Controls.Add(this.assignPanel);
             this.panel18.Controls.Add(this.panel19);
             this.panel18.Controls.Add(this.panel21);
             this.panel18.Controls.Add(this.panel20);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel18.Location = new System.Drawing.Point(0, 235);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(266, 377);
+            this.panel18.Size = new System.Drawing.Size(266, 473);
             this.panel18.TabIndex = 1;
             // 
             // panel19
@@ -195,7 +202,7 @@
             this.panel19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel19.Controls.Add(this.DetilTextBox);
-            this.panel19.Location = new System.Drawing.Point(16, 269);
+            this.panel19.Location = new System.Drawing.Point(16, 399);
             this.panel19.Name = "panel19";
             this.panel19.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.panel19.Size = new System.Drawing.Size(238, 71);
@@ -207,7 +214,7 @@
             this.panel21.AutoSize = true;
             this.panel21.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel21.Controls.Add(this.AddToOtherBtn);
-            this.panel21.Location = new System.Drawing.Point(16, 39);
+            this.panel21.Location = new System.Drawing.Point(16, 15);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(238, 55);
             this.panel21.TabIndex = 0;
@@ -218,7 +225,7 @@
             this.panel20.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel20.Controls.Add(this.AddAlertBtn);
             this.panel20.Controls.Add(this.AddDeadLineBtn);
-            this.panel20.Location = new System.Drawing.Point(16, 120);
+            this.panel20.Location = new System.Drawing.Point(16, 76);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(238, 126);
             this.panel20.TabIndex = 1;
@@ -302,7 +309,7 @@
             this.taskBox1.isImportantTask = false;
             this.taskBox1.Location = new System.Drawing.Point(0, 0);
             this.taskBox1.Name = "taskBox1";
-            this.taskBox1.Size = new System.Drawing.Size(200, 0);
+            this.taskBox1.Size = new System.Drawing.Size(611, 0);
             this.taskBox1.TabIndex = 0;
             this.taskBox1.TeskTitle = "taskBox1";
             this.taskBox1.Text = "taskBox1";
@@ -369,6 +376,57 @@
             this.AddDeadLineBtn.title = null;
             this.AddDeadLineBtn.EnterPressEvent += new System.EventHandler(this.onAddDeadLineBtn);
             // 
+            // assignGroupBox
+            // 
+            this.assignGroupBox.Font = new System.Drawing.Font("宋体", 13F);
+            this.assignGroupBox.FormattingEnabled = true;
+            this.assignGroupBox.Location = new System.Drawing.Point(11, 41);
+            this.assignGroupBox.Name = "assignGroupBox";
+            this.assignGroupBox.Size = new System.Drawing.Size(210, 30);
+            this.assignGroupBox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 13F);
+            this.label1.Location = new System.Drawing.Point(7, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 22);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "选择组:";
+            // 
+            // assignPanel
+            // 
+            this.assignPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.assignPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.assignPanel.Controls.Add(this.assignUserBox);
+            this.assignPanel.Controls.Add(this.label2);
+            this.assignPanel.Controls.Add(this.assignGroupBox);
+            this.assignPanel.Controls.Add(this.label1);
+            this.assignPanel.Location = new System.Drawing.Point(16, 208);
+            this.assignPanel.Name = "assignPanel";
+            this.assignPanel.Size = new System.Drawing.Size(238, 171);
+            this.assignPanel.TabIndex = 4;
+            // 
+            // assignUserBox
+            // 
+            this.assignUserBox.Font = new System.Drawing.Font("宋体", 13F);
+            this.assignUserBox.FormattingEnabled = true;
+            this.assignUserBox.Location = new System.Drawing.Point(11, 112);
+            this.assignUserBox.Name = "assignUserBox";
+            this.assignUserBox.Size = new System.Drawing.Size(210, 30);
+            this.assignUserBox.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 13F);
+            this.label2.Location = new System.Drawing.Point(7, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 22);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "选择组:";
+            // 
             // AssignTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -397,6 +455,8 @@
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
             this.panel32.ResumeLayout(false);
+            this.assignPanel.ResumeLayout(false);
+            this.assignPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -432,5 +492,10 @@
         private Controls.StepBox AddAlertBtn;
         private Controls.StepBox AddDeadLineBtn;
         private System.Windows.Forms.Panel assignListPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox assignGroupBox;
+        private System.Windows.Forms.Panel assignPanel;
+        private System.Windows.Forms.ComboBox assignUserBox;
+        private System.Windows.Forms.Label label2;
     }
 }
