@@ -103,6 +103,12 @@
     <Compile Include="Controls\IconBtn.Designer.cs">
       <DependentUpon>IconBtn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LabelButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LabelButton.Designer.cs">
+      <DependentUpon>LabelButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PlaceholderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\IconBtn.resx">
       <DependentUpon>IconBtn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LabelButton.resx">
+      <DependentUpon>LabelButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ShowGroupBox.resx">
       <DependentUpon>ShowGroupBox.cs</DependentUpon>

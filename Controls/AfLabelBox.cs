@@ -18,6 +18,8 @@ namespace TODOList.components
             this.BackColor = Color.Transparent;
         }
 
+       
+
 
         protected override void OnLayout(LayoutEventArgs e)
         {

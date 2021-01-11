@@ -71,10 +71,14 @@ namespace TODOList
         private void init()
         {
             if (Form1.MainFrame != null) uid = Form1.uid;
-
-            AddToOtherBtn.Text = is_important_page ? "添加到\"我的一天\"" : "添加到\"重要\"";
-
-
+            RightSidePanel.Size = new Size(0, RightSidePanel.Size.Height);
+            AddToOtherBtn.selectedText = "退出队伍";
+            AddToOtherBtn.unselectedText = "加入队伍";
+            AddToOtherBtn.action = true;
+            AddToOtherBtn.afLabelBox1.Text = "加入队伍";
+            AddToOtherBtn.afLabelBox1.ForeColor = Color.White;
+            AddToOtherBtn.afLabelBox1.edit.Font = new System.Drawing.Font("黑体", 16F);
+            AddToOtherBtn.isSelect = false;
             //初始化任务列表
             teamListInit();
         }
@@ -103,6 +107,7 @@ namespace TODOList
         private void rightSizePanelDataRender(ShowGroupBox groupBox)
         {
             int id = groupBox.id;
+            AddToOtherBtn.isSelect = isJoined(id);
             string title = groupBox.teamName;
             LinkedList<Dictionary<Object, Object>> members = getMembers(id);
 
@@ -128,10 +133,15 @@ namespace TODOList
 
             AddToOtherBtn.id = id;
 
-
-
-
         }
+
+
+        private bool isJoined(int id)
+        {
+            int num = (int)DB.getOne(string.Format("SELECT COUNT(*) FROM tb_user_group WHERE uid = {0} and group_id = {1}", uid, id));
+            return num != 0;
+        }
+
 
         //添加步骤按钮
         private void addStep(int id, string describe)
@@ -445,19 +455,21 @@ namespace TODOList
 
         private void onAddToOtherBtn(object sender, EventArgs e)
         {
-            IconBtn btn = sender as IconBtn;
-            btn.isFinish = !btn.isFinish;
-            if (btn.isFinish)
+            LabelButton btn = sender as LabelButton;
+            
+            if(btn.isSelect)
             {
-                btn.Text = "取消添加";
+                int ugid = DB.insert(string.Format("INSERT INTO tb_user_group (uid, group_id, is_leader ) VALUES ( {0}, {1}, {2} ) ", uid, btn.id, 0));
             }
             else
             {
-                btn.Text = is_important_page ? "添加到\"我的一天\"" : "添加到\"重要\""; ;
+                DB.getOne("DELETE FROM tb_user_group WHERE group_id = " + btn.id + " and uid = " + uid);
+                MessageBox.Show("退出成功");
             }
 
-            int id = RightSizeObj.id;
-            int num = DB.getEffNum(string.Format("UPDATE tb_task SET is_important = {0} WHERE Id = {1}", Convert.ToInt32(btn.isFinish), id));
+            //刷新列表
+            teamListInit();
+
 
         }
 

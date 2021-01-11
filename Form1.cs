@@ -233,7 +233,7 @@ namespace TODOList
         private void button2_Click(object sender, EventArgs e)
         {
 
-            openChildForm(new MyDay("分配的任务", false, false, 0, 4));
+            openChildForm(new AssignTask("分配的任务", false, false, 0, 4));
         }
 
         private void button3_Click(object sender, EventArgs e)

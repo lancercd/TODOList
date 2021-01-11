@@ -43,10 +43,10 @@
             this.shawTimeLabel = new System.Windows.Forms.Label();
             this.childFormTitle = new System.Windows.Forms.Label();
             this.RightSidePanel = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.StepPanel = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel33 = new System.Windows.Forms.Panel();
             this.RightSideTitleLabel = new System.Windows.Forms.Label();
@@ -54,9 +54,9 @@
             this.radioButton1 = new System.Windows.Forms.Label();
             this.taskBox1 = new TODOList.components.TaskBox();
             this.addTaskBox1 = new TODOList.components.addTaskBox();
+            this.AddToOtherBtn = new TODOList.Controls.LabelButton();
             this.afLabelBox1 = new TODOList.components.AfLabelBox();
             this.iconBtn1 = new TODOList.Controls.IconBtn();
-            this.AddToOtherBtn = new TODOList.Controls.IconBtn();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
             this.taskListPanel.SuspendLayout();
@@ -65,9 +65,9 @@
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.RightSidePanel.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.StepPanel.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel32.SuspendLayout();
@@ -214,9 +214,9 @@
             // RightSidePanel
             // 
             this.RightSidePanel.BackColor = System.Drawing.SystemColors.Control;
+            this.RightSidePanel.Controls.Add(this.panel7);
             this.RightSidePanel.Controls.Add(this.afLabelBox1);
             this.RightSidePanel.Controls.Add(this.StepPanel);
-            this.RightSidePanel.Controls.Add(this.panel21);
             this.RightSidePanel.Controls.Add(this.panel17);
             this.RightSidePanel.Controls.Add(this.panel22);
             this.RightSidePanel.Dock = System.Windows.Forms.DockStyle.Right;
@@ -224,6 +224,28 @@
             this.RightSidePanel.Name = "RightSidePanel";
             this.RightSidePanel.Size = new System.Drawing.Size(266, 707);
             this.RightSidePanel.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel7.Controls.Add(this.AddToOtherBtn);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 602);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(266, 94);
+            this.panel7.TabIndex = 5;
+            // 
+            // StepPanel
+            // 
+            this.StepPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.StepPanel.AutoSize = true;
+            this.StepPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.StepPanel.Controls.Add(this.iconBtn1);
+            this.StepPanel.Location = new System.Drawing.Point(9, 118);
+            this.StepPanel.Name = "StepPanel";
+            this.StepPanel.Size = new System.Drawing.Size(248, 478);
+            this.StepPanel.TabIndex = 1;
             // 
             // panel17
             // 
@@ -234,17 +256,6 @@
             this.panel17.Size = new System.Drawing.Size(266, 11);
             this.panel17.TabIndex = 2;
             // 
-            // panel21
-            // 
-            this.panel21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel21.AutoSize = true;
-            this.panel21.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel21.Controls.Add(this.AddToOtherBtn);
-            this.panel21.Location = new System.Drawing.Point(16, 625);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(238, 55);
-            this.panel21.TabIndex = 0;
-            // 
             // panel22
             // 
             this.panel22.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -254,16 +265,6 @@
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(266, 66);
             this.panel22.TabIndex = 0;
-            // 
-            // StepPanel
-            // 
-            this.StepPanel.AutoSize = true;
-            this.StepPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.StepPanel.Controls.Add(this.iconBtn1);
-            this.StepPanel.Location = new System.Drawing.Point(6, 136);
-            this.StepPanel.Name = "StepPanel";
-            this.StepPanel.Size = new System.Drawing.Size(248, 191);
-            this.StepPanel.TabIndex = 1;
             // 
             // panel24
             // 
@@ -335,10 +336,20 @@
             this.addTaskBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
             this.addTaskBox1.Name = "addTaskBox1";
-            this.addTaskBox1.addTaskBoxLabel.Text = "添加组";
             this.addTaskBox1.Size = new System.Drawing.Size(707, 69);
             this.addTaskBox1.TabIndex = 2;
             this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
+            // 
+            // AddToOtherBtn
+            // 
+            this.AddToOtherBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.AddToOtherBtn.isSelect = false;
+            this.AddToOtherBtn.Location = new System.Drawing.Point(36, 26);
+            this.AddToOtherBtn.Name = "AddToOtherBtn";
+            this.AddToOtherBtn.Size = new System.Drawing.Size(188, 59);
+            this.AddToOtherBtn.TabIndex = 0;
+            this.AddToOtherBtn.Text = "labelButton1";
+            this.AddToOtherBtn.LabelBtnClick += new System.EventHandler(this.onAddToOtherBtn);
             // 
             // afLabelBox1
             // 
@@ -365,20 +376,6 @@
             this.iconBtn1.TabIndex = 1;
             this.iconBtn1.title = null;
             // 
-            // AddToOtherBtn
-            // 
-            this.AddToOtherBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AddToOtherBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddToOtherBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddToOtherBtn.Image")));
-            this.AddToOtherBtn.isCorrent = false;
-            this.AddToOtherBtn.isFinish = false;
-            this.AddToOtherBtn.Location = new System.Drawing.Point(0, 0);
-            this.AddToOtherBtn.Name = "AddToOtherBtn";
-            this.AddToOtherBtn.Size = new System.Drawing.Size(238, 55);
-            this.AddToOtherBtn.TabIndex = 0;
-            this.AddToOtherBtn.title = null;
-            this.AddToOtherBtn.IconBtnClickEvent += new System.EventHandler(this.onAddToOtherBtn);
-            // 
             // TeamView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -399,9 +396,9 @@
             this.panel2.PerformLayout();
             this.RightSidePanel.ResumeLayout(false);
             this.RightSidePanel.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.StepPanel.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
@@ -419,7 +416,6 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel RightSidePanel;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel StepPanel;
         private System.Windows.Forms.Panel panel24;
@@ -429,7 +425,6 @@
         private System.Windows.Forms.Label shawTimeLabel;
         private System.Windows.Forms.Label childFormTitle;
         private components.addTaskBox addTaskBox1;
-        private Controls.IconBtn AddToOtherBtn;
         private components.TaskBox taskBox1;
         private System.Windows.Forms.Label radioButton1;
 
@@ -442,5 +437,7 @@
         private System.Windows.Forms.FlowLayoutPanel AllPanel;
         private Controls.IconBtn iconBtn1;
         private components.AfLabelBox afLabelBox1;
+        private Controls.LabelButton AddToOtherBtn;
+        private System.Windows.Forms.Panel panel7;
     }
 }

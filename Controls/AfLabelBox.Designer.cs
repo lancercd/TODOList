@@ -55,6 +55,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label edit;
+        public System.Windows.Forms.Label edit;
     }
 }

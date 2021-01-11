@@ -22,6 +22,8 @@ namespace TODOList.components
             label.Size = new System.Drawing.Size(479, 98);
             this.Controls.Add(label);
 
+            labelButton1.action = true;
+
             //afTextBox1.edit.PlaceHolderStr = "okkkk";
         }
 
@@ -33,6 +35,11 @@ namespace TODOList.components
         private void label3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("okadf");
+        }
+
+        private void labelButton1_LabelBtnClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("点击");
         }
     }
 }

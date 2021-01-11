@@ -129,7 +129,7 @@
             this.button2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.button2.Size = new System.Drawing.Size(280, 50);
             this.button2.TabIndex = 8;
-            this.button2.Text = "       已分配给你的任务";
+            this.button2.Text = "       分配的任务";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
