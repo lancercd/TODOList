@@ -34,3 +34,4 @@ D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Controls.IconBtn.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Controls.ShowGroupBox.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.TeamView.resources
 D:\course\C#\大作业\TODOList\obj\Debug\TODOList.Controls.LabelButton.resources
+D:\course\C#\大作业\TODOList\obj\Debug\TODOList.AssignTask.resources

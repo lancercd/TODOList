@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyDay));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssignTask));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.taskBox2 = new TODOList.components.TaskBox();
             this.taskListPanel = new System.Windows.Forms.Panel();
             this.taskBox1 = new TODOList.components.TaskBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -57,6 +59,7 @@
             this.radioButton1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.taskListPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,29 +81,54 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(955, 693);
+            this.panel1.Size = new System.Drawing.Size(1104, 786);
             this.panel1.TabIndex = 0;
             // 
             // panel23
             // 
+            this.panel23.Controls.Add(this.panel3);
             this.panel23.Controls.Add(this.taskListPanel);
             this.panel23.Controls.Add(this.panel4);
             this.panel23.Controls.Add(this.panel2);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel23.Location = new System.Drawing.Point(0, 0);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(689, 693);
+            this.panel23.Size = new System.Drawing.Size(838, 786);
             this.panel23.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.panel3.Controls.Add(this.taskBox2);
+            this.panel3.Location = new System.Drawing.Point(66, 437);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(483, 117);
+            this.panel3.TabIndex = 3;
+            // 
+            // taskBox2
+            // 
+            this.taskBox2.AutoSize = true;
+            this.taskBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.taskBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.taskBox2.Describe = null;
+            this.taskBox2.isImportantTask = false;
+            this.taskBox2.Location = new System.Drawing.Point(0, 0);
+            this.taskBox2.Name = "taskBox2";
+            this.taskBox2.Size = new System.Drawing.Size(128, 0);
+            this.taskBox2.TabIndex = 0;
+            this.taskBox2.TeskTitle = "taskBox2";
+            this.taskBox2.Text = "taskBox2";
             // 
             // taskListPanel
             // 
             this.taskListPanel.AutoScroll = true;
             this.taskListPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.taskListPanel.Controls.Add(this.taskBox1);
-            this.taskListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.taskListPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.taskListPanel.Location = new System.Drawing.Point(0, 93);
             this.taskListPanel.Name = "taskListPanel";
-            this.taskListPanel.Size = new System.Drawing.Size(689, 495);
+            this.taskListPanel.Size = new System.Drawing.Size(838, 263);
             this.taskListPanel.TabIndex = 1;
             // 
             // taskBox1
@@ -112,7 +140,7 @@
             this.taskBox1.isImportantTask = false;
             this.taskBox1.Location = new System.Drawing.Point(0, 0);
             this.taskBox1.Name = "taskBox1";
-            this.taskBox1.Size = new System.Drawing.Size(128, 0);
+            this.taskBox1.Size = new System.Drawing.Size(160, 0);
             this.taskBox1.TabIndex = 0;
             this.taskBox1.TeskTitle = "taskBox1";
             this.taskBox1.Text = "taskBox1";
@@ -122,9 +150,9 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.panel4.Controls.Add(this.addTaskBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 588);
+            this.panel4.Location = new System.Drawing.Point(0, 681);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(689, 105);
+            this.panel4.Size = new System.Drawing.Size(838, 105);
             this.panel4.TabIndex = 2;
             // 
             // addTaskBox1
@@ -134,7 +162,7 @@
             this.addTaskBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.addTaskBox1.Location = new System.Drawing.Point(31, 24);
             this.addTaskBox1.Name = "addTaskBox1";
-            this.addTaskBox1.Size = new System.Drawing.Size(632, 69);
+            this.addTaskBox1.Size = new System.Drawing.Size(781, 69);
             this.addTaskBox1.TabIndex = 2;
             this.addTaskBox1.SubmitEvent += new System.EventHandler(this.onEnterSubmit);
             // 
@@ -146,7 +174,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(689, 93);
+            this.panel2.Size = new System.Drawing.Size(838, 93);
             this.panel2.TabIndex = 0;
             // 
             // shawTimeLabel
@@ -156,7 +184,7 @@
             this.shawTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.shawTimeLabel.Location = new System.Drawing.Point(52, 62);
             this.shawTimeLabel.Name = "shawTimeLabel";
-            this.shawTimeLabel.Size = new System.Drawing.Size(268, 21);
+            this.shawTimeLabel.Size = new System.Drawing.Size(214, 17);
             this.shawTimeLabel.TabIndex = 1;
             this.shawTimeLabel.Text = "1月7日,星期四 上午好啊！";
             // 
@@ -178,16 +206,16 @@
             this.RightSidePanel.Controls.Add(this.panel18);
             this.RightSidePanel.Controls.Add(this.panel22);
             this.RightSidePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RightSidePanel.Location = new System.Drawing.Point(689, 0);
+            this.RightSidePanel.Location = new System.Drawing.Point(838, 0);
             this.RightSidePanel.Name = "RightSidePanel";
-            this.RightSidePanel.Size = new System.Drawing.Size(266, 693);
+            this.RightSidePanel.Size = new System.Drawing.Size(266, 786);
             this.RightSidePanel.TabIndex = 4;
             // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel17.Location = new System.Drawing.Point(0, 659);
+            this.panel17.Location = new System.Drawing.Point(0, 752);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(266, 34);
             this.panel17.TabIndex = 2;
@@ -358,17 +386,19 @@
             this.radioButton1.Size = new System.Drawing.Size(79, 62);
             this.radioButton1.TabIndex = 0;
             // 
-            // MyDay
+            // AssignTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 693);
+            this.ClientSize = new System.Drawing.Size(1104, 786);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MyDay";
+            this.Name = "AssignTask";
             this.Text = "MyDay";
             this.panel1.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.taskListPanel.ResumeLayout(false);
             this.taskListPanel.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -420,5 +450,7 @@
         private Controls.StepBox addStepBox;
         private Controls.StepBox AddAlertBtn;
         private Controls.StepBox AddDeadLineBtn;
+        private System.Windows.Forms.Panel panel3;
+        private components.TaskBox taskBox2;
     }
 }
