@@ -91,12 +91,20 @@ namespace TODOList
 
 
 
+
+            assignConformBtn.selectedText = "提交";
+            assignConformBtn.afLabelBox1.ForeColor = Color.White;
+            assignConformBtn.afLabelBox1.edit.Font = new System.Drawing.Font("黑体", 16F);
+            assignConformBtn.isSelect = false;
+
+
+
             //NotifyIcon fyIcon = new NotifyIcon();
             //fyIcon.Icon = new Icon("finished.ico");/*找一个ico图标将其拷贝到 debug 目录下*/
             //fyIcon.BalloonTipText = "Hello World！";/*必填提示内容*/
             //fyIcon.BalloonTipTitle = "通知";
             //fyIcon.Visible = true;/*必须设置显隐，因为默认值是 false 不显示通知*/
-           // fyIcon.ShowBalloonTip(0);
+            // fyIcon.ShowBalloonTip(0);
 
 
 
@@ -139,16 +147,18 @@ namespace TODOList
 
             List<KeyValuePair<int, string>> groups = getGroupInfoToComBox();
 
-
+            
             assignGroupBox.DataSource = groups;
             assignGroupBox.ValueMember = "key";
             assignGroupBox.DisplayMember = "value";
-            assignGroupBox.Parent = this;//加入这一句
+            //assignGroupBox.Parent = this;//加入这一句
 
 
-            //TODO
-            //这里需要数据库查询  如果为空不设置默认
-            //assignGroupBox.SelectedValue = "2";
+
+            //设置默认选择
+            assignGroupBox.SelectedValue = RightSizeObj.gid;
+
+
 
             //TODO selectedChange   to do something
 
@@ -159,13 +169,95 @@ namespace TODOList
 
 
         /**
-         * 该用户组信息  并格式化数据
+         * 选择组改变
          */
+        private void onGroupSelectChange(object sender, EventArgs e)
+        {
+            if (assignGroupBox.SelectedItem == null) return;
+            KeyValuePair<int, string> value = (KeyValuePair<int, string>)assignGroupBox.SelectedItem;
+            int id = value.Key;
+
+
+            //添加到 选择组员 combox
+            assignUserBox.DataSource = getGroupUserToComBox(id);
+            assignUserBox.ValueMember = "key";
+            assignUserBox.DisplayMember = "value";
+            assignUserBox.SelectedValue = RightSizeObj.to_uid;
+
+            //MessageBox.Show(Convert.ToString(value.Key));
+        }
+
+        
+        /**
+         * 分配确定按钮 点击事件
+         */
+        private void onAssignSelectBtnClick(object sender, EventArgs e)
+        {
+            KeyValuePair<int, string> gInfo = (KeyValuePair<int, string>)assignGroupBox.SelectedItem;
+            int gid = gInfo.Key;
+            if(gid == 0)
+            {
+                MessageBox.Show("请先选择分配的组");
+                return;
+            }
+
+            KeyValuePair<int, string> uInfo = (KeyValuePair<int, string>)assignUserBox.SelectedItem;
+            int to_uid = uInfo.Key;
+            if(to_uid == 0)
+            {
+                MessageBox.Show("请选择需要分配的用户");
+                return;
+            }
+
+            //上传数据库
+            bool res = assignTask(gid, to_uid, RightSizeObj.id, RightSizeObj.is_assign);
+            if (!res)
+            {
+                MessageBox.Show("修改失败");
+                return;
+            }
+           
+            RightSizeObj.to_uid = to_uid;
+            RightSizeObj.gid = gid;
+            showAssignListBox(true);
+            AssignTaskInit();
+            MessageBox.Show("修改成功");
+
+        }
+
+
+
+        private bool assignTask(int gid, int to_uid, int task_id, int assign_id)
+        {
+            string assignTasksql = string.Format("UPDATE tb_assign_task SET gid = {0}, to_uid = {1} WHERE Id = {2}", gid, to_uid, assign_id);
+            string taskSql = string.Format("UPDATE tb_task SET uid = {0} WHERE Id = {1}", to_uid, task_id);
+            int assignRes = DB.getEffNum(assignTasksql);
+            if(assignRes != 0)
+            {
+                int taskRes = DB.getEffNum(taskSql);
+                if (taskRes != 0) return true;
+            }
+            return false;
+        }
+
+
         private List<KeyValuePair<int, string>> getGroupInfoToComBox()
         {
             LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList(string.Format("SELECT " +
-                " g.id, g.name FROM tb_user_group u JOIN tb_group g ON u.group_id = g.id" +
+                " g.id, g.name FROM tb_user_group u JOIN tb_group g ON u.group_id = g.id " +
                 "WHERE uid = {0}", uid));
+            return D_to_L(data, "id", "name");
+        }
+
+
+        /**
+         * 该组用户信息  并格式化数据
+         */
+        private List<KeyValuePair<int, string>> getGroupUserToComBox(int id)
+        {
+            LinkedList<Dictionary<Object, Object>> data = DB.getLinkedList(string.Format("SELECT " +
+                " u.uid id, u.username name FROM tb_user_group g JOIN tb_user u ON u.uid = g.uid " +
+                "WHERE group_id = {0}", id));
             return D_to_L(data, "id", "name");
         }
 
@@ -388,7 +480,7 @@ namespace TODOList
 
         private void AssignTaskInit()
         {
-
+            assignListPanel.Controls.Clear();
             string sql;
             sql = "Select a.leader_uid, a.gid, a.to_uid, t.* from tb_assign_task a JOIN tb_task t ON a.Id = t.is_assign  WHERE leader_uid = " + uid;
             //查询数据库
@@ -466,30 +558,33 @@ namespace TODOList
         {
             string now = TimeUtil.GetNow();
 
-            int id;
+            int assignId;
 
             //获取id  上传数据库
 
-            id = DB.insert("INSERT INTO tb_assign_task (leader_uid, title, add_time ) VALUES ( " +
-                                uid + ", N'" +
-                                title + "', " +
-                                now + " )");
+            assignId = DB.insert("INSERT INTO tb_assign_task (leader_uid, to_uid, gid ) VALUES ( " +
+                                uid + ", " +
+                                0 + ", " +
+                                0 + " )");
             int taskid = DB.insert("INSERT INTO tb_task (uid, p_index, title, add_time, is_assign, is_important ) VALUES ( " +
                                     0 + ", " +
                                     p_index + ", N'" +
                                     title + "', " +
-                                    id + ", " +
-                                    now + ", '" +
+                                    now + ", " +
+                                    assignId + ", '" +
                                     Convert.ToInt32(is_important_page) +
                                     "' )");
 
 
 
             TaskBox taskbox = new TaskBox();
-            taskbox.is_assign = id;  //tb_assign_task  id
+            taskbox.is_assign = assignId;  //tb_assign_task  id
             taskbox.id = taskid;     //tb_task         id
             taskbox.is_assign_task = true;
-            taskbox.uid = 0;         //才创建  还没分配人
+            taskbox.need_to_assign = true;
+            taskbox.uid = 0;        //才创建  还没分配人
+            taskbox.to_uid = 0;     //才创建  还没分配人
+            taskbox.gid = 0;        //才创建  还没分配组
             taskbox.TeskTitle = title;
             taskbox.add_time = Convert.ToUInt64(now);
             taskbox.isImportantTask = false;

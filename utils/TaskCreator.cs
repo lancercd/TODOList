@@ -53,6 +53,7 @@ namespace TODOList.utils
                 task.id = Convert.ToInt32(ob["Id"]);
                 task.leader_id = Convert.ToInt32(ob["leader_uid"]);
                 task.gid = Convert.ToInt32(ob["gid"]);
+                task.to_uid = Convert.ToInt32(ob["to_uid"]);
                 task.uid = Convert.ToInt32(ob["uid"]);
                 task.TeskTitle = Convert.ToString(ob["title"]);
                 task.deadline = Convert.ToUInt64(ob["deadline"]);
