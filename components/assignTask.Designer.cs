@@ -213,7 +213,7 @@
             // 
             // assignPanel
             // 
-            this.assignPanel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.assignPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.assignPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.assignPanel.Controls.Add(this.panel3);
             this.assignPanel.Controls.Add(this.assignUserBox);
@@ -230,18 +230,16 @@
             this.panel3.Controls.Add(this.assignConformBtn);
             this.panel3.Location = new System.Drawing.Point(11, 180);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(210, 47);
+            this.panel3.Size = new System.Drawing.Size(227, 47);
             this.panel3.TabIndex = 5;
             // 
             // assignUserBox
             // 
-            this.assignUserBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.assignUserBox.Font = new System.Drawing.Font("宋体", 13F);
             this.assignUserBox.FormattingEnabled = true;
             this.assignUserBox.Location = new System.Drawing.Point(11, 118);
             this.assignUserBox.Name = "assignUserBox";
-            this.assignUserBox.Size = new System.Drawing.Size(210, 30);
+            this.assignUserBox.Size = new System.Drawing.Size(227, 30);
             this.assignUserBox.TabIndex = 4;
             // 
             // label2
@@ -256,13 +254,11 @@
             // 
             // assignGroupBox
             // 
-            this.assignGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.assignGroupBox.Font = new System.Drawing.Font("宋体", 13F);
             this.assignGroupBox.FormattingEnabled = true;
             this.assignGroupBox.Location = new System.Drawing.Point(11, 41);
             this.assignGroupBox.Name = "assignGroupBox";
-            this.assignGroupBox.Size = new System.Drawing.Size(210, 30);
+            this.assignGroupBox.Size = new System.Drawing.Size(227, 30);
             this.assignGroupBox.TabIndex = 2;
             this.assignGroupBox.SelectedIndexChanged += new System.EventHandler(this.onGroupSelectChange);
             // 
@@ -289,6 +285,8 @@
             // 
             // panel20
             // 
+            this.panel20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel20.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel20.Controls.Add(this.AddAlertBtn);
             this.panel20.Controls.Add(this.AddDeadLineBtn);
@@ -405,13 +403,11 @@
             // 
             // assignConformBtn
             // 
-            this.assignConformBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.assignConformBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.assignConformBtn.isSelect = false;
             this.assignConformBtn.Location = new System.Drawing.Point(0, 0);
             this.assignConformBtn.Name = "assignConformBtn";
-            this.assignConformBtn.Size = new System.Drawing.Size(210, 47);
+            this.assignConformBtn.Size = new System.Drawing.Size(227, 47);
             this.assignConformBtn.TabIndex = 0;
             this.assignConformBtn.Text = "确定";
             this.assignConformBtn.LabelBtnClick += new System.EventHandler(this.onAssignSelectBtnClick);
