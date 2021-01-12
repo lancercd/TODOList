@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TODOList.utils;
 
 namespace TODOList.components
 {
@@ -24,6 +25,17 @@ namespace TODOList.components
 
 
             //afTextBox1.edit.PlaceHolderStr = "okkkk";
+
+
+            timeTest();
+        }
+
+
+        private void timeTest()
+        {
+            ulong second = Convert.ToUInt64(TimeUtil.GetNow());
+            //MessageBox.Show(Convert.ToString(second));
+            showTimeLabel.Text = TimeUtil.getShortDate(second);
         }
 
         private void placeholderTextBox1_TextChanged(object sender, EventArgs e)

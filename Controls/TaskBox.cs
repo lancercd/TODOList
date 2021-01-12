@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using TODOList.utils;
 
 namespace TODOList.components
 {
@@ -17,7 +18,8 @@ namespace TODOList.components
         public int id;
         public int uid;
         private string title;
-        public ulong deadline;
+        private ulong deadLine;
+        public ulong alertTime;
         public ulong add_time;
         private string detail;
         public int listing_id;
@@ -30,6 +32,7 @@ namespace TODOList.components
         public int gid = 0;
 
 
+
         //是否需要分配   自己创建的任务 rightSide panel中出现分配下拉框
         public bool need_to_assign = false;
 
@@ -39,7 +42,31 @@ namespace TODOList.components
         public bool is_assign_task = false;
 
 
-        
+        public string deadline
+        {
+            get 
+            {
+                return (deadLine == 0)? "" : TimeUtil.getDate(deadLine);
+            }
+            set
+            {
+                deadLine = Convert.ToUInt64(value);
+            }
+        }
+
+        public string alert_time
+        {
+            get
+            {
+                return (alertTime == 0) ? "" : TimeUtil.getDate(alertTime);
+            }
+            set
+            {
+                deadLine = Convert.ToUInt64(value);
+            }
+        }
+
+
 
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]

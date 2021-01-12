@@ -27,7 +27,8 @@ namespace TODOList.utils
                 task.id = Convert.ToInt32(ob["Id"]);
                 task.uid = Convert.ToInt32(ob["uid"]);
                 task.TeskTitle = Convert.ToString(ob["title"]);
-                task.deadline = Convert.ToUInt64(ob["deadline"]);
+                task.deadline = Convert.ToString(ob["deadline"]);
+                task.alert_time = Convert.ToString(ob["alert_time"]);
                 task.add_time = Convert.ToUInt64(ob["add_time"]);
                 task.Describe = Convert.ToString(ob["detail"]);
                 task.listing_id = Convert.ToInt32(ob["listing_id"]);
@@ -56,7 +57,7 @@ namespace TODOList.utils
                 task.to_uid = Convert.ToInt32(ob["to_uid"]);
                 task.uid = Convert.ToInt32(ob["uid"]);
                 task.TeskTitle = Convert.ToString(ob["title"]);
-                task.deadline = Convert.ToUInt64(ob["deadline"]);
+                task.deadline = Convert.ToString(ob["deadline"]);
                 task.add_time = Convert.ToUInt64(ob["add_time"]);
                 task.Describe = Convert.ToString(ob["detail"]);
                 task.listing_id = Convert.ToInt32(ob["listing_id"]);

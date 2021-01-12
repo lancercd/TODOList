@@ -35,7 +35,11 @@ namespace TODOList.Controls
         public ulong addTime
         {
             get { return add_time; }
-            set { add_time = value; addTimeLabel.Text = Convert.ToString(value); }
+            set 
+            { 
+                add_time = value; 
+                addTimeLabel.Text = TimeUtil.getShortDate(value); 
+            }
         }
 
         public bool isLeader
