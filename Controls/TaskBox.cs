@@ -62,7 +62,7 @@ namespace TODOList.components
             }
             set
             {
-                deadLine = Convert.ToUInt64(value);
+                alertTime = Convert.ToUInt64(value);
             }
         }
 

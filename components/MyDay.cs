@@ -172,7 +172,7 @@ namespace TODOList
             AddDeadLineBtn.afTextBox1.Text = task.deadline;
             AddAlertBtn.afTextBox1.Text = task.alert_time;
 
-            MessageBox.Show(AddAlertBtn.afTextBox1.Text);
+            MessageBox.Show(task.alert_time);
 
         }
 

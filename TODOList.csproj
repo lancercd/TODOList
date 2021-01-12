@@ -266,6 +266,7 @@
     <None Include="Resources\add_red_icon.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\listingBtnDefault.png" />
+    <None Include="Resources\logout.png" />
     <Content Include="TODO.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

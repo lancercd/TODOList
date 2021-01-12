@@ -240,6 +240,11 @@ namespace TODOList
         {
             openChildForm(new MyDay("全部任务", false, false, 0, 5));
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Login());
+        }
     }
     
 }
