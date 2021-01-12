@@ -22,6 +22,8 @@ namespace TODOList
 
         public static int uid = 1;
 
+        public bool is_login = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -46,6 +48,12 @@ namespace TODOList
 
         private void btnMedia_Click(object sender, EventArgs e)
         {
+            if (!is_login)
+            {
+                MessageBox.Show("请先登录!");
+                openChildForm(new Login());
+                return;
+            }
             openChildForm(new MyDay("我的一天", false, false, 0, 1));
         }
 
@@ -80,11 +88,23 @@ namespace TODOList
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!is_login)
+            {
+                MessageBox.Show("请先登录!");
+                openChildForm(new Login());
+                return;
+            }
             openChildForm(new MyDay("重要任务", false, true, 0, 2));
         }
 
         private void btnEqualizer_Click(object sender, EventArgs e)
         {
+            if (!is_login)
+            {
+                MessageBox.Show("请先登录!");
+                openChildForm(new Login());
+                return;
+            }
             openChildForm(new TeamView("用户组", false, false, 0, 3));
             //openChildForm(new RandomRollCall());
             //Login flo = new Login();
@@ -123,7 +143,7 @@ namespace TODOList
             }
             else
             {
-                openChildForm(new Register());
+                openChildForm(new Login());
             }
             dr.Close();
             cmd.Dispose();
@@ -233,17 +253,35 @@ namespace TODOList
         private void button2_Click(object sender, EventArgs e)
         {
 
+            if (!is_login)
+            {
+                MessageBox.Show("请先登录!");
+                openChildForm(new Login());
+                return;
+            }
             openChildForm(new AssignTask("分配的任务", false, false, 0, 4));
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (!is_login)
+            {
+                MessageBox.Show("请先登录!");
+                openChildForm(new Login());
+                return;
+            }
             openChildForm(new MyDay("全部任务", false, false, 0, 5));
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             openChildForm(new Login());
+            
+            label1.Text = "";
+            usernameLabel.Text = "请先登录";
+            pictureBox1.Image = Properties.Resources.user;
+            is_login = false;
+            
         }
     }
     
