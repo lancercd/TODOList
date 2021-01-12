@@ -50,7 +50,7 @@ namespace TODOList.components
             }
             set
             {
-                deadLine = Convert.ToUInt64(value);
+                deadLine = Convert.ToUInt64((value == "") ? "0" : value);
                 //ulong now = Convert.ToUInt64(TimeUtil.GetNow());
                 //if (deadLine != 0 && alertTime != 0)
                 //{
@@ -69,7 +69,8 @@ namespace TODOList.components
             }
             set
             {
-                alertTime = Convert.ToUInt64(value);
+                
+                alertTime = Convert.ToUInt64((value == "")? "0":value);
                 //ulong now = Convert.ToUInt64(TimeUtil.GetNow());
                 //if (deadLine != 0 && alertTime != 0)
                 //{

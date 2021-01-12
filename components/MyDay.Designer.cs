@@ -105,9 +105,11 @@
             // 
             // taskBox1
             // 
+            this.taskBox1.alert_time = "";
             this.taskBox1.AutoSize = true;
             this.taskBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.taskBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.taskBox1.deadline = "";
             this.taskBox1.Describe = null;
             this.taskBox1.isImportantTask = false;
             this.taskBox1.Location = new System.Drawing.Point(0, 0);
@@ -156,9 +158,9 @@
             this.shawTimeLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.shawTimeLabel.Location = new System.Drawing.Point(52, 62);
             this.shawTimeLabel.Name = "shawTimeLabel";
-            this.shawTimeLabel.Size = new System.Drawing.Size(268, 21);
+            this.shawTimeLabel.Size = new System.Drawing.Size(279, 21);
             this.shawTimeLabel.TabIndex = 1;
-            this.shawTimeLabel.Text = "1月7日,星期四 上午好啊！";
+            this.shawTimeLabel.Text = "1月12日,星期二 晚上好啊！";
             // 
             // childFormTitle
             // 
