@@ -9,8 +9,8 @@ namespace TODOList.utils
 {
     class Utils
     {
-        public static string initUserName = "aaa";
-        public static string initPwd = "21";
+        public static string initUserName = "123";
+        public static string initPwd = "123";
 
         public static Color getColorFromRGB(int r, int g, int b)
         {

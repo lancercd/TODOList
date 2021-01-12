@@ -51,7 +51,8 @@ namespace TODOList.utils
 
         private static string Dt_to_string(string str, ulong second)
         {
-            DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0).ToLocalTime().AddSeconds(second - 28800);
+            ulong se = (second > 28800)? second - 28800 : 0;
+            DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0).ToLocalTime().AddSeconds(se);
             return dt.ToString(str);
         }
     }

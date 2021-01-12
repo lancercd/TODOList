@@ -84,6 +84,23 @@ namespace TODOList.utils
             task.Cursor = System.Windows.Forms.Cursors.Hand;
             task.Location = new System.Drawing.Point(30, 5);
             task.Size = new System.Drawing.Size(629, 52);
+
+
+            ulong now = Convert.ToUInt64(TimeUtil.GetNow());
+            if (task.deadLine != 0 && task.alertTime != 0)
+            {
+                if (task.alertTime < now && now <= task.deadLine)
+                {
+                    task.BackColor = Utils.getColorFromRGB(243, 156, 18);
+                }
+            }
+            if (task.deadLine != 0 && now > task.deadLine)
+            {
+
+                task.BackColor = Utils.getColorFromRGB(231, 76, 60);
+            }
+
+
             //task.TabIndex = 0;
 
         }

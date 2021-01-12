@@ -18,8 +18,8 @@ namespace TODOList.components
         public int id;
         public int uid;
         private string title;
-        private ulong deadLine;
-        public ulong alertTime;
+        public ulong deadLine = 0;
+        public ulong alertTime = 0;
         public ulong add_time;
         private string detail;
         public int listing_id;
@@ -51,6 +51,13 @@ namespace TODOList.components
             set
             {
                 deadLine = Convert.ToUInt64(value);
+                //ulong now = Convert.ToUInt64(TimeUtil.GetNow());
+                //if (deadLine != 0 && alertTime != 0)
+                //{
+                //    if (alertTime < now && now <= deadLine) BackColor = Utils.getColorFromRGB(243, 156, 18);
+                //}
+                //if (deadLine != 0 && now > deadLine) BackColor = Utils.getColorFromRGB(231, 76, 60);
+
             }
         }
 
@@ -63,6 +70,20 @@ namespace TODOList.components
             set
             {
                 alertTime = Convert.ToUInt64(value);
+                //ulong now = Convert.ToUInt64(TimeUtil.GetNow());
+                //if (deadLine != 0 && alertTime != 0)
+                //{
+                //    if (alertTime < now && now <= deadLine)
+                //    {
+                //        BackColor = Utils.getColorFromRGB(243, 156, 18);
+                //    }
+                //}
+                //if (deadLine != 0 && now > deadLine)
+                //{
+                    
+                //    BackColor = Utils.getColorFromRGB(231, 76, 60);
+                //}
+
             }
         }
 

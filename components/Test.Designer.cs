@@ -30,6 +30,7 @@
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.showTimeLabel = new System.Windows.Forms.Label();
+            this.taskBox1 = new TODOList.components.TaskBox();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -49,12 +50,29 @@
             this.showTimeLabel.TabIndex = 1;
             this.showTimeLabel.Text = "label1";
             // 
+            // taskBox1
+            // 
+            this.taskBox1.alert_time = "";
+            this.taskBox1.AutoSize = true;
+            this.taskBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.taskBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.taskBox1.deadline = "";
+            this.taskBox1.Describe = null;
+            this.taskBox1.isImportantTask = false;
+            this.taskBox1.Location = new System.Drawing.Point(436, 304);
+            this.taskBox1.Name = "taskBox1";
+            this.taskBox1.Size = new System.Drawing.Size(128, 59);
+            this.taskBox1.TabIndex = 2;
+            this.taskBox1.TeskTitle = "taskBox1";
+            this.taskBox1.Text = "taskBox1";
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.taskBox1);
             this.Controls.Add(this.showTimeLabel);
             this.Controls.Add(this.comboBox1);
             this.Name = "Test";
@@ -68,5 +86,6 @@
 
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label showTimeLabel;
+        private TaskBox taskBox1;
     }
 }

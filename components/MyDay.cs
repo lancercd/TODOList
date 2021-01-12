@@ -72,6 +72,7 @@ namespace TODOList
         {
             if (Form1.MainFrame != null) uid = Form1.uid;
 
+
             AddToOtherBtn.Text = is_important_page ? "添加到\"我的一天\"" : "添加到\"重要\"";
 
             AddAlertBtn.Text = "提醒我";
@@ -172,7 +173,7 @@ namespace TODOList
             AddDeadLineBtn.afTextBox1.Text = task.deadline;
             AddAlertBtn.afTextBox1.Text = task.alert_time;
 
-            MessageBox.Show(task.alert_time);
+            //MessageBox.Show(task.alert_time);
 
         }
 
