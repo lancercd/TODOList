@@ -321,7 +321,8 @@ namespace TODOList
 
 
 
-
+            AddDeadLineBtn.afTextBox1.Text = task.deadline;
+            AddAlertBtn.afTextBox1.Text = task.alert_time;
         }
 
         //添加步骤按钮
@@ -616,15 +617,6 @@ namespace TODOList
             //2010 - 01 - 05 15:14:20
 
             int num = DB.getEffNum(string.Format("UPDATE tb_task SET deadline = {0} WHERE Id = {1}", time, box.id));
-
-
-            //string describu = afTextBox.Text;
-
-            //int num = DB.getEffNum(string.Format("UPDATE tb_task SET detail = '{0}' WHERE Id = {1}", describu, id));
-            //MessageBox.Show(describu);
-
-            //RightSizeObj.Describe = describu;
-
 
         }
 
